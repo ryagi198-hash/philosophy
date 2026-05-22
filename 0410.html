@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>フィロソフィPJ 議事録 2026.04.12</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans", sans-serif; background: #f5f5f5; color: #333; }
+  #lock-screen { position: fixed; inset: 0; background: #1a1a2e; display: flex; align-items: center; justify-content: center; z-index: 9999; }
+  .lock-box { background: #fff; border-radius: 12px; padding: 40px 36px; width: 320px; text-align: center; box-shadow: 0 8px 32px rgba(0,0,0,.3); }
+  .lock-box h1 { font-size: 18px; margin-bottom: 8px; color: #1a1a2e; }
+  .lock-box p { font-size: 13px; color: #888; margin-bottom: 24px; }
+  .lock-box input { width: 100%; padding: 12px 14px; border: 1px solid #ddd; border-radius: 8px; font-size: 15px; margin-bottom: 12px; outline: none; }
+  .lock-box input:focus { border-color: #4a6fa5; }
+  .lock-box button { width: 100%; padding: 12px; background: #1a1a2e; color: #fff; border: none; border-radius: 8px; font-size: 15px; cursor: pointer; }
+  .lock-box .error { color: #e74c3c; font-size: 13px; margin-top: 10px; display: none; }
+  #content { display: none; max-width: 800px; margin: 0 auto; padding: 32px 16px 64px; }
+  .back { display: inline-block; color: #1967d2; font-size: 14px; text-decoration: none; margin-bottom: 24px; }
+  .back:hover { text-decoration: underline; }
+  .meta { background: #fff; border-radius: 10px; padding: 20px 24px; margin-bottom: 24px; box-shadow: 0 2px 8px rgba(0,0,0,.08); }
+  .meta-date { font-size: 20px; font-weight: 700; color: #1a1a2e; margin-bottom: 8px; }
+  .meta-participants { font-size: 13px; color: #666; line-height: 1.6; }
+  .body { background: #fff; border-radius: 10px; padding: 28px 32px; box-shadow: 0 2px 8px rgba(0,0,0,.08); line-height: 1.8; font-size: 14px; }
+  .body h2 { font-size: 16px; font-weight: 700; color: #1a1a2e; margin: 28px 0 12px; padding-bottom: 6px; border-bottom: 2px solid #e8f0fe; }
+  .body h2:first-child { margin-top: 0; }
+  .body h3 { font-size: 14px; font-weight: 600; color: #333; margin: 18px 0 8px; }
+  .body p { margin: 6px 0; }
+  .body strong { color: #1a1a2e; }
+  .body br { display: block; margin: 4px 0; }
+</style>
+</head>
+<body>
+<div id="lock-screen">
+  <div class="lock-box">
+    <h1>フィロソフィPJ</h1>
+    <p>パスワードを入力してください</p>
+    <input type="password" id="pw-input" placeholder="パスワード" autocomplete="current-password">
+    <button onclick="checkPassword()">開く</button>
+    <p class="error" id="pw-error">パスワードが違います</p>
+  </div>
+</div>
+<div id="content">
+  <a class="back" href="./">← アーカイブ一覧</a>
+  <div class="meta">
+    <div class="meta-date">2026.04.12 議事録</div>
+    <div class="meta-participants">参加者: 八木、外川、あんな、前田、樫根、藤原、富安、野田</div>
+  </div>
+  <div class="body"><p>以下、参加者からの回答をもとに想定意識や準備の重要性について整理しました。</p>
+<br>
+<p>* 想定意識を持つことは、ビジョンを見据えた行動につながると考えられています。</p>
+<p>* かしねさんは、想定意識を持とうとしていますが、それが適切でない場合が多いと感じています。また、伝える際にも伝えたいことが相手に正確に伝わっていないことがあります。</p>
+<p>* 富海さんは、研修中に先輩から「臆病なくらいでちょうどいい」という言葉を教わり、それを大切にしていて、不安要素を一つずつ潰していく意識を持つと良い準備ができると考えています。</p>
+<p>* かしねさんが部下に想定意識を持たせる指導を行っているかどうかの質問に対して、「自分ができていない部分があるが、後輩には伝えている」と答えました。</p>
+<br>
+<p>これらの回答から、想定意識はビジョンを見据えた行動につながり、また不安要素を一つずつ潰していくことで準備を整えることが重要であると理解できます。一方で、適切な想定意識を持つためには、自信過剰にならず自覚を持ち続けることも大切だと考えられます。</p>
+<br>
+<p>以上の整理から、想定意識を持つことはビジョンを見据えた行動につながり、不安要素を一つずつ潰していくことで準備を整えることが重要であると同時に、適切な想定意識を持つためには自信過剰にならず自覚を持ち続けることも大切だと結論付けられます。</p></div>
+</div>
+<script>
+const HASH = "752dfe406f06cfa9add2cf15e1d28bfcb3bb85219d96a721db349a3b1e1a315d";
+const KEY  = "philosophy_auth";
+async function sha256(str) {
+  const buf = await crypto.subtle.digest("SHA-256", new TextEncoder().encode(str));
+  return Array.from(new Uint8Array(buf)).map(b => b.toString(16).padStart(2,"0")).join("");
+}
+async function checkPassword() {
+  const pw = document.getElementById("pw-input").value;
+  const hash = await sha256(pw);
+  if (hash === HASH) { sessionStorage.setItem(KEY, "1"); unlock(); }
+  else { document.getElementById("pw-error").style.display = "block"; document.getElementById("pw-input").value = ""; document.getElementById("pw-input").focus(); }
+}
+function unlock() { document.getElementById("lock-screen").style.display = "none"; document.getElementById("content").style.display = "block"; }
+document.getElementById("pw-input").addEventListener("keydown", e => { if (e.key === "Enter") checkPassword(); });
+if (sessionStorage.getItem(KEY) === "1") unlock();
+</script>
+</body>
+</html>

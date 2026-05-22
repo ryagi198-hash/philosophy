@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>フィロソフィPJ 議事録 2026.01.21</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans", sans-serif; background: #f5f5f5; color: #333; }
+  #lock-screen { position: fixed; inset: 0; background: #1a1a2e; display: flex; align-items: center; justify-content: center; z-index: 9999; }
+  .lock-box { background: #fff; border-radius: 12px; padding: 40px 36px; width: 320px; text-align: center; box-shadow: 0 8px 32px rgba(0,0,0,.3); }
+  .lock-box h1 { font-size: 18px; margin-bottom: 8px; color: #1a1a2e; }
+  .lock-box p { font-size: 13px; color: #888; margin-bottom: 24px; }
+  .lock-box input { width: 100%; padding: 12px 14px; border: 1px solid #ddd; border-radius: 8px; font-size: 15px; margin-bottom: 12px; outline: none; }
+  .lock-box input:focus { border-color: #4a6fa5; }
+  .lock-box button { width: 100%; padding: 12px; background: #1a1a2e; color: #fff; border: none; border-radius: 8px; font-size: 15px; cursor: pointer; }
+  .lock-box .error { color: #e74c3c; font-size: 13px; margin-top: 10px; display: none; }
+  #content { display: none; max-width: 800px; margin: 0 auto; padding: 32px 16px 64px; }
+  .back { display: inline-block; color: #1967d2; font-size: 14px; text-decoration: none; margin-bottom: 24px; }
+  .back:hover { text-decoration: underline; }
+  .meta { background: #fff; border-radius: 10px; padding: 20px 24px; margin-bottom: 24px; box-shadow: 0 2px 8px rgba(0,0,0,.08); }
+  .meta-date { font-size: 20px; font-weight: 700; color: #1a1a2e; margin-bottom: 8px; }
+  .meta-participants { font-size: 13px; color: #666; line-height: 1.6; }
+  .body { background: #fff; border-radius: 10px; padding: 28px 32px; box-shadow: 0 2px 8px rgba(0,0,0,.08); line-height: 1.8; font-size: 14px; }
+  .body h2 { font-size: 16px; font-weight: 700; color: #1a1a2e; margin: 28px 0 12px; padding-bottom: 6px; border-bottom: 2px solid #e8f0fe; }
+  .body h2:first-child { margin-top: 0; }
+  .body h3 { font-size: 14px; font-weight: 600; color: #333; margin: 18px 0 8px; }
+  .body p { margin: 6px 0; }
+  .body strong { color: #1a1a2e; }
+  .body br { display: block; margin: 4px 0; }
+</style>
+</head>
+<body>
+<div id="lock-screen">
+  <div class="lock-box">
+    <h1>フィロソフィPJ</h1>
+    <p>パスワードを入力してください</p>
+    <input type="password" id="pw-input" placeholder="パスワード" autocomplete="current-password">
+    <button onclick="checkPassword()">開く</button>
+    <p class="error" id="pw-error">パスワードが違います</p>
+  </div>
+</div>
+<div id="content">
+  <a class="back" href="./">← アーカイブ一覧</a>
+  <div class="meta">
+    <div class="meta-date">2026.01.21 議事録</div>
+    <div class="meta-participants">参加者: 藤原社長、斎藤本部長、八木、大橋、野田、樫根、富安、藤原源誠、外川（つむぎ）、前田（つむぎ）、國光（つむぎ）</div>
+  </div>
+  <div class="body"><h2>【詳細発言録】フィロソフィ・プロジェクト 第2回ミーティング</h2>
+<p>日時: 2026年1月21日（水） 形式: オンライン（Zoom） 参加者:</p>
+<p>コープ葬祭: 藤原社長、斎藤本部長、八木氏、大橋氏、野田氏、樫根氏（遅れて参加）</p>
+<p>つむぎ株式会社: 外川氏（ファシリテーター）、前田氏 欠席: 富安氏（急用のため）</p>
+<br>
+<h3>1. オープニング・運営確認~</h3>
+<p>開始時の状況: 参加者が揃うのを待ちながら、和やかな雰囲気で開始。</p>
+<p>出欠確認:</p>
+<p>富安氏: 急用により欠席。チャットメンバーへの追加が済んでいなかったため、斎藤本部長がその場で追加対応を行う。</p>
+<p>樫根氏: 所用対応中のため遅れて参加。</p>
+<p>新メンバー紹介:</p>
+<p>野田氏: 前回欠席のため今回が初顔合わせ。「新卒採用などを担当しています」と挨拶。</p>
+<p>前田氏（つむぎ）: 今回から同席。「急にすごい質問が飛んでくるかもしれないので油断しないで（笑）」と挨拶し、斎藤氏が「ドキドキしちゃいますね」と返す場面も。</p>
+<br>
+<h3>2. チェックイン：「2026年のプチハッピーエピソード」~,~</h3>
+<p>場を温めるため、各メンバーが年明けからの個人的な「小さな幸せ」を詳細に語りました。</p>
+<p>外川氏（つむぎ）: 草野球への入団</p>
+<p>10年ぶりに野球を再開するため草野球チームに登録。監督が同い年でメンバーが若く、「軽い入団テスト」に無事合格できたことがハッピーでした。</p>
+<p>藤原社長: 出雲での「神様の招待」</p>
+<p>年始に斎藤氏と知人宅へ訪問。斎藤氏のダイエットの話題から、出雲にある「漢方茶で有名な病院」を紹介されました。通常は「2年待ち」の超人気店ですが、サイトを見ると翌日に奇跡的に「2名分」の空きを発見。「これは神様に呼ばれたね」と斎藤氏と話し、弾丸ツアーでお参りと受診ができました。</p>
+<p>斎藤本部長: 5kgのカニ三昧</p>
+<p>馴染みの店主から年末に「5kg」のカニを購入。正月はカニ三昧で過ごし、出張先でもカニを食べるなど、大好物に囲まれて幸せな年始でした。</p>
+<p>大橋氏: 推し活（=LOVE）の充実</p>
+<p>普段は年2〜3回程度の推し活ですが、1月だけですでに2回実施。指原莉乃プロデュースの「=LOVE（イコールラブ）」のファンで、会社の福利厚生を利用して東京へ遠征。「ノリの良い1月」を過ごしています。</p>
+<p>前田氏（つむぎ）: 40代からのサッカー</p>
+<p>40歳（または45歳）にしてサッカーチームに入り、再び走れるようになった喜びを共有。ただし年末に捻挫をしたというオチも。4月には10マイルマラソンに出場予定です。</p>
+<p>八木氏: 「無」の5日間</p>
+<p>半年ぶりの連休として、12月31日から1月4日まで「何も考えない5日間」を過ごし、頭が完全にクリアになりました。</p>
+<p>野田氏: ガチャガチャ・コンプリート</p>
+<p>半年間探していたキャラクターのガチャガチャを旅先で発見。6回回して全6種類を「被りなし」でコンプリートするという強運を発揮しました。</p>
+<p>樫根氏: 大断捨離（遅れて参加後に共有）</p>
+<p>2025年にできなかった断捨離を年始に決行。部屋がスッキリし、精神的な安定と心地よさを手に入れました。</p>
+<br>
+<h3>3. 議題：理想の行動・スタンスの深掘り（宿題共有）</h3>
+<p>フィロソフィーブック（道しるべ）作成に向け、各自が持ち寄った「違和感」と「素晴らしい行動」の事例をもとに議論が展開されました。</p>
+<p>テーマ①：大善小善（だいぜんしょうぜん）~,</p>
+<p>〜「言わない優しさ」は本当の優しさか？〜</p>
+<p>樫根氏の葛藤:</p>
+<p>仕事のやり方や片付けの不備に気づいても、「摩擦が起きるのではないか」「今言ったら悪いかな」と躊躇し、本人に言わずに飲み込んでしまう（あるいは周囲に愚痴ってしまう）自分に違和感がある。</p>
+<p>藤原社長の同意:</p>
+<p>自分も飲み込んでしまう瞬間がある。「言わずにいるのは本当の優しさ（大善）ではない」と分かっていても、できない弱さがあることを吐露。</p>
+<p>斎藤本部長の視点（関係性の重要性）:</p>
+<p>飲み込むこと自体は悪くない。ただし、日頃の信頼関係がない状態で「大善」を振りかざしても相手には届かない。日頃のコミュニケーション（関係構築）があって初めて、厳しい指摘も受け入れられる。</p>
+<p>八木氏の反省:</p>
+<p>過去にストレートに言いすぎて敵を作った経験から、「伝え方のお作法（マナー）」が必要だと感じている。</p>
+<p>テーマ②：サービスの目的理解（オクリメシ）~</p>
+<p>〜「負担軽減」は誰のためか？〜</p>
+<p>野田氏の事例提起:</p>
+<p>自社サービス「オクリメシ（故人への食事）」について、スタッフが遺族の負担を減らそうと気を使い、「（手作りせず）お弁当を箱に詰めるだけでいいですよ」と工程を省略して提案してしまう事例があった。</p>
+<p>議論の深掘り:</p>
+<p>外川氏: それは本当にお客様を思っての行動か、それとも自分が言いにくいから逃げたのか？</p>
+<p>野田氏: 本人は「それで十分だ」と満足してしまっていたように見えた。</p>
+<p>前田社長（藤原氏）: 現場でそのシーンを見ていて「毎回それやってるの？」と指摘した。彼なりにお客様を慮っているが、それは「今、楽な選択」をしているだけで、遠くにある「本当の癒やし」が見えていない（視座の低さ）。</p>
+<p>斎藤本部長の鋭い指摘:</p>
+<p>スタッフが「なぜオクリメシをやるのか」を腹落ちしていないことが根本原因。</p>
+<p>亡くなった方の話を丁寧に聴けば、必ず食べ物の話題になり、自然と「最後に好きだったあれを作ってあげませんか？」と提案できるはず。</p>
+<p>それをせず遠慮してしまうのは、<strong>「ご家族の心が癒えると信じ切れていない」</strong>からである。</p>
+<p>決定事項:</p>
+<p>2月からロープレ勉強会を実施し、各サービスの本来の意味（Why）を言語化し、腹落ちさせる取り組みを行う。</p>
+<p>テーマ③：不機嫌の正体と自己管理~</p>
+<p>〜「自分の機嫌は自分でとる」の実践〜</p>
+<p>八木氏の違和感:</p>
+<p>経営計画書の「自分の機嫌は自分でとる」という項目を読んだ直後に、不機嫌な態度をとる社員がいる。「どういうつもりで読んだのか？」と心の中でツッコミを入れている。</p>
+<p>原因の分析:</p>
+<p>八木氏: 「自分は損をしている」「環境が悪い」という被害者意識があるのではないか。</p>
+<p>斎藤本部長: 本人は自分が不機嫌だと思っていない（認識のズレ）。「私は今モヤモヤしているだけで、あなたには関係ない」と思っているかもしれないが、周囲に悪影響を与えている自覚がない。</p>
+<p>前田氏（つむぎ）: これを<strong>「赤ちゃん状態（誰かに察してほしい）」</strong>と定義。不機嫌を撒き散らすのは、周囲への甘えである。</p>
+<p>各メンバーの「機嫌のとり方」:</p>
+<p>樫根氏: 自分が朝に弱い自覚があるため、「今、嫌な言い方をしたかも」と常に自省し、不機嫌を撒き散らさないよう意識している。</p>
+<p>斎藤本部長: 不機嫌の原因（相手）に直接アプローチし、その場で解決することで溜め込まない。</p>
+<p>前田氏: 不機嫌の原因は「自分の期待」にあると認め、現状の<strong>「ありがたさ（感謝）」</strong>に目を向けることで機嫌を整える。</p>
+<p>テーマ④：コミュニケーションのレイヤー（抽象と具体）~</p>
+<p>〜話が噛み合わない理由〜</p>
+<p>大橋氏の悩み:</p>
+<p>現場指導において、理念（抽象）の話をしても、スタッフは技術（具体）の話として捉えてしまい、話が噛み合わない。</p>
+<p>分析と解決策:</p>
+<p>外川氏・斎藤本部長: これは<strong>「話しているレイヤー（視点）が合っていない」</strong>だけ。</p>
+<p>議論の前提として「今はどのレイヤーの話をしているか」をすり合わせるルールや、話す側・聞く側双方の「理解しようとする責任」を明確にする必要がある。</p>
+<br>
+<h3>4. 総括~</h3>
+<p>本日の議論を通じ、以下の点が「フィロソフィーブック」に盛り込むべき重要な要素として抽出されました。</p>
+<p>大善の実践: 嫌われることを恐れず、相手の成長のために厳しいことも伝える（ただし信頼関係とマナーが前提）。</p>
+<p>目的の追求: 目の前の「楽」や「負担軽減」にとらわれず、その先にある「お客様の心の癒やし」や「本来の目的」を見据えて行動する（視座を高く持つ）。</p>
+<p>自責と感謝: 自分の機嫌を環境のせいにせず、現状のありがたさに気づくことで自己コントロールを行う。</p>
+<p>共通言語化: 議論のレイヤーを合わせ、建設的な対話ができる土壌を作る。</p>
+<p>次回: これらの要素を具体的な行動指針（文章）に落とし込んでいく作業を行います。</p></div>
+</div>
+<script>
+const HASH = "752dfe406f06cfa9add2cf15e1d28bfcb3bb85219d96a721db349a3b1e1a315d";
+const KEY  = "philosophy_auth";
+async function sha256(str) {
+  const buf = await crypto.subtle.digest("SHA-256", new TextEncoder().encode(str));
+  return Array.from(new Uint8Array(buf)).map(b => b.toString(16).padStart(2,"0")).join("");
+}
+async function checkPassword() {
+  const pw = document.getElementById("pw-input").value;
+  const hash = await sha256(pw);
+  if (hash === HASH) { sessionStorage.setItem(KEY, "1"); unlock(); }
+  else { document.getElementById("pw-error").style.display = "block"; document.getElementById("pw-input").value = ""; document.getElementById("pw-input").focus(); }
+}
+function unlock() { document.getElementById("lock-screen").style.display = "none"; document.getElementById("content").style.display = "block"; }
+document.getElementById("pw-input").addEventListener("keydown", e => { if (e.key === "Enter") checkPassword(); });
+if (sessionStorage.getItem(KEY) === "1") unlock();
+</script>
+</body>
+</html>
