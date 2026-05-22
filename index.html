@@ -27,6 +27,8 @@
   td { padding: 13px 14px; border-bottom: 1px solid #f0f0f0; font-size: 14px; vertical-align: middle; }
   tr:last-child td { border-bottom: none; }
   tr:hover td { background: #f9f9fc; }
+  td.num-col { white-space: nowrap; font-size: 12px; font-weight: 700; color: #fff; width: 1%; padding: 13px 8px; }
+  td.num-col span { display: inline-block; background: #1a1a2e; border-radius: 12px; padding: 3px 10px; }
   .date-col { white-space: nowrap; color: #555; font-size: 13px; }
   .theme-col { font-size: 12.5px; color: #888; }
   .btn { display: inline-block; padding: 6px 12px; border-radius: 6px; font-size: 12px; font-weight: 500; text-decoration: none; white-space: nowrap; }
@@ -41,6 +43,7 @@
   .words-section > .lead { font-size: 13px; color: #888; margin-bottom: 20px; }
   .session-block { background: #fff; border-radius: 10px; padding: 22px 26px; margin-bottom: 16px; box-shadow: 0 2px 8px rgba(0,0,0,.08); }
   .session-head { display: flex; align-items: baseline; gap: 12px; margin-bottom: 14px; padding-bottom: 10px; border-bottom: 2px solid #fce8b2; flex-wrap: wrap; }
+  .session-num { display: inline-block; background: #1a1a2e; color: #fff; font-size: 12px; font-weight: 700; padding: 3px 10px; border-radius: 12px; }
   .session-date { font-size: 16px; font-weight: 700; }
   .session-date a { color: #1a1a2e; text-decoration: none; }
   .session-date a:hover { color: #1967d2; text-decoration: underline; }
@@ -71,6 +74,7 @@
   <table>
     <thead>
       <tr>
+        <th>回</th>
         <th>開催日 / テーマ</th>
         <th>録画</th>
         <th>議事録</th>
@@ -78,46 +82,55 @@
     </thead>
     <tbody>
       <tr>
+        <td class="num-col"><span>第1回</span></td>
         <td class="date-col">2026.01.06<br><span class="theme-col">キックオフ</span></td>
         <td><div class="links"><a class="btn btn-video" href="https://drive.google.com/file/d/1ncpLPUsv8jUr9qaM7fU7OriUJ4cDUm01/view" target="_blank">🎬 録画</a></div></td>
         <td><div class="links"><a class="btn btn-doc" href="0106.html">📄 議事録</a></div></td>
       </tr>
       <tr>
+        <td class="num-col"><span>第2回</span></td>
         <td class="date-col">2026.01.21<br><span class="theme-col">大善小善と自分の機嫌</span></td>
         <td><div class="links"><a class="btn btn-video" href="https://drive.google.com/file/d/1watsqb9cwpc0dCmH0WWFoQnnixtWTcz8/view" target="_blank">🎬 録画</a></div></td>
         <td><div class="links"><a class="btn btn-doc" href="0121.html">📄 議事録</a></div></td>
       </tr>
       <tr>
+        <td class="num-col"><span>第3回</span></td>
         <td class="date-col">2026.02.05<br><span class="theme-col">自分が源・天井を突き破ろう</span></td>
         <td><div class="links"><a class="btn btn-video" href="https://drive.google.com/file/d/1Ls-pE0DeBVzfAH0jHN3FUvkjRzyhOzVD/view" target="_blank">🎬 録画</a></div></td>
         <td><div class="links"><a class="btn btn-doc" href="0205.html">📄 議事録</a></div></td>
       </tr>
       <tr>
+        <td class="num-col"><span>第4回</span></td>
         <td class="date-col">2026.02.24<br><span class="theme-col">想像力と環境整備的働き方</span></td>
         <td><div class="links"><a class="btn btn-video" href="https://drive.google.com/file/d/1HIyh7tlGx9K0e1QEod6eQLE07agreFS9/view" target="_blank">🎬 録画</a></div></td>
         <td><div class="links"><a class="btn btn-doc" href="0224.html">📄 議事録</a></div></td>
       </tr>
       <tr>
+        <td class="num-col"><span>第5回</span></td>
         <td class="date-col">2026.03.20<br><span class="theme-col">寄り添う＝立ち切る／本当の優しさ</span></td>
         <td><div class="links"><a class="btn btn-video" href="https://drive.google.com/file/d/17cKNf7U_mUtpFIFfHUDTOuE75L_F21uk/view" target="_blank">🎬 録画</a></div></td>
         <td><div class="links"><a class="btn btn-doc" href="0320.html">📄 議事録</a></div></td>
       </tr>
       <tr>
+        <td class="num-col"><span>第6回</span></td>
         <td class="date-col">2026.03.31<br><span class="theme-col">あくなき探求心と「情熱×学び」</span></td>
         <td><div class="links"><a class="btn btn-video" href="https://drive.google.com/file/d/16RYxM0x3X72bHjxgsptlRmSNWoDbi4mw/view" target="_blank">🎬 録画</a></div></td>
         <td><div class="links"><a class="btn btn-doc" href="0331.html">📄 議事録</a></div></td>
       </tr>
       <tr>
+        <td class="num-col"><span>第7回</span></td>
         <td class="date-col">2026.04.10<br><span class="theme-col">準備が9割と片付け得</span></td>
         <td><div class="links"><a class="btn btn-video" href="https://drive.google.com/file/d/1Bn2cqyhqZWWs8aR0JMTNSMUEE1jiuwoo/view" target="_blank">🎬 録画</a></div></td>
         <td><div class="links"><a class="btn btn-doc" href="0410.html">📄 議事録</a></div></td>
       </tr>
       <tr>
+        <td class="num-col"><span>第8回</span></td>
         <td class="date-col">2026.04.30<br><span class="theme-col">コープ葬祭の歩き方と研修スタンス</span></td>
         <td><div class="links"><a class="btn btn-video" href="https://drive.google.com/file/d/1QLJ8FAE003mbdVCpBMUheliAdblyTK7p/view" target="_blank">🎬 録画</a></div></td>
         <td><div class="links"><a class="btn btn-doc" href="0430.html">📄 議事録</a></div></td>
       </tr>
       <tr>
+        <td class="num-col"><span>第9回</span></td>
         <td class="date-col">2026.05.12<br><span class="theme-col">道しるべ／ペイフォワード／ミスはギフト</span></td>
         <td><div class="links"><a class="btn btn-video" href="https://drive.google.com/file/d/13PaxC--qDEQv0Lby9xYkIp--OXcw0its/view" target="_blank">🎬 録画</a></div></td>
         <td><div class="links"><a class="btn btn-doc" href="0512.html">📄 議事録</a></div></td>
@@ -130,6 +143,7 @@
     <p class="lead">各回の議論で生まれた言葉を、開催日順にまとめました。日付クリックで該当回の議事録へ。</p>
     <div class="session-block">
       <div class="session-head">
+        <span class="session-num">第1回</span>
         <span class="session-date"><a href="0106.html">2026.01.06</a></span>
         <span class="session-theme">キックオフ</span>
       </div>
@@ -143,6 +157,7 @@
     </div>
     <div class="session-block">
       <div class="session-head">
+        <span class="session-num">第2回</span>
         <span class="session-date"><a href="0121.html">2026.01.21</a></span>
         <span class="session-theme">大善小善と自分の機嫌</span>
       </div>
@@ -157,6 +172,7 @@
     </div>
     <div class="session-block">
       <div class="session-head">
+        <span class="session-num">第3回</span>
         <span class="session-date"><a href="0205.html">2026.02.05</a></span>
         <span class="session-theme">自分が源・天井を突き破ろう</span>
       </div>
@@ -170,6 +186,7 @@
     </div>
     <div class="session-block">
       <div class="session-head">
+        <span class="session-num">第4回</span>
         <span class="session-date"><a href="0224.html">2026.02.24</a></span>
         <span class="session-theme">想像力と環境整備的働き方</span>
       </div>
@@ -184,6 +201,7 @@
     </div>
     <div class="session-block">
       <div class="session-head">
+        <span class="session-num">第5回</span>
         <span class="session-date"><a href="0320.html">2026.03.20</a></span>
         <span class="session-theme">寄り添う＝立ち切る／本当の優しさ</span>
       </div>
@@ -199,6 +217,7 @@
     </div>
     <div class="session-block">
       <div class="session-head">
+        <span class="session-num">第6回</span>
         <span class="session-date"><a href="0331.html">2026.03.31</a></span>
         <span class="session-theme">あくなき探求心と「情熱×学び」</span>
       </div>
@@ -213,6 +232,7 @@
     </div>
     <div class="session-block">
       <div class="session-head">
+        <span class="session-num">第7回</span>
         <span class="session-date"><a href="0410.html">2026.04.10</a></span>
         <span class="session-theme">準備が9割と片付け得</span>
       </div>
@@ -228,6 +248,7 @@
     </div>
     <div class="session-block">
       <div class="session-head">
+        <span class="session-num">第8回</span>
         <span class="session-date"><a href="0430.html">2026.04.30</a></span>
         <span class="session-theme">コープ葬祭の歩き方と研修スタンス</span>
       </div>
@@ -241,6 +262,7 @@
     </div>
     <div class="session-block">
       <div class="session-head">
+        <span class="session-num">第9回</span>
         <span class="session-date"><a href="0512.html">2026.05.12</a></span>
         <span class="session-theme">道しるべ／ペイフォワード／ミスはギフト</span>
       </div>
