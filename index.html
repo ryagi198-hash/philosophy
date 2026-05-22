@@ -8,203 +8,280 @@
 <style>
   * { box-sizing: border-box; margin: 0; padding: 0; }
   body { font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans", sans-serif; background: #f5f5f5; color: #333; }
-
-  /* ===== パスワード画面 ===== */
-  #lock-screen {
-    position: fixed; inset: 0; background: #1a1a2e;
-    display: flex; align-items: center; justify-content: center; z-index: 9999;
-  }
-  .lock-box {
-    background: #fff; border-radius: 12px; padding: 40px 36px;
-    width: 320px; text-align: center; box-shadow: 0 8px 32px rgba(0,0,0,.3);
-  }
+  #lock-screen { position: fixed; inset: 0; background: #1a1a2e; display: flex; align-items: center; justify-content: center; z-index: 9999; }
+  .lock-box { background: #fff; border-radius: 12px; padding: 40px 36px; width: 320px; text-align: center; box-shadow: 0 8px 32px rgba(0,0,0,.3); }
   .lock-box h1 { font-size: 18px; margin-bottom: 8px; color: #1a1a2e; }
-  .lock-box p  { font-size: 13px; color: #888; margin-bottom: 24px; }
-  .lock-box input {
-    width: 100%; padding: 12px 14px; border: 1px solid #ddd; border-radius: 8px;
-    font-size: 15px; margin-bottom: 12px; outline: none;
-  }
+  .lock-box p { font-size: 13px; color: #888; margin-bottom: 24px; }
+  .lock-box input { width: 100%; padding: 12px 14px; border: 1px solid #ddd; border-radius: 8px; font-size: 15px; margin-bottom: 12px; outline: none; }
   .lock-box input:focus { border-color: #4a6fa5; }
-  .lock-box button {
-    width: 100%; padding: 12px; background: #1a1a2e; color: #fff;
-    border: none; border-radius: 8px; font-size: 15px; cursor: pointer;
-  }
+  .lock-box button { width: 100%; padding: 12px; background: #1a1a2e; color: #fff; border: none; border-radius: 8px; font-size: 15px; cursor: pointer; }
   .lock-box button:hover { background: #2d3561; }
   .lock-box .error { color: #e74c3c; font-size: 13px; margin-top: 10px; display: none; }
 
-  /* ===== コンテンツ ===== */
-  #content { display: none; max-width: 900px; margin: 0 auto; padding: 32px 16px 64px; }
+  #content { display: none; max-width: 980px; margin: 0 auto; padding: 32px 16px 64px; }
   header { margin-bottom: 32px; }
   header h1 { font-size: 22px; color: #1a1a2e; }
-  header p  { font-size: 13px; color: #888; margin-top: 4px; }
-
+  header p { font-size: 13px; color: #888; margin-top: 4px; }
   table { width: 100%; border-collapse: collapse; background: #fff; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,.08); }
   th { background: #1a1a2e; color: #fff; padding: 12px 14px; text-align: left; font-size: 13px; font-weight: 500; }
   td { padding: 13px 14px; border-bottom: 1px solid #f0f0f0; font-size: 14px; vertical-align: middle; }
   tr:last-child td { border-bottom: none; }
   tr:hover td { background: #f9f9fc; }
-
   .date-col { white-space: nowrap; color: #555; font-size: 13px; }
-  .btn {
-    display: inline-block; padding: 6px 12px; border-radius: 6px;
-    font-size: 12px; font-weight: 500; text-decoration: none; white-space: nowrap;
-  }
+  .theme-col { font-size: 12.5px; color: #888; }
+  .btn { display: inline-block; padding: 6px 12px; border-radius: 6px; font-size: 12px; font-weight: 500; text-decoration: none; white-space: nowrap; }
   .btn-video { background: #e8f0fe; color: #1967d2; }
   .btn-video:hover { background: #d2e3fc; }
-  .btn-doc   { background: #e6f4ea; color: #1e8e3e; }
+  .btn-doc { background: #e6f4ea; color: #1e8e3e; }
   .btn-doc:hover { background: #ceead6; }
-  .btn-chat  { background: #fce8b2; color: #b5640a; }
-  .btn-chat:hover { background: #fad165; color: #7a4300; }
-  .no-link   { color: #bbb; font-size: 12px; }
-
   .links { display: flex; gap: 8px; flex-wrap: wrap; }
+
+  .words-section { margin-top: 48px; }
+  .words-section > h2 { font-size: 20px; color: #1a1a2e; margin-bottom: 6px; }
+  .words-section > .lead { font-size: 13px; color: #888; margin-bottom: 20px; }
+  .session-block { background: #fff; border-radius: 10px; padding: 22px 26px; margin-bottom: 16px; box-shadow: 0 2px 8px rgba(0,0,0,.08); }
+  .session-head { display: flex; align-items: baseline; gap: 12px; margin-bottom: 14px; padding-bottom: 10px; border-bottom: 2px solid #fce8b2; flex-wrap: wrap; }
+  .session-date { font-size: 16px; font-weight: 700; }
+  .session-date a { color: #1a1a2e; text-decoration: none; }
+  .session-date a:hover { color: #1967d2; text-decoration: underline; }
+  .session-theme { font-size: 12.5px; color: #888; }
+  .word-grid { display: flex; flex-wrap: wrap; gap: 10px; }
+  .word-card { background: #fffbf0; border: 1px solid #fce8b2; border-radius: 8px; padding: 12px 14px; flex: 1 1 calc(50% - 5px); min-width: 230px; }
+  .word-card .word { font-size: 13px; font-weight: 700; color: #1a1a2e; margin-bottom: 4px; }
+  .word-card .desc { font-size: 11.5px; color: #666; line-height: 1.55; }
 </style>
 </head>
 <body>
 
-<!-- パスワード画面 -->
 <div id="lock-screen">
   <div class="lock-box">
     <h1>フィロソフィPJ</h1>
-    <p>アーカイブにアクセスするには<br>パスワードを入力してください</p>
+    <p>パスワードを入力してください</p>
     <input type="password" id="pw-input" placeholder="パスワード" autocomplete="current-password">
     <button onclick="checkPassword()">開く</button>
     <p class="error" id="pw-error">パスワードが違います</p>
   </div>
 </div>
 
-<!-- コンテンツ -->
 <div id="content">
   <header>
     <h1>フィロソフィPJ アーカイブ</h1>
     <p>コープ葬祭 フィロソフィブック制作プロジェクト（2026年1月〜）</p>
   </header>
-
   <table>
     <thead>
       <tr>
-        <th>開催日</th>
+        <th>開催日 / テーマ</th>
         <th>録画</th>
         <th>議事録</th>
       </tr>
     </thead>
     <tbody>
       <tr>
-        <td class="date-col">2026.01.06<br><small>キックオフ</small></td>
-        <td><div class="links">
-          <a class="btn btn-video" href="https://drive.google.com/file/d/1ncpLPUsv8jUr9qaM7fU7OriUJ4cDUm01/view" target="_blank">🎬 録画</a>
-        </div></td>
-        <td><div class="links">
-          <a class="btn btn-doc" href="0106.html">📄 議事録</a>
-        </div></td>
+        <td class="date-col">2026.01.06<br><span class="theme-col">キックオフ</span></td>
+        <td><div class="links"><a class="btn btn-video" href="https://drive.google.com/file/d/1ncpLPUsv8jUr9qaM7fU7OriUJ4cDUm01/view" target="_blank">🎬 録画</a></div></td>
+        <td><div class="links"><a class="btn btn-doc" href="0106.html">📄 議事録</a></div></td>
       </tr>
       <tr>
-        <td class="date-col">2026.01.21</td>
-        <td><div class="links">
-          <a class="btn btn-video" href="https://drive.google.com/file/d/1watsqb9cwpc0dCmH0WWFoQnnixtWTcz8/view" target="_blank">🎬 録画</a>
-        </div></td>
-        <td><div class="links">
-          <a class="btn btn-doc" href="0121.html">📄 議事録</a>
-        </div></td>
+        <td class="date-col">2026.01.21<br><span class="theme-col">大善小善と自分の機嫌</span></td>
+        <td><div class="links"><a class="btn btn-video" href="https://drive.google.com/file/d/1watsqb9cwpc0dCmH0WWFoQnnixtWTcz8/view" target="_blank">🎬 録画</a></div></td>
+        <td><div class="links"><a class="btn btn-doc" href="0121.html">📄 議事録</a></div></td>
       </tr>
       <tr>
-        <td class="date-col">2026.02.05</td>
-        <td><div class="links">
-          <a class="btn btn-video" href="https://drive.google.com/file/d/1Ls-pE0DeBVzfAH0jHN3FUvkjRzyhOzVD/view" target="_blank">🎬 録画</a>
-        </div></td>
-        <td><div class="links">
-          <a class="btn btn-doc" href="0205.html">📄 議事録</a>
-        </div></td>
+        <td class="date-col">2026.02.05<br><span class="theme-col">自分が源・天井を突き破ろう</span></td>
+        <td><div class="links"><a class="btn btn-video" href="https://drive.google.com/file/d/1Ls-pE0DeBVzfAH0jHN3FUvkjRzyhOzVD/view" target="_blank">🎬 録画</a></div></td>
+        <td><div class="links"><a class="btn btn-doc" href="0205.html">📄 議事録</a></div></td>
       </tr>
       <tr>
-        <td class="date-col">2026.02.24</td>
-        <td><div class="links">
-          <a class="btn btn-video" href="https://drive.google.com/file/d/1HIyh7tlGx9K0e1QEod6eQLE07agreFS9/view" target="_blank">🎬 録画</a>
-        </div></td>
-        <td><div class="links">
-          <a class="btn btn-doc" href="0224.html">📄 議事録</a>
-        </div></td>
+        <td class="date-col">2026.02.24<br><span class="theme-col">想像力と環境整備的働き方</span></td>
+        <td><div class="links"><a class="btn btn-video" href="https://drive.google.com/file/d/1HIyh7tlGx9K0e1QEod6eQLE07agreFS9/view" target="_blank">🎬 録画</a></div></td>
+        <td><div class="links"><a class="btn btn-doc" href="0224.html">📄 議事録</a></div></td>
       </tr>
       <tr>
-        <td class="date-col">2026.03.20</td>
-        <td><div class="links">
-          <a class="btn btn-video" href="https://drive.google.com/file/d/17cKNf7U_mUtpFIFfHUDTOuE75L_F21uk/view" target="_blank">🎬 録画</a>
-        </div></td>
-        <td><div class="links">
-          <a class="btn btn-doc" href="0320.html">📄 議事録</a>
-        </div></td>
+        <td class="date-col">2026.03.20<br><span class="theme-col">寄り添う＝立ち切る／本当の優しさ</span></td>
+        <td><div class="links"><a class="btn btn-video" href="https://drive.google.com/file/d/17cKNf7U_mUtpFIFfHUDTOuE75L_F21uk/view" target="_blank">🎬 録画</a></div></td>
+        <td><div class="links"><a class="btn btn-doc" href="0320.html">📄 議事録</a></div></td>
       </tr>
       <tr>
-        <td class="date-col">2026.03.31</td>
-        <td><div class="links">
-          <a class="btn btn-video" href="https://drive.google.com/file/d/16RYxM0x3X72bHjxgsptlRmSNWoDbi4mw/view" target="_blank">🎬 録画</a>
-        </div></td>
-        <td><div class="links">
-          <a class="btn btn-doc" href="0331.html">📄 議事録</a>
-        </div></td>
+        <td class="date-col">2026.03.31<br><span class="theme-col">あくなき探求心と「情熱×学び」</span></td>
+        <td><div class="links"><a class="btn btn-video" href="https://drive.google.com/file/d/16RYxM0x3X72bHjxgsptlRmSNWoDbi4mw/view" target="_blank">🎬 録画</a></div></td>
+        <td><div class="links"><a class="btn btn-doc" href="0331.html">📄 議事録</a></div></td>
       </tr>
       <tr>
-        <td class="date-col">2026.04.10</td>
-        <td><div class="links">
-          <a class="btn btn-video" href="https://drive.google.com/file/d/1Bn2cqyhqZWWs8aR0JMTNSMUEE1jiuwoo/view" target="_blank">🎬 録画</a>
-        </div></td>
-        <td><div class="links">
-          <a class="btn btn-doc" href="0410.html">📄 議事録</a>
-        </div></td>
+        <td class="date-col">2026.04.10<br><span class="theme-col">準備が9割と片付け得</span></td>
+        <td><div class="links"><a class="btn btn-video" href="https://drive.google.com/file/d/1Bn2cqyhqZWWs8aR0JMTNSMUEE1jiuwoo/view" target="_blank">🎬 録画</a></div></td>
+        <td><div class="links"><a class="btn btn-doc" href="0410.html">📄 議事録</a></div></td>
       </tr>
       <tr>
-        <td class="date-col">2026.04.30</td>
-        <td><div class="links">
-          <a class="btn btn-video" href="https://drive.google.com/file/d/1QLJ8FAE003mbdVCpBMUheliAdblyTK7p/view" target="_blank">🎬 録画</a>
-        </div></td>
-        <td><div class="links">
-          <a class="btn btn-doc" href="0430.html">📄 議事録</a>
-        </div></td>
+        <td class="date-col">2026.04.30<br><span class="theme-col">コープ葬祭の歩き方と研修スタンス</span></td>
+        <td><div class="links"><a class="btn btn-video" href="https://drive.google.com/file/d/1QLJ8FAE003mbdVCpBMUheliAdblyTK7p/view" target="_blank">🎬 録画</a></div></td>
+        <td><div class="links"><a class="btn btn-doc" href="0430.html">📄 議事録</a></div></td>
       </tr>
       <tr>
-        <td class="date-col">2026.05.12</td>
-        <td><div class="links">
-          <a class="btn btn-video" href="https://drive.google.com/file/d/13PaxC--qDEQv0Lby9xYkIp--OXcw0its/view" target="_blank">🎬 録画</a>
-        </div></td>
-        <td><div class="links">
-          <a class="btn btn-doc" href="0512.html">📄 議事録</a>
-        </div></td>
+        <td class="date-col">2026.05.12<br><span class="theme-col">道しるべ／ペイフォワード／ミスはギフト</span></td>
+        <td><div class="links"><a class="btn btn-video" href="https://drive.google.com/file/d/13PaxC--qDEQv0Lby9xYkIp--OXcw0its/view" target="_blank">🎬 録画</a></div></td>
+        <td><div class="links"><a class="btn btn-doc" href="0512.html">📄 議事録</a></div></td>
       </tr>
     </tbody>
   </table>
-</div>
 
+  <div class="words-section">
+    <h2>印象的なワード集（全9回・55語）</h2>
+    <p class="lead">各回の議論で生まれた言葉を、開催日順にまとめました。日付クリックで該当回の議事録へ。</p>
+    <div class="session-block">
+      <div class="session-head">
+        <span class="session-date"><a href="0106.html">2026.01.06</a></span>
+        <span class="session-theme">キックオフ</span>
+      </div>
+      <div class="word-grid">
+        <div class="word-card"><div class="word">「点を線に、線を面に」</div><div class="desc">理念がバラバラの「点」で存在し、組織を貫く「線」「面」になっていない現状を経営課題として位置づけ。</div></div>
+        <div class="word-card"><div class="word">「コープ葬祭の歩き方／攻略本」</div><div class="desc">藤原社長が示したフィロソフィブックのコンセプト。『地球の歩き方』『ゲームの攻略本』のように迷わず活躍するためのガイド。</div></div>
+        <div class="word-card"><div class="word">「価値観伝達の属人化」</div><div class="desc">伝える人によって理念解釈がズレる問題。新入社員が「どちらを信じればいいか」混乱する事態の根本原因。</div></div>
+        <div class="word-card"><div class="word">「感謝の循環（ペイフォワード）」</div><div class="desc">葬儀事業を通じて命の尊さや世代間の繋がりに気づく機会を提供し、社会全体に感謝を循環させる。</div></div>
+        <div class="word-card"><div class="word">「忖度なく・健全な意見の対立」</div><div class="desc">グラウンドルール。全員が心から納得できる成果物を創るために、率直な意見交換を恐れない。</div></div>
+      </div>
+    </div>
+    <div class="session-block">
+      <div class="session-head">
+        <span class="session-date"><a href="0121.html">2026.01.21</a></span>
+        <span class="session-theme">大善小善と自分の機嫌</span>
+      </div>
+      <div class="word-grid">
+        <div class="word-card"><div class="word">「大善小善（だいぜんしょうぜん）」</div><div class="desc">「言わない優しさ（小善）」は本当の優しさではない。相手の成長のためにあえて伝えることが「大善」。</div></div>
+        <div class="word-card"><div class="word">「伝え方のお作法（マナー）」</div><div class="desc">八木氏の反省から。大善を振りかざす前に、日頃の信頼関係とマナーが必須。</div></div>
+        <div class="word-card"><div class="word">「本当の癒やしが見えていない（視座の低さ）」</div><div class="desc">楽な選択をしているだけで、遠くにある本当のお客様の幸せが見えていない状態。</div></div>
+        <div class="word-card"><div class="word">「赤ちゃん状態」</div><div class="desc">前田氏の定義。不機嫌を撒き散らすのは「誰かに察してほしい」周囲への甘えである。</div></div>
+        <div class="word-card"><div class="word">「自分の機嫌は自分でとる」</div><div class="desc">経営計画書の項目。被害者意識でなく主体的に機嫌を整える責任。</div></div>
+        <div class="word-card"><div class="word">「ご家族の心が癒えると信じ切れていない」</div><div class="desc">スタッフがオクリメシで「お弁当箱詰めでいい」と楽な選択をする根本原因。斎藤本部長の鋭い指摘。</div></div>
+      </div>
+    </div>
+    <div class="session-block">
+      <div class="session-head">
+        <span class="session-date"><a href="0205.html">2026.02.05</a></span>
+        <span class="session-theme">自分が源・天井を突き破ろう</span>
+      </div>
+      <div class="word-grid">
+        <div class="word-card"><div class="word">「自分が源（じぶんがみなもと）」</div><div class="desc">すべては自分から始まる。場を良くするのも関係性を良くするのも自分次第。Missionに紐づく。</div></div>
+        <div class="word-card"><div class="word">「自責ではなく「選択（チョイス）」」</div><div class="desc">過去を悔やまず「その瞬間の行動を決めたのは自分」という未来志向のスタンス。</div></div>
+        <div class="word-card"><div class="word">「天井を突き破ろう」</div><div class="desc">仕事に勝手な「天井（限界）」を作らない。お客様の期待を超えることが仕事の質。</div></div>
+        <div class="word-card"><div class="word">「レンガ職人と大聖堂」</div><div class="desc">全員が共通の設計図（理念）を持たないと歪な建物になる。裁量と理念のバランス。</div></div>
+        <div class="word-card"><div class="word">「未来思考（バックキャスティング）」</div><div class="desc">30年後・50年後の未来から現在を見ることで視座を高く保つ。藤原社長の思考法。</div></div>
+      </div>
+    </div>
+    <div class="session-block">
+      <div class="session-head">
+        <span class="session-date"><a href="0224.html">2026.02.24</a></span>
+        <span class="session-theme">想像力と環境整備的働き方</span>
+      </div>
+      <div class="word-grid">
+        <div class="word-card"><div class="word">「対話の前に、まず想像から始めよう」</div><div class="desc">「なぜこの人はこうしたのだろう？」と想像してから対話する。愛が生まれるためのステップ。</div></div>
+        <div class="word-card"><div class="word">「環境整備＝仕事の練習」</div><div class="desc">単なる掃除ではない。捨てる→余白→気づく→整える→質の向上、というサイクル。</div></div>
+        <div class="word-card"><div class="word">「再現できる／再現できない」</div><div class="desc">手作りアルバムも宮型霊柩車も、歴史という「再現できない価値」がある。捨てる基準の本質。</div></div>
+        <div class="word-card"><div class="word">「なぜそこに在るのかを語れるか」</div><div class="desc">Whyのない物はただのゴミになる。前田氏の鹿児島・天国葬祭ブルーシート霊柩車の教訓。</div></div>
+        <div class="word-card"><div class="word">「ときめくか／エモいか」</div><div class="desc">環境整備の判断基準。「1年使わない」という期間ルールより本質的な価値軸。</div></div>
+        <div class="word-card"><div class="word">「アウトプット前提のインプット」</div><div class="desc">斎藤本部長の意識変革。学びがPDCAに直結し、毎日が楽しくなる。</div></div>
+      </div>
+    </div>
+    <div class="session-block">
+      <div class="session-head">
+        <span class="session-date"><a href="0320.html">2026.03.20</a></span>
+        <span class="session-theme">寄り添う＝立ち切る／本当の優しさ</span>
+      </div>
+      <div class="word-grid">
+        <div class="word-card"><div class="word">「相手の立場に「立つ」と「立ち切る」の違い」</div><div class="desc">「立つ」は想像。「立ち切る」は自分を完全に捨て去り「相手そのもの」になりきること。</div></div>
+        <div class="word-card"><div class="word">「寄り添う＝相手の立場に立ち切ること」</div><div class="desc">社内で曖昧だった「寄り添う」の正体を、藤原社長の定義で明確に言語化。</div></div>
+        <div class="word-card"><div class="word">「ASK（質問して聞く）とチューニング」</div><div class="desc">勝手な想像でなく対話で相手の周波数に合わせる。斎藤本部長の方法論。</div></div>
+        <div class="word-card"><div class="word">「Give &amp; Give &amp; Give」</div><div class="desc">見返り（テイク）を求めず与え続ける豊かさ。本当の優しさの第一条件。大橋氏の言葉。</div></div>
+        <div class="word-card"><div class="word">「自分から進んで損を取れる人」</div><div class="desc">藤原社長の定義。あえて嫌われ役になる、自分の時間を割く、責任を取る。本当に優しい人の姿。</div></div>
+        <div class="word-card"><div class="word">「アクセサリーを外して受け取る」</div><div class="desc">「誰が言ったか」の偏見を外し「何を言われたか」の本質に目を向ける。斎藤本部長の言葉。</div></div>
+        <div class="word-card"><div class="word">「新井氏と恵比寿氏のケース」</div><div class="desc">優しさゆえに言わなかった結果、誤解が生まれた実話。小善が良い変化を生むことはない。</div></div>
+      </div>
+    </div>
+    <div class="session-block">
+      <div class="session-head">
+        <span class="session-date"><a href="0331.html">2026.03.31</a></span>
+        <span class="session-theme">あくなき探求心と「情熱×学び」</span>
+      </div>
+      <div class="word-grid">
+        <div class="word-card"><div class="word">「情熱 × 学び = 自信」</div><div class="desc">自信を作る方程式。学びが足りないから選択肢がなく、提案ができない。藤原社長の総括。</div></div>
+        <div class="word-card"><div class="word">「素直さがすべての起点」</div><div class="desc">「できない自分」を認められてこそ、あくなき探求心が生まれる。認められないと他者を攻撃する。</div></div>
+        <div class="word-card"><div class="word">「プロとしての覚悟」</div><div class="desc">100%伝えきることが最終的な顧客満足に繋がる。妥協すれば後悔する。八木氏の動画カメラマン経験。</div></div>
+        <div class="word-card"><div class="word">「褒める vs 喜びの共有」</div><div class="desc">褒める＝上下評価でプレッシャー。喜びの共有＝同じ目線の共感で負荷なし。大家族主義の根底。</div></div>
+        <div class="word-card"><div class="word">「ダグラス・アダムスの法則」</div><div class="desc">新しいものへの拒否反応は人間の本能。そこで諦めず助けを求める姿勢が大事。</div></div>
+        <div class="word-card"><div class="word">「コープ葬祭は失敗を受け入れる土壌」</div><div class="desc">心理的安全性を保ちながら、臆せず挑戦してほしいという藤原社長のメッセージ。</div></div>
+      </div>
+    </div>
+    <div class="session-block">
+      <div class="session-head">
+        <span class="session-date"><a href="0410.html">2026.04.10</a></span>
+        <span class="session-theme">準備が9割と片付け得</span>
+      </div>
+      <div class="word-grid">
+        <div class="word-card"><div class="word">「準備が9割（あるいは9割5分）」</div><div class="desc">数歩先・数十歩先を段階的に想定し切る。残り1〜2割の「想定外」に臨機応変に対応するための土台。</div></div>
+        <div class="word-card"><div class="word">「無駄な自信」</div><div class="desc">準備ができない人の本質。自分の欠落への強い自覚こそが完璧な準備への原動力になる。</div></div>
+        <div class="word-card"><div class="word">「昭和OS」</div><div class="desc">35歳以上が新ツールに拒否反応を示す人間の本能。克服でなく踏まえた上で迷惑最小化。</div></div>
+        <div class="word-card"><div class="word">「仕事を舐めるな」</div><div class="desc">「失敗してもいい文化」が甘えを生む危険性への藤原社長の警鐘。フィロソフィに含めるべき厳しさ。</div></div>
+        <div class="word-card"><div class="word">「片付け得（とく）」</div><div class="desc">掃除や気づきは「誰かのため」ではなく「自分の心を磨く行為」。動かないのが損、動くのが得。</div></div>
+        <div class="word-card"><div class="word">「ルックアップ（俯瞰）」</div><div class="desc">サッカーの司令塔のように全体を見渡す意識。担当外の「火種」を察知する。</div></div>
+        <div class="word-card"><div class="word">「家を守る妖精」</div><div class="desc">富安氏が新入社員時代に体現していた姿勢。会社全体を「自分の家」として捉える視点。</div></div>
+      </div>
+    </div>
+    <div class="session-block">
+      <div class="session-head">
+        <span class="session-date"><a href="0430.html">2026.04.30</a></span>
+        <span class="session-theme">コープ葬祭の歩き方と研修スタンス</span>
+      </div>
+      <div class="word-grid">
+        <div class="word-card"><div class="word">「コープ葬祭の歩き方」</div><div class="desc">フィロソフィーブックのコンセプト。航海・旅路のイメージでビジョンへ向かう「ガイドブック」。</div></div>
+        <div class="word-card"><div class="word">「超積極性・勉強好き・素直・プラス発想」</div><div class="desc">研修参加者に求める4つの姿勢。学んで終わりではなく成果と成長に繋げる前提条件。</div></div>
+        <div class="word-card"><div class="word">「行動の変化が他者に伝わって初めて実践」</div><div class="desc">「理解した」「納得した」だけでは実践ではない。周囲への影響が生まれて初めて「実践」。</div></div>
+        <div class="word-card"><div class="word">「「自分も行きたい」と思わせる変化」</div><div class="desc">研修参加者の責任。周囲から「遊んでいる」と言わせない行動変容の質。</div></div>
+        <div class="word-card"><div class="word">「中身（言葉の定義）を固めることに集中」</div><div class="desc">サイズや物理形状より先に、フィロソフィーブックの言葉を確定させる。形は後から。</div></div>
+      </div>
+    </div>
+    <div class="session-block">
+      <div class="session-head">
+        <span class="session-date"><a href="0512.html">2026.05.12</a></span>
+        <span class="session-theme">道しるべ／ペイフォワード／ミスはギフト</span>
+      </div>
+      <div class="word-grid">
+        <div class="word-card"><div class="word">「道しるべ（MITISIRUBE）」</div><div class="desc">フィロソフィーブックの要素の総称。RPGで勇者がビジョンへ向かうための「ヒント」。藤原社長が強く愛する言葉。</div></div>
+        <div class="word-card"><div class="word">「ぐさっと刺さっているデザイン」</div><div class="desc">道しるべがビジョン・ミッションのピラミッドに刺さる視覚案。斎藤本部長が好評。</div></div>
+        <div class="word-card"><div class="word">「ペイフォワード」</div><div class="desc">まず自分から手を差し伸べ、笑顔になり、譲る。感謝や笑顔の「波紋の起点」となる人材を育てる。</div></div>
+        <div class="word-card"><div class="word">「ミスはエラー、報告はギフト」</div><div class="desc">失敗を報告することで「明日の誰かが同じミスをしない」。だから「失敗してくれてありがとう」と感謝する文化。</div></div>
+        <div class="word-card"><div class="word">「ラッキーチャンス」</div><div class="desc">旧「ミスクレーム報告」のチャットルーム。小さなことでも報告し合う文化の象徴。</div></div>
+        <div class="word-card"><div class="word">「人間的育成が先、技術は後」</div><div class="desc">大善小善・素直さ・感謝など「人としての土台」を先に作り、その上に業務技術を乗せる。</div></div>
+        <div class="word-card"><div class="word">「ライスワーク → ライフワーク」</div><div class="desc">「お金を稼ぐための苦しいこと」から「やりがいがあり夢を叶える楽しいこと」へ。</div></div>
+        <div class="word-card"><div class="word">「苦しいが楽しいに変わっていく」</div><div class="desc">コープ葬祭における「働く」の定義。八木氏は「愛が溢れる現場の仕事後の酒が美味い」と表現。</div></div>
+      </div>
+    </div>
+  </div>
+</div>
 <script>
 const HASH = "752dfe406f06cfa9add2cf15e1d28bfcb3bb85219d96a721db349a3b1e1a315d";
-const KEY  = "philosophy_auth";
-
+const KEY = "philosophy_auth";
 async function sha256(str) {
   const buf = await crypto.subtle.digest("SHA-256", new TextEncoder().encode(str));
   return Array.from(new Uint8Array(buf)).map(b => b.toString(16).padStart(2,"0")).join("");
 }
-
 async function checkPassword() {
   const pw = document.getElementById("pw-input").value;
   const hash = await sha256(pw);
   if (hash === HASH) {
-    sessionStorage.setItem(KEY, "1");
-    unlock();
+    sessionStorage.setItem(KEY, "1"); unlock();
   } else {
     document.getElementById("pw-error").style.display = "block";
     document.getElementById("pw-input").value = "";
     document.getElementById("pw-input").focus();
   }
 }
-
 function unlock() {
   document.getElementById("lock-screen").style.display = "none";
   document.getElementById("content").style.display = "block";
 }
-
 document.getElementById("pw-input").addEventListener("keydown", e => {
   if (e.key === "Enter") checkPassword();
 });
-
 if (sessionStorage.getItem(KEY) === "1") unlock();
 </script>
 </body>

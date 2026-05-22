@@ -17,27 +17,34 @@
   .lock-box button { width: 100%; padding: 12px; background: #1a1a2e; color: #fff; border: none; border-radius: 8px; font-size: 15px; cursor: pointer; }
   .lock-box button:hover { background: #2d3561; }
   .lock-box .error { color: #e74c3c; font-size: 13px; margin-top: 10px; display: none; }
-  #content { display: none; max-width: 800px; margin: 0 auto; padding: 32px 16px 64px; }
+
+  #content { display: none; max-width: 820px; margin: 0 auto; padding: 32px 16px 64px; }
   .back { display: inline-block; color: #1967d2; font-size: 14px; text-decoration: none; margin-bottom: 24px; }
   .back:hover { text-decoration: underline; }
-  .meta { background: #fff; border-radius: 10px; padding: 20px 24px; margin-bottom: 24px; box-shadow: 0 2px 8px rgba(0,0,0,.08); }
-  .meta-date { font-size: 20px; font-weight: 700; color: #1a1a2e; margin-bottom: 8px; }
-  .meta-participants { font-size: 13px; color: #666; line-height: 1.6; }
-  .body { background: #fff; border-radius: 10px; padding: 28px 32px; box-shadow: 0 2px 8px rgba(0,0,0,.08); line-height: 1.8; font-size: 14px; }
-  .body h2 { font-size: 16px; font-weight: 700; color: #1a1a2e; margin: 28px 0 12px; padding-bottom: 6px; border-bottom: 2px solid #e8f0fe; }
+  .meta { background: #fff; border-radius: 10px; padding: 22px 26px; margin-bottom: 24px; box-shadow: 0 2px 8px rgba(0,0,0,.08); }
+  .meta-date { font-size: 22px; font-weight: 700; color: #1a1a2e; margin-bottom: 4px; }
+  .meta-theme { font-size: 14px; color: #666; margin-bottom: 14px; }
+  .meta-row { font-size: 13px; color: #444; line-height: 1.7; margin-top: 4px; }
+  .meta-row .label { display: inline-block; min-width: 88px; font-weight: 600; color: #888; }
+  .meta-video { display: inline-block; margin-top: 10px; padding: 6px 12px; background: #e8f0fe; color: #1967d2; border-radius: 6px; font-size: 12px; text-decoration: none; }
+  .meta-video:hover { background: #d2e3fc; }
+  .body { background: #fff; border-radius: 10px; padding: 30px 34px; box-shadow: 0 2px 8px rgba(0,0,0,.08); line-height: 1.85; font-size: 14px; }
+  .body h2 { font-size: 17px; font-weight: 700; color: #1a1a2e; margin: 32px 0 14px; padding-bottom: 8px; border-bottom: 2px solid #e8f0fe; }
   .body h2:first-child { margin-top: 0; }
-  .body h3 { font-size: 14px; font-weight: 600; color: #2d3561; margin: 18px 0 8px; }
-  .body p { margin: 6px 0; }
-  .body strong { color: #1a1a2e; }
-  .words { background: #fff; border-radius: 10px; padding: 28px 32px; margin-top: 24px; box-shadow: 0 2px 8px rgba(0,0,0,.08); }
-  .words-title { font-size: 16px; font-weight: 700; color: #1a1a2e; margin-bottom: 16px; padding-bottom: 6px; border-bottom: 2px solid #fce8b2; }
+  .body h3 { font-size: 14.5px; font-weight: 700; color: #2d3561; margin: 22px 0 10px; padding-left: 10px; border-left: 3px solid #fce8b2; }
+  .body p { margin: 8px 0; }
+  .body strong { color: #1a1a2e; background: linear-gradient(transparent 65%, #fce8b2 65%); padding: 0 2px; }
+  .body .speaker { font-weight: 700; color: #2d3561; margin-right: 4px; }
+  .words { background: #fff; border-radius: 10px; padding: 26px 30px; margin-top: 24px; box-shadow: 0 2px 8px rgba(0,0,0,.08); }
+  .words-title { font-size: 16px; font-weight: 700; color: #1a1a2e; margin-bottom: 16px; padding-bottom: 8px; border-bottom: 2px solid #fce8b2; }
   .word-grid { display: flex; flex-wrap: wrap; gap: 12px; }
-  .word-card { background: #fffbf0; border: 1px solid #fce8b2; border-radius: 8px; padding: 14px 18px; flex: 1 1 calc(50% - 6px); min-width: 220px; }
+  .word-card { background: #fffbf0; border: 1px solid #fce8b2; border-radius: 8px; padding: 14px 16px; flex: 1 1 calc(50% - 6px); min-width: 240px; }
   .word-card .word { font-size: 14px; font-weight: 700; color: #1a1a2e; margin-bottom: 5px; }
   .word-card .desc { font-size: 12px; color: #666; line-height: 1.6; }
 </style>
 </head>
 <body>
+
 <div id="lock-screen">
   <div class="lock-box">
     <h1>フィロソフィPJ</h1>
@@ -47,69 +54,69 @@
     <p class="error" id="pw-error">パスワードが違います</p>
   </div>
 </div>
+
 <div id="content">
   <a class="back" href="./">← 一覧へ戻る</a>
   <div class="meta">
     <div class="meta-date">2026.05.12</div>
-    <div class="meta-participants">コープ葬祭: 藤原社長、斎藤本部長、野田氏、樫根氏、大橋氏、八木氏（東京出張・浅草よりオンライン参加）<br>つむぎ株式会社: 外川氏（ファシリテーター）、國光氏（アンナ）、前田氏</div>
+    <div class="meta-theme">道しるべ／ペイフォワード／ミスはギフト</div>
+        <div class="meta-row"><span class="label">コープ葬祭</span>藤原社長、斎藤本部長、野田氏、樫根氏、大橋氏、八木氏（東京出張・浅草よりオンライン参加）</div>
+    <div class="meta-row"><span class="label">つむぎ株式会社</span>外川氏（ファシリテーター）、國光氏（アンナ）、前田氏（遅れて参加）</div>
+    <div class="meta-row"><span class="label">欠席</span>富安氏（発熱・早退）、藤原源正氏（地域の集まり）</div>
+    <a class="meta-video" href="https://drive.google.com/file/d/13PaxC--qDEQv0Lby9xYkIp--OXcw0its/view" target="_blank">🎬 録画を見る</a>
   </div>
   <div class="body">
     <p>フィロソフィ・プロジェクト 第9回ミーティング 詳細議事録</p>
-    <p>日時: 2026年5月12日（火）形式: オンライン（Zoom）</p>
-    <p>八木氏は東京出張先・浅草のホテルよりオンライン参加。</p>
-    <p>欠席者: 富安氏（発熱・早退）、藤原源正氏（地域の集まり）</p>
-    
-    <h3>1. チェックイン：「褒めたい・嬉しいと感じた社内のエピソード」</h3>
-    <p>野田氏: 1年前は教わる側だった富安氏が後輩に電話応対を指導するまでに成長した姿を見て引き締まる思いがした。合同説明会で過去最多の約160名の学生と接触でき、内定者がアルバイトとして大活躍してくれた。</p>
-    <p>樫根氏: 年配の森永氏が、Google Chatへの移行において若い社員と同じように熱心に使い方を教わりに来る挑戦姿勢を見習いたい。</p>
-    <p>斎藤本部長: 社員がロープレで学んだことを現場で実践し、お客様に褒められたり単価が上がったりしたという報告を受け、皆で喜び合えた。</p>
-    <p>大橋氏: 26卒の入社前研修で先輩社員が堂々と指導していたこと。山口店最年少の住本氏がデジタル推進委員として意見を集約し、組織を引っ張っている姿に成長を感じた。</p>
-    <p>藤原社長: 自身が10日間不在にしていた間、社内からの緊急連絡がほぼゼロ。新卒が入る重要な時期に社員たちが自律して会社を運営してくれていた組織力に感動した。元議員の1000人規模の葬儀も混乱なくスムーズに行えた。</p>
-    <p>八木氏: 東京出張中。東京駅のテレアサショップで欲しかった番組グッズ（カラビナ）をゲット。</p>
-    
-    <h3>2. 議題①：フィロソフィーブックの構成と「道しるべ」の名称決定</h3>
+    <p>日時: 本日開催分 形式: オンライン（Zoom） 参加者:</p>
+    <p>コープ葬祭: 藤原社長、斎藤本部長、野田氏、樫根氏、大橋氏、富安氏、八木氏（東京出張先・浅草のホテルよりオンライン参加）</p>
+    <p>つむぎ株式会社: 外川氏（ファシリテーター）、アンナ氏（國光氏）、前田氏（遅れて参加）</p>
+    <h2>1. オープニング・チェックイン</h2>
+    <p>テーマ：「褒めたい・嬉しいと感じた社内のエピソード等」</p>
+    <p><span class="speaker">野田氏：</span>新入社員たちが一生懸命学ぶ姿勢と、1年前は教わる側だった富安氏が後輩に電話応対を指導するまでに成長した姿を見て引き締まる思いがした。また、合同説明会で過去最多の学生（約160名）と接触でき、内定者がアルバイトとして大活躍してくれた。</p>
+    <p><span class="speaker">富安氏：</span>新入社員が、欠席者に自ら資料を共有し、丁寧なお礼のチャットを送ってくれた気遣いが素晴らしかった。</p>
+    <p><span class="speaker">樫根氏：</span>年配の森永氏が、Google Chatへの移行において若い社員と同じように熱心に使い方を教わりに来る挑戦姿勢を見習いたい。また、少人数のコンサートで来場者と深いお話ができた。</p>
+    <p><span class="speaker">斎藤本部長：</span>社員がロープレで学んだことを現場で実践し、お客様に褒められたり単価が上がったりしたという報告を受け、皆で喜び合えた。</p>
+    <p><span class="speaker">大橋氏：</span>26卒の入社前研修で先輩社員が堂々と前に立って指導していたこと。また、山口店の最年少である住本氏がデジタル推進委員として意見を集約し、組織を引っ張っている姿に成長を感じた。</p>
+    <p><span class="speaker">藤原社長：</span>自身が10日間ほど不在にしていた間、社内からの緊急連絡がほぼゼロであり、新卒が入る重要な時期に社員たちが自律して迷いなく会社を運営してくれていた組織力に感動した。元議員の1000人規模の葬儀も混乱なくスムーズに行えた。</p>
+    <p><span class="speaker">アンナ氏：</span>高校の友人と手巻き寿司パーティーをし、10年来の仲で集まれる喜びを感じた。</p>
+    <p><span class="speaker">八木氏：</span>東京出張中。東京駅のテレアサショップで欲しかった番組グッズ（カラビナ）をゲットし、浅草のホテルに到着した。</p>
+    <h2>2. 議題①：フィロソフィーブックの構成と「道しるべ」の名称</h2>
     <p>これまでまとめてきた「理想の行動やスタンス（要素）」を、フィロソフィーブックの中でどう位置づけるかについて議論されました。</p>
-    
-    <p>位置づけとデザイン案: ツムギ外川氏より、これらの要素は「ビジョンとミッションを実現するための土台」であるとし、ピラミッド図のビジョン・ミッション部分に重なる（刺さる）ように配置するデザイン案が提示された。斎藤本部長より「ぐさっと刺さっている」デザインがイメージにぴったりだと好評。</p>
-    
-    <p>「道しるべ」という名称の決定: 藤原社長より「<strong>『道しるべ』という言葉が大好きだ</strong>」と強い賛同があった。RPGゲームにおいて、勇者がレベルアップしながらビジョンというゴールに向かって進むための「ヒント」になるというイメージが語られ、名称は<strong>「道しるべ（MITISIRUBE）」</strong>で進めることに決定した。</p>
-    
-    <h3>3. 議題②：育成と「ペイフォワード」</h3>
-    <p>野田氏が挙げた「多忙でも相談に乗り、解決策だけでなく考え方や方向性を教えてくれる先輩」を起点に、「育成」のあり方について議論されました。</p>
-    
-    <p>コープ葬祭における育成: 藤原社長より、育成には「技術的育成」と「人間的育成」があり、まずは<strong>人としての土台（大善小善・素直さ・感謝など）を作り、その上に技術を乗せる</strong>ことが重要だと語られた。</p>
-    <p>目的は社会貢献（起点となること）: 育てた人材がただ仕事ができるだけでなく、「地域や社会に貢献できる人」になることが目的である。藤原社長が目指すのは<strong>「ペイフォワード」の世界</strong>であり、まず自分から手を差し伸べる、笑顔になる、譲るなど、<strong>感謝や笑顔の「波紋の起点」</strong>となる人材を作ることが、ビジョン（愛に溢れる世界）の実現に直結すると定義された。</p>
-    
-    <h3>4. 議題③：隠し事をしない文化（ミスクレームの報告）</h3>
-    <p>八木氏が挙げた「上職（幹部）の方でも、遅刻した際に隠さず公の場で謝罪できたこと」という素晴らしい行動から、ミスを隠さない文化について議論されました。</p>
-    
-    <p>文化の根本理念: 藤原社長の言葉。</p>
-    <p>過去に担当者がミスを隠蔽し、事態が深刻化した苦い経験からこの文化を作った。<strong>「ミスは誰にでもある『エラー』。そのエラーを報告することは、明日誰かが同じミスをしないための『ギフト』になる。だから、失敗してくれて、教えてくれてありがとうと感謝する」</strong></p>
-    <p>コープ葬祭には<strong>「ラッキーチャンス」</strong>（旧ミスクレーム報告）というチャットルームがあり、小さなことでも報告し合う文化が根付いている。</p>
-    
-    <h3>5. 議題④：コープ葬祭における「働く」とは</h3>
+    <p>位置づけとデザイン案: ツムギ外川氏より、これらの要素は「ビジョンとミッションを実現するための土台」であるとし、ピラミッド図のビジョン・ミッション部分に重なる（刺さる）ように配置するデザイン案が提示された。斎藤本部長より「ぐさっと刺さっている」デザインがイメージにぴったりだと好評を得た。</p>
+    <p>「道しるべ」という名称の決定: 要素の総称について、藤原社長より「『道しるべ』という言葉が大好きだ」と強い賛同があった。RPGゲームにおいて、勇者がレベルアップし、装備を整え、ビジョンというゴールに向かって進むための「ヒント（道しるべ）」になるというイメージが語られ、名称は<strong>「道しるべ（MITISIRUBE）」</strong>で進めることに決定した。</p>
+    <h2>3. 議題②：素晴らしい行動の深掘り「育成とペイフォワード」</h2>
+    <p>野田氏が挙げた「多忙でも相談に乗り、解決策だけでなく考え方や方向性を教えてくれる先輩」という素晴らしい行動を起点に、「育成」のあり方について議論されました。</p>
+    <p>コープ葬祭における育成: 藤原社長より、育成には「技術的育成」と「人間的育成」があり、まずは人としての土台（大善小善、素直さ、感謝など）を作り、その上に技術を乗せることが重要だと語られた。</p>
+    <p>目的は社会貢献（起点となること）: 育てた人材がただ仕事ができるだけでなく、「地域や社会に貢献できる人」になることが目的である。藤原社長が目指すのは「ペイフォワード」の世界であり、まずは自分から手を差し伸べる、笑顔になる、譲るなど、感謝や笑顔の「波紋の起点」となる人材を作ることが、ビジョン（愛に溢れる世界）の実現に直結すると定義された。</p>
+    <h2>4. 議題③：隠し事をしない文化（ミスクレームの報告）</h2>
+    <p>八木氏が挙げた<strong>「上職（幹部）の方でも、遅刻した際に隠さず公の場で謝罪できたこと」</strong>という素晴らしい行動から、ミスを隠さない文化について議論されました。</p>
+    <p>どんな立場の人でも: 八木氏より、年齢や立場が上になるほど恥ずかしさから失敗を隠したくなる心理が働く中で、役職に関わらず素直に反省を表明できる組織風土が素晴らしいと語られました。</p>
+    <p>文化の定着: コープ葬祭には「ラッキーチャンス（旧ミスクレーム報告）」というチャットルームがあり、小さなことでも報告し合う文化が根付いている。</p>
+    <p>藤原社長の思い: 過去に担当者がミスを隠蔽し、事態が深刻化した苦い経験からこの文化を作った。「ミスは誰にでもある『エラー』。そのエラーを報告することは、明日誰かが同じミスをしないための『ギフト』になる。だから、失敗してくれて、教えてくれてありがとうと感謝する」という深い理念が共有された。</p>
+    <h2>5. 議題④：コープ葬祭における「働く」とは（ワークライフバランス）</h2>
     <p>樫根氏の「サービス残業でもいいから働きたい」という姿勢から、働き方と仕事への価値観について議論されました。</p>
-    
-    <p>八木氏: 単に楽しいだけではないが、辛いことの先にある「自己肯定感の向上」が自分への救済に繋がる。愛が溢れる現場だと、終わったあとの酒が美味い。それが私の仕事における「幸せのカタチ」。</p>
-    <p>樫根氏: お金のためだけでなく、仕事が上手くいけば休みの日も楽しいし、仕事と人生は繋がっている。</p>
-    <p>藤原社長: <strong>「働く＝お金を稼ぐための苦しいこと（ライスワーク）」であってはならない。</strong>かつて携帯販売の仕事で人を騙すような売り方を強いられ、泣きながら通勤した辛い経験を語り、「どうせ働くなら、誰と一緒に何をするかが大事。<strong>苦しいが楽しいに変わっていくのが、コープ葬祭における『働く』ということだ</strong>」と力強いメッセージで締めくくられた。</p>
+    <p>仕事への価値観:</p>
+    <p><span class="speaker">八木氏：</span>単に楽しいだけではないが、辛いことの先にある「自己肯定感の向上」が自分への救済に繋がると考えている。</p>
+    <p><span class="speaker">樫根氏：</span>お金のためだけでなく、仕事が上手くいけば休みの日も楽しいし、仕事と人生は繋がっている。</p>
+    <p><span class="speaker">藤原社長：</span>「働く＝お金を稼ぐための苦しいこと（ライスワーク）」であってはならない。かつて自身が携帯販売の仕事で人を騙すような売り方を強いられ、泣きながら通勤した辛い経験を語り、「どうせ働くなら、誰と一緒に何をするかが大事。やりがいがあり、夢を叶え、理想を実現する楽しいことであってほしい。苦しいが楽しいに変わっていくのが、コープ葬祭における『働く』ということだ」と力強いメッセージで締めくくられた。</p>
   </div>
   <div class="words">
     <div class="words-title">印象的なワード集</div>
     <div class="word-grid">
       <div class="word-card"><div class="word">「道しるべ（MITISIRUBE）」</div><div class="desc">フィロソフィーブックの要素の総称。RPGで勇者がビジョンへ向かうための「ヒント」。藤原社長が強く愛する言葉。</div></div>
-<div class="word-card"><div class="word">「ペイフォワード」</div><div class="desc">まず自分から手を差し伸べ、笑顔になり、譲る。感謝や笑顔の「波紋の起点」となる人材を育てることがビジョンに直結する。</div></div>
-<div class="word-card"><div class="word">「ミスはエラー、報告はギフト」</div><div class="desc">失敗を報告することで「明日の誰かが同じミスをしない」。だから「失敗してくれてありがとう」と感謝する文化。</div></div>
-<div class="word-card"><div class="word">「ラッキーチャンス」</div><div class="desc">旧「ミスクレーム報告」のチャットルーム。小さなことでも報告し合う文化の象徴。</div></div>
-<div class="word-card"><div class="word">「人間的育成が先、技術は後」</div><div class="desc">大善小善・素直さ・感謝など「人としての土台」を先に作り、その上に業務技術を乗せる。育成の順序が重要。</div></div>
-<div class="word-card"><div class="word">「ライスワーク → ライフワーク」</div><div class="desc">「お金を稼ぐための苦しいこと」から「やりがいがあり夢を叶える楽しいこと」へ。コープ葬祭の「働く」の定義。</div></div>
-<div class="word-card"><div class="word">「苦しいが楽しいに変わっていく」</div><div class="desc">辛さを超えた先にある自己肯定感と顧客の喜び。八木氏は「愛が溢れる現場の仕事後の酒が美味い」と表現。</div></div>
+      <div class="word-card"><div class="word">「ぐさっと刺さっているデザイン」</div><div class="desc">道しるべがビジョン・ミッションのピラミッドに刺さる視覚案。斎藤本部長が好評。</div></div>
+      <div class="word-card"><div class="word">「ペイフォワード」</div><div class="desc">まず自分から手を差し伸べ、笑顔になり、譲る。感謝や笑顔の「波紋の起点」となる人材を育てる。</div></div>
+      <div class="word-card"><div class="word">「ミスはエラー、報告はギフト」</div><div class="desc">失敗を報告することで「明日の誰かが同じミスをしない」。だから「失敗してくれてありがとう」と感謝する文化。</div></div>
+      <div class="word-card"><div class="word">「ラッキーチャンス」</div><div class="desc">旧「ミスクレーム報告」のチャットルーム。小さなことでも報告し合う文化の象徴。</div></div>
+      <div class="word-card"><div class="word">「人間的育成が先、技術は後」</div><div class="desc">大善小善・素直さ・感謝など「人としての土台」を先に作り、その上に業務技術を乗せる。</div></div>
+      <div class="word-card"><div class="word">「ライスワーク → ライフワーク」</div><div class="desc">「お金を稼ぐための苦しいこと」から「やりがいがあり夢を叶える楽しいこと」へ。</div></div>
+      <div class="word-card"><div class="word">「苦しいが楽しいに変わっていく」</div><div class="desc">コープ葬祭における「働く」の定義。八木氏は「愛が溢れる現場の仕事後の酒が美味い」と表現。</div></div>
     </div>
   </div>
 </div>
 <script>
 const HASH = "752dfe406f06cfa9add2cf15e1d28bfcb3bb85219d96a721db349a3b1e1a315d";
-const KEY  = "philosophy_auth";
+const KEY = "philosophy_auth";
 async function sha256(str) {
   const buf = await crypto.subtle.digest("SHA-256", new TextEncoder().encode(str));
   return Array.from(new Uint8Array(buf)).map(b => b.toString(16).padStart(2,"0")).join("");
@@ -118,8 +125,7 @@ async function checkPassword() {
   const pw = document.getElementById("pw-input").value;
   const hash = await sha256(pw);
   if (hash === HASH) {
-    sessionStorage.setItem(KEY, "1");
-    unlock();
+    sessionStorage.setItem(KEY, "1"); unlock();
   } else {
     document.getElementById("pw-error").style.display = "block";
     document.getElementById("pw-input").value = "";

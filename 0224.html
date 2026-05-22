@@ -15,23 +15,36 @@
   .lock-box input { width: 100%; padding: 12px 14px; border: 1px solid #ddd; border-radius: 8px; font-size: 15px; margin-bottom: 12px; outline: none; }
   .lock-box input:focus { border-color: #4a6fa5; }
   .lock-box button { width: 100%; padding: 12px; background: #1a1a2e; color: #fff; border: none; border-radius: 8px; font-size: 15px; cursor: pointer; }
+  .lock-box button:hover { background: #2d3561; }
   .lock-box .error { color: #e74c3c; font-size: 13px; margin-top: 10px; display: none; }
-  #content { display: none; max-width: 800px; margin: 0 auto; padding: 32px 16px 64px; }
+
+  #content { display: none; max-width: 820px; margin: 0 auto; padding: 32px 16px 64px; }
   .back { display: inline-block; color: #1967d2; font-size: 14px; text-decoration: none; margin-bottom: 24px; }
   .back:hover { text-decoration: underline; }
-  .meta { background: #fff; border-radius: 10px; padding: 20px 24px; margin-bottom: 24px; box-shadow: 0 2px 8px rgba(0,0,0,.08); }
-  .meta-date { font-size: 20px; font-weight: 700; color: #1a1a2e; margin-bottom: 8px; }
-  .meta-participants { font-size: 13px; color: #666; line-height: 1.6; }
-  .body { background: #fff; border-radius: 10px; padding: 28px 32px; box-shadow: 0 2px 8px rgba(0,0,0,.08); line-height: 1.8; font-size: 14px; }
-  .body h2 { font-size: 16px; font-weight: 700; color: #1a1a2e; margin: 28px 0 12px; padding-bottom: 6px; border-bottom: 2px solid #e8f0fe; }
+  .meta { background: #fff; border-radius: 10px; padding: 22px 26px; margin-bottom: 24px; box-shadow: 0 2px 8px rgba(0,0,0,.08); }
+  .meta-date { font-size: 22px; font-weight: 700; color: #1a1a2e; margin-bottom: 4px; }
+  .meta-theme { font-size: 14px; color: #666; margin-bottom: 14px; }
+  .meta-row { font-size: 13px; color: #444; line-height: 1.7; margin-top: 4px; }
+  .meta-row .label { display: inline-block; min-width: 88px; font-weight: 600; color: #888; }
+  .meta-video { display: inline-block; margin-top: 10px; padding: 6px 12px; background: #e8f0fe; color: #1967d2; border-radius: 6px; font-size: 12px; text-decoration: none; }
+  .meta-video:hover { background: #d2e3fc; }
+  .body { background: #fff; border-radius: 10px; padding: 30px 34px; box-shadow: 0 2px 8px rgba(0,0,0,.08); line-height: 1.85; font-size: 14px; }
+  .body h2 { font-size: 17px; font-weight: 700; color: #1a1a2e; margin: 32px 0 14px; padding-bottom: 8px; border-bottom: 2px solid #e8f0fe; }
   .body h2:first-child { margin-top: 0; }
-  .body h3 { font-size: 14px; font-weight: 600; color: #333; margin: 18px 0 8px; }
-  .body p { margin: 6px 0; }
-  .body strong { color: #1a1a2e; }
-  .body br { display: block; margin: 4px 0; }
+  .body h3 { font-size: 14.5px; font-weight: 700; color: #2d3561; margin: 22px 0 10px; padding-left: 10px; border-left: 3px solid #fce8b2; }
+  .body p { margin: 8px 0; }
+  .body strong { color: #1a1a2e; background: linear-gradient(transparent 65%, #fce8b2 65%); padding: 0 2px; }
+  .body .speaker { font-weight: 700; color: #2d3561; margin-right: 4px; }
+  .words { background: #fff; border-radius: 10px; padding: 26px 30px; margin-top: 24px; box-shadow: 0 2px 8px rgba(0,0,0,.08); }
+  .words-title { font-size: 16px; font-weight: 700; color: #1a1a2e; margin-bottom: 16px; padding-bottom: 8px; border-bottom: 2px solid #fce8b2; }
+  .word-grid { display: flex; flex-wrap: wrap; gap: 12px; }
+  .word-card { background: #fffbf0; border: 1px solid #fce8b2; border-radius: 8px; padding: 14px 16px; flex: 1 1 calc(50% - 6px); min-width: 240px; }
+  .word-card .word { font-size: 14px; font-weight: 700; color: #1a1a2e; margin-bottom: 5px; }
+  .word-card .desc { font-size: 12px; color: #666; line-height: 1.6; }
 </style>
 </head>
 <body>
+
 <div id="lock-screen">
   <div class="lock-box">
     <h1>フィロソフィPJ</h1>
@@ -41,82 +54,99 @@
     <p class="error" id="pw-error">パスワードが違います</p>
   </div>
 </div>
+
 <div id="content">
-  <a class="back" href="./">← アーカイブ一覧</a>
+  <a class="back" href="./">← 一覧へ戻る</a>
   <div class="meta">
-    <div class="meta-date">2026.02.24 議事録</div>
-    <div class="meta-participants">参加者: 藤原社長、斎藤本部長、八木、大橋、野田、樫根、富安、藤原源誠、外川（つむぎ）、前田（つむぎ）、國光（つむぎ）</div>
+    <div class="meta-date">2026.02.24</div>
+    <div class="meta-theme">想像力と環境整備的働き方</div>
+        <div class="meta-row"><span class="label">コープ葬祭</span>藤原社長、斎藤本部長、八木氏、大橋氏、野田氏、樫根氏、富安氏</div>
+    <div class="meta-row"><span class="label">つむぎ株式会社</span>外川氏（ファシリテーター）、前田氏、國光氏</div>
+    <a class="meta-video" href="https://drive.google.com/file/d/1HIyh7tlGx9K0e1QEod6eQLE07agreFS9/view" target="_blank">🎬 録画を見る</a>
   </div>
-  <div class="body"><p>フィロソフィ・プロジェクト 第4回ミーティング 詳細議事録</p>
-<p>日時: 2026年2月24日（火） 15:00〜16:30頃 形式: オンライン（Zoom） 参加者:</p>
-<p>コープ葬祭: 藤原社長、斎藤本部長、八木氏、大橋氏、野田氏、樫根氏、富安氏</p>
-<p>つむぎ株式会社: 外川氏（ファシリテーター）、前田氏、國光氏（編集担当）</p>
-<br>
-<h3>1. オープニング・チェックイン</h3>
-<p>テーマ：「今月の気づき・学び・成長」</p>
-<p>会議冒頭、外川氏の進行により、各メンバーが2月を振り返って得た個人的な「気づき」を共有しました。</p>
-<p>富安氏：知識と実践のギャップ</p>
-<p>社内報の編集業務において、以前学んだ「目を引くタイトル作り（プレスリリース等の技術）」を実践できず、単調なタイトルにしてしまい樫根氏から指摘を受けた。「知識を持っていることと、それを現場で応用することの難しさ」を痛感しました。</p>
-<p>八木氏：ツール移行の激戦</p>
-<p>全社的なチャットツール移行（ChatworkからGoogle Chatへ）を担当中。毎日10個ずつ新たなハードル（不具合や仕様の違い）が発生するが、シームレスな業務環境構築のために奮闘中。「生みの苦しみ」を味わっています。</p>
-<p>野田氏：伝わらない不安と言葉数</p>
-<p>「自分の説明が相手に伝わっていないのではないか」という不安から、言葉を継ぎ足しすぎて逆に分かりにくくなる癖を自覚。緊張による混乱を防ぐため、「端的に伝える」努力を課題としています。</p>
-<p>斎藤本部長：アウトプット前提のインプット</p>
-<p>学ぶ機会が増える中、「アウトプットすること」を目的にインプットを行うよう意識を変革。その結果、学びが実践（PDCA）に直結し、部下の成長や仕事の手応えを感じて毎日が楽しくなっています。</p>
-<p>樫根氏：生活の彩りと豊かさ</p>
-<p>プライベートでハンドブレンダーを購入し、スープ作り（今日はジャガイモのポタージュ）を開始。料理のレパートリーが増えることで、日々の生活に彩りと豊かさを感じています。</p>
-<p>藤原社長：DiSC理論による自己特性の再確認</p>
-<p>「DiSC理論」の研修を受け、自身が成果や行動を最優先する「D（主導型）」の突出したタイプであることを科学的に再確認。目標達成を急ぐあまり強い言葉を使ってしまう特性を自覚し、「みんなに寄り添う」必要性を改めて学びました。（前田氏も同タイプであると盛り上がる場面あり）</p>
-<p>大橋氏：視座の高さと「伝わる」の難しさ</p>
-<p>「伝える」と「伝わる」の違いを痛感。相手の目線に立つことや、第三者の視点（高い視座）を持つことが、思っていた以上にできていなかったと反省。インプットしたことを自分の中に落とし込む期間だと捉えています。</p>
-<br>
-<h3>2. フィロソフィ原案の修正報告</h3>
-<p>前回（2/5）の議論を踏まえ、つむぎ社の國光氏より、フィロソフィーブックに掲載する文章の修正案とその意図が共有されました。</p>
-<p>大善小善（だいぜんしょうぜん）：</p>
-<p>修正方針: 「～すべき」という強制的な表現を削除。「行動」そのものよりも、そこへの「向き合い方（スタンス）」に焦点を当てた文章へ変更。</p>
-<p>意図: 藤原社長の「大善の実践は難しい」という実感を汲み取り、実践できないことを責めるのではなく、まずは「相手のためを思う」出発点を重視する内容としました。</p>
-<p>自分が源（じぶんがみなもと）：</p>
-<p>修正方針: 会社視点ではなく「自分視点」で考えられる構成に変更。「自責」という言葉を削り、「自責ではない（自分を責める必要はない）」というニュアンスを含めることで、心理的な受け入れやすさを向上させました。</p>
-<p>天井を突き破ろう（新規追加）：</p>
-<p>確認: 初見の文章となるため、現場の言葉遣いやニュアンスと合致しているかを確認依頼。</p>
-<br>
-<h3>3. 深掘り議論：現場の「違和感」から真意を探る</h3>
-<p>宿題として提出された「現場での違和感」事例をもとに、コープ葬祭における「思いやり」と「環境整備」の本質について、具体的なエピソードを交えた議論が行われました。</p>
-<p>テーマ①：思いやりと想像力（樫根氏・富安氏の事例）</p>
-<p>事例: クリエイティブ依頼のチャットに対し、新人の富安氏が「自分には技術的に無理だ」と判断し、リアクションも返信もせずスルーしていた件。</p>
-<p>違和感の正体: 技術的に断ることは問題ないが、「依頼が見えていますよ」「私にはできませんが確認しました」という<strong>「反応（リアクション）」がないこと</strong>への違和感。友人や家族なら声をかけるはずなのに、仕事だとスルーしてしまう点。</p>
-<p>議論：コープらしい「思いやり」とは？</p>
-<p>定義: 「こうされたら自分が困るから言う（自分視点）」ではなく、「このままだとこの人が成長できない」「困るだろう」と、相手の立場に立って伝えること。そのベースには「愛」が必要。</p>
-<p>愛へのステップ: いきなり「愛」を持つのは難しい。まずは「なぜこの人はこうしたのだろう？」と想像し、対話して知る（理解する）。その先に愛が生まれ、適切な大善（指導）ができる。</p>
-<p>結論: コミュニケーションの鍵は「対話の前に、まず想像から始めよう」。</p>
-<p>テーマ②：環境整備と「捨てる基準」（野田氏の事例）</p>
-<p>事例: 野田氏自身、デスク周りに物が積み上がり、環境整備（整理整頓）ができていない現状。理念（気づきを磨く）と行動が一致していない自分への違和感。</p>
-<p>環境整備の目的: 単なる掃除ではなく「仕事の練習」。捨てる→余白ができる→変化に気づく→整える（効率化）→質の向上、というサイクルを回すことで、不要な業務や事業の仕分けができるようになるトレーニングである。</p>
-<h2>【重要議論】「捨てる基準」と歴史的価値</h2>
-<p>一般的な「1年使わなければ捨てる」というルールに対し、「捨ててはいけないもの」の価値基準について白熱した議論が行われました。</p>
-<p>藤原社長のエピソード（手作りアルバム）：</p>
-<p>かつて環境整備導入時、先輩たちが手作りしたアナログな「祭壇設営マニュアル（写真アルバム）」を「汚いから」と捨てようとした。しかし、先代（父）が「捨てるな」と持ち帰り、10年後に実家から出てきた。</p>
-<p>今見ると、そこには当時の工夫や歴史という<strong>「再現できない価値（事実）」</strong>があり、捨ててはいけないものだったと気づいた。</p>
-<p>前田氏（つむぎ）のエピソード（宮型霊柩車）：</p>
-<p>先日訪問した鹿児島県の葬儀社（天国葬祭様）で、使わなくなった宮型霊柩車2台がブルーシートをかけられて放置されていた。「まだ価値があるかも」と残していたそうだが、ブルーシートがかかった状態では「粗大ゴミ」にしか見えなかった。</p>
-<p>教訓: 「なぜそこに置くのか（Why）」という理由や価値が明確でなければ、物はただのゴミになってしまう。</p>
-<p>藤原社長の応答（自社の霊柩車）：</p>
-<p>コープ葬祭にも宮型霊柩車が1台ある。しかし、これはナンバープレートを外して走れない状態にし、あえて<strong>「骨董品（歴史のシンボル）」</strong>として残している。</p>
-<p>保存の理由（Why）: かつてこういう時代があったことを子供たちや後世に伝えるための明確な役割があるため、これは捨てる対象ではない。</p>
-<p>結論：コープ葬祭流「環境整備的働き方」</p>
-<p>基準の言語化: 単に期間（1年）で区切るのではなく、<strong>「なぜそこに在るのか（理由）を語れるか」「再現できるか（事実は再現できない）」「ときめくか（エモいか）」</strong>といった価値判断基準が必要。</p>
-<p>方向性: 物を捨てるルールだけでなく、「環境整備的な思考（効率化、本質追求）」を持って働くこと（環境整備的働き方）を浸透させる。</p>
-<br>
-<h3>4. 次回アクション</h3>
-<p>フィロソフィ原案の確認:</p>
-<p>今回提示された修正案および、本日の議論（想像力、環境整備的働き方、ときめき/エモさの基準）を踏まえ、つむぎ社にて再度ブラッシュアップを行う。</p>
-<p>メンバーは次回までに社内で確認し、違和感があればコメントする。</p>
-<p>次回日程:</p>
-<p>2026年3月20日（金・祝）</p></div>
+  <div class="body">
+    <p>フィロソフィ・プロジェクト 第4回ミーティング 詳細議事録</p>
+    <p>日時: 2026年2月24日（火） 15:00〜16:30頃 形式: オンライン（Zoom） 参加者:</p>
+    <p>コープ葬祭: 藤原社長、斎藤本部長、八木氏、大橋氏、野田氏、樫根氏、富安氏</p>
+    <p>つむぎ株式会社: 外川氏（ファシリテーター）、前田氏、國光氏（編集担当）</p>
+    
+    <h2>1. オープニング・チェックイン</h2>
+    <p>テーマ：「今月の気づき・学び・成長」</p>
+    <p>会議冒頭、外川氏の進行により、各メンバーが2月を振り返って得た個人的な「気づき」を共有しました。</p>
+    <p><span class="speaker">富安氏：</span>知識と実践のギャップ</p>
+    <p>社内報の編集業務において、以前学んだ「目を引くタイトル作り（プレスリリース等の技術）」を実践できず、単調なタイトルにしてしまい樫根氏から指摘を受けた。「知識を持っていることと、それを現場で応用することの難しさ」を痛感しました。</p>
+    <p><span class="speaker">八木氏：</span>ツール移行の激戦</p>
+    <p>全社的なチャットツール移行（ChatworkからGoogle Chatへ）を担当中。毎日10個ずつ新たなハードル（不具合や仕様の違い）が発生するが、シームレスな業務環境構築のために奮闘中。「生みの苦しみ」を味わっています。</p>
+    <p><span class="speaker">野田氏：</span>伝わらない不安と言葉数</p>
+    <p>「自分の説明が相手に伝わっていないのではないか」という不安から、言葉を継ぎ足しすぎて逆に分かりにくくなる癖を自覚。緊張による混乱を防ぐため、「端的に伝える」努力を課題としています。</p>
+    <p><span class="speaker">斎藤本部長：</span>アウトプット前提のインプット</p>
+    <p>学ぶ機会が増える中、「アウトプットすること」を目的にインプットを行うよう意識を変革。その結果、学びが実践（PDCA）に直結し、部下の成長や仕事の手応えを感じて毎日が楽しくなっています。</p>
+    <p><span class="speaker">樫根氏：</span>生活の彩りと豊かさ</p>
+    <p>プライベートでハンドブレンダーを購入し、スープ作り（今日はジャガイモのポタージュ）を開始。料理のレパートリーが増えることで、日々の生活に彩りと豊かさを感じています。</p>
+    <p><span class="speaker">藤原社長：</span>DiSC理論による自己特性の再確認</p>
+    <p>「DiSC理論」の研修を受け、自身が成果や行動を最優先する「D（主導型）」の突出したタイプであることを科学的に再確認。目標達成を急ぐあまり強い言葉を使ってしまう特性を自覚し、「みんなに寄り添う」必要性を改めて学びました。（前田氏も同タイプであると盛り上がる場面あり）</p>
+    <p><span class="speaker">大橋氏：</span>視座の高さと「伝わる」の難しさ</p>
+    <p>「伝える」と「伝わる」の違いを痛感。相手の目線に立つことや、第三者の視点（高い視座）を持つことが、思っていた以上にできていなかったと反省。インプットしたことを自分の中に落とし込む期間だと捉えています。</p>
+    
+    <h2>2. フィロソフィ原案の修正報告</h2>
+    <p>前回（2/5）の議論を踏まえ、つむぎ社の國光氏より、フィロソフィーブックに掲載する文章の修正案とその意図が共有されました。</p>
+    <p>大善小善（だいぜんしょうぜん）：</p>
+    <p>修正方針: 「～すべき」という強制的な表現を削除。「行動」そのものよりも、そこへの「向き合い方（スタンス）」に焦点を当てた文章へ変更。</p>
+    <p>意図: 藤原社長の「大善の実践は難しい」という実感を汲み取り、実践できないことを責めるのではなく、まずは「相手のためを思う」出発点を重視する内容としました。</p>
+    <p>自分が源（じぶんがみなもと）：</p>
+    <p>修正方針: 会社視点ではなく「自分視点」で考えられる構成に変更。「自責」という言葉を削り、「自責ではない（自分を責める必要はない）」というニュアンスを含めることで、心理的な受け入れやすさを向上させました。</p>
+    <p>天井を突き破ろう（新規追加）：</p>
+    <p>確認: 初見の文章となるため、現場の言葉遣いやニュアンスと合致しているかを確認依頼。</p>
+    
+    <h2>3. 深掘り議論：現場の「違和感」から真意を探る</h2>
+    <p>宿題として提出された「現場での違和感」事例をもとに、コープ葬祭における「思いやり」と「環境整備」の本質について、具体的なエピソードを交えた議論が行われました。</p>
+    <h3>テーマ①：思いやりと想像力（樫根氏・富安氏の事例）</h3>
+    <p>事例: クリエイティブ依頼のチャットに対し、新人の富安氏が「自分には技術的に無理だ」と判断し、リアクションも返信もせずスルーしていた件。</p>
+    <p>違和感の正体: 技術的に断ることは問題ないが、「依頼が見えていますよ」「私にはできませんが確認しました」という<strong>「反応（リアクション）」がないこと</strong>への違和感。友人や家族なら声をかけるはずなのに、仕事だとスルーしてしまう点。</p>
+    <p>議論：コープらしい「思いやり」とは？</p>
+    <p>定義: 「こうされたら自分が困るから言う（自分視点）」ではなく、「このままだとこの人が成長できない」「困るだろう」と、相手の立場に立って伝えること。そのベースには「愛」が必要。</p>
+    <p>愛へのステップ: いきなり「愛」を持つのは難しい。まずは「なぜこの人はこうしたのだろう？」と想像し、対話して知る（理解する）。その先に愛が生まれ、適切な大善（指導）ができる。</p>
+    <p>結論: コミュニケーションの鍵は「対話の前に、まず想像から始めよう」。</p>
+    <h3>テーマ②：環境整備と「捨てる基準」（野田氏の事例）</h3>
+    <p>事例: 野田氏自身、デスク周りに物が積み上がり、環境整備（整理整頓）ができていない現状。理念（気づきを磨く）と行動が一致していない自分への違和感。</p>
+    <p>環境整備の目的: 単なる掃除ではなく「仕事の練習」。捨てる→余白ができる→変化に気づく→整える（効率化）→質の向上、というサイクルを回すことで、不要な業務や事業の仕分けができるようになるトレーニングである。</p>
+    <p>【重要議論】「捨てる基準」と歴史的価値</p>
+    <p>一般的な「1年使わなければ捨てる」というルールに対し、「捨ててはいけないもの」の価値基準について白熱した議論が行われました。</p>
+    <p>藤原社長のエピソード（手作りアルバム）：</p>
+    <p>かつて環境整備導入時、先輩たちが手作りしたアナログな「祭壇設営マニュアル（写真アルバム）」を「汚いから」と捨てようとした。しかし、先代（父）が「捨てるな」と持ち帰り、10年後に実家から出てきた。</p>
+    <p>今見ると、そこには当時の工夫や歴史という<strong>「再現できない価値（事実）」</strong>があり、捨ててはいけないものだったと気づいた。</p>
+    <p>前田氏（つむぎ）のエピソード（宮型霊柩車）：</p>
+    <p>先日訪問した鹿児島県の葬儀社（天国葬祭様）で、使わなくなった宮型霊柩車2台がブルーシートをかけられて放置されていた。「まだ価値があるかも」と残していたそうだが、ブルーシートがかかった状態では「粗大ゴミ」にしか見えなかった。</p>
+    <p>教訓: 「なぜそこに置くのか（Why）」という理由や価値が明確でなければ、物はただのゴミになってしまう。</p>
+    <p>藤原社長の応答（自社の霊柩車）：</p>
+    <p>コープ葬祭にも宮型霊柩車が1台ある。しかし、これはナンバープレートを外して走れない状態にし、あえて<strong>「骨董品（歴史のシンボル）」</strong>として残している。</p>
+    <p>保存の理由（Why）: かつてこういう時代があったことを子供たちや後世に伝えるための明確な役割があるため、これは捨てる対象ではない。</p>
+    <p>結論：コープ葬祭流「環境整備的働き方」</p>
+    <p>基準の言語化: 単に期間（1年）で区切るのではなく、<strong>「なぜそこに在るのか（理由）を語れるか」「再現できるか（事実は再現できない）」「ときめくか（エモいか）」</strong>といった価値判断基準が必要。</p>
+    <p>方向性: 物を捨てるルールだけでなく、「環境整備的な思考（効率化、本質追求）」を持って働くこと（環境整備的働き方）を浸透させる。</p>
+    
+    <h2>4. 次回アクション</h2>
+    <p>フィロソフィ原案の確認:</p>
+    <p>今回提示された修正案および、本日の議論（想像力、環境整備的働き方、ときめき/エモさの基準）を踏まえ、つむぎ社にて再度ブラッシュアップを行う。</p>
+    <p>メンバーは次回までに社内で確認し、違和感があればコメントする。</p>
+    <p>次回日程:</p>
+    <p>2026年3月20日（金・祝）</p>
+  </div>
+  <div class="words">
+    <div class="words-title">印象的なワード集</div>
+    <div class="word-grid">
+      <div class="word-card"><div class="word">「対話の前に、まず想像から始めよう」</div><div class="desc">「なぜこの人はこうしたのだろう？」と想像してから対話する。愛が生まれるためのステップ。</div></div>
+      <div class="word-card"><div class="word">「環境整備＝仕事の練習」</div><div class="desc">単なる掃除ではない。捨てる→余白→気づく→整える→質の向上、というサイクル。</div></div>
+      <div class="word-card"><div class="word">「再現できる／再現できない」</div><div class="desc">手作りアルバムも宮型霊柩車も、歴史という「再現できない価値」がある。捨てる基準の本質。</div></div>
+      <div class="word-card"><div class="word">「なぜそこに在るのかを語れるか」</div><div class="desc">Whyのない物はただのゴミになる。前田氏の鹿児島・天国葬祭ブルーシート霊柩車の教訓。</div></div>
+      <div class="word-card"><div class="word">「ときめくか／エモいか」</div><div class="desc">環境整備の判断基準。「1年使わない」という期間ルールより本質的な価値軸。</div></div>
+      <div class="word-card"><div class="word">「アウトプット前提のインプット」</div><div class="desc">斎藤本部長の意識変革。学びがPDCAに直結し、毎日が楽しくなる。</div></div>
+    </div>
+  </div>
 </div>
 <script>
 const HASH = "752dfe406f06cfa9add2cf15e1d28bfcb3bb85219d96a721db349a3b1e1a315d";
-const KEY  = "philosophy_auth";
+const KEY = "philosophy_auth";
 async function sha256(str) {
   const buf = await crypto.subtle.digest("SHA-256", new TextEncoder().encode(str));
   return Array.from(new Uint8Array(buf)).map(b => b.toString(16).padStart(2,"0")).join("");
@@ -124,11 +154,21 @@ async function sha256(str) {
 async function checkPassword() {
   const pw = document.getElementById("pw-input").value;
   const hash = await sha256(pw);
-  if (hash === HASH) { sessionStorage.setItem(KEY, "1"); unlock(); }
-  else { document.getElementById("pw-error").style.display = "block"; document.getElementById("pw-input").value = ""; document.getElementById("pw-input").focus(); }
+  if (hash === HASH) {
+    sessionStorage.setItem(KEY, "1"); unlock();
+  } else {
+    document.getElementById("pw-error").style.display = "block";
+    document.getElementById("pw-input").value = "";
+    document.getElementById("pw-input").focus();
+  }
 }
-function unlock() { document.getElementById("lock-screen").style.display = "none"; document.getElementById("content").style.display = "block"; }
-document.getElementById("pw-input").addEventListener("keydown", e => { if (e.key === "Enter") checkPassword(); });
+function unlock() {
+  document.getElementById("lock-screen").style.display = "none";
+  document.getElementById("content").style.display = "block";
+}
+document.getElementById("pw-input").addEventListener("keydown", e => {
+  if (e.key === "Enter") checkPassword();
+});
 if (sessionStorage.getItem(KEY) === "1") unlock();
 </script>
 </body>

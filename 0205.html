@@ -15,23 +15,36 @@
   .lock-box input { width: 100%; padding: 12px 14px; border: 1px solid #ddd; border-radius: 8px; font-size: 15px; margin-bottom: 12px; outline: none; }
   .lock-box input:focus { border-color: #4a6fa5; }
   .lock-box button { width: 100%; padding: 12px; background: #1a1a2e; color: #fff; border: none; border-radius: 8px; font-size: 15px; cursor: pointer; }
+  .lock-box button:hover { background: #2d3561; }
   .lock-box .error { color: #e74c3c; font-size: 13px; margin-top: 10px; display: none; }
-  #content { display: none; max-width: 800px; margin: 0 auto; padding: 32px 16px 64px; }
+
+  #content { display: none; max-width: 820px; margin: 0 auto; padding: 32px 16px 64px; }
   .back { display: inline-block; color: #1967d2; font-size: 14px; text-decoration: none; margin-bottom: 24px; }
   .back:hover { text-decoration: underline; }
-  .meta { background: #fff; border-radius: 10px; padding: 20px 24px; margin-bottom: 24px; box-shadow: 0 2px 8px rgba(0,0,0,.08); }
-  .meta-date { font-size: 20px; font-weight: 700; color: #1a1a2e; margin-bottom: 8px; }
-  .meta-participants { font-size: 13px; color: #666; line-height: 1.6; }
-  .body { background: #fff; border-radius: 10px; padding: 28px 32px; box-shadow: 0 2px 8px rgba(0,0,0,.08); line-height: 1.8; font-size: 14px; }
-  .body h2 { font-size: 16px; font-weight: 700; color: #1a1a2e; margin: 28px 0 12px; padding-bottom: 6px; border-bottom: 2px solid #e8f0fe; }
+  .meta { background: #fff; border-radius: 10px; padding: 22px 26px; margin-bottom: 24px; box-shadow: 0 2px 8px rgba(0,0,0,.08); }
+  .meta-date { font-size: 22px; font-weight: 700; color: #1a1a2e; margin-bottom: 4px; }
+  .meta-theme { font-size: 14px; color: #666; margin-bottom: 14px; }
+  .meta-row { font-size: 13px; color: #444; line-height: 1.7; margin-top: 4px; }
+  .meta-row .label { display: inline-block; min-width: 88px; font-weight: 600; color: #888; }
+  .meta-video { display: inline-block; margin-top: 10px; padding: 6px 12px; background: #e8f0fe; color: #1967d2; border-radius: 6px; font-size: 12px; text-decoration: none; }
+  .meta-video:hover { background: #d2e3fc; }
+  .body { background: #fff; border-radius: 10px; padding: 30px 34px; box-shadow: 0 2px 8px rgba(0,0,0,.08); line-height: 1.85; font-size: 14px; }
+  .body h2 { font-size: 17px; font-weight: 700; color: #1a1a2e; margin: 32px 0 14px; padding-bottom: 8px; border-bottom: 2px solid #e8f0fe; }
   .body h2:first-child { margin-top: 0; }
-  .body h3 { font-size: 14px; font-weight: 600; color: #333; margin: 18px 0 8px; }
-  .body p { margin: 6px 0; }
-  .body strong { color: #1a1a2e; }
-  .body br { display: block; margin: 4px 0; }
+  .body h3 { font-size: 14.5px; font-weight: 700; color: #2d3561; margin: 22px 0 10px; padding-left: 10px; border-left: 3px solid #fce8b2; }
+  .body p { margin: 8px 0; }
+  .body strong { color: #1a1a2e; background: linear-gradient(transparent 65%, #fce8b2 65%); padding: 0 2px; }
+  .body .speaker { font-weight: 700; color: #2d3561; margin-right: 4px; }
+  .words { background: #fff; border-radius: 10px; padding: 26px 30px; margin-top: 24px; box-shadow: 0 2px 8px rgba(0,0,0,.08); }
+  .words-title { font-size: 16px; font-weight: 700; color: #1a1a2e; margin-bottom: 16px; padding-bottom: 8px; border-bottom: 2px solid #fce8b2; }
+  .word-grid { display: flex; flex-wrap: wrap; gap: 12px; }
+  .word-card { background: #fffbf0; border: 1px solid #fce8b2; border-radius: 8px; padding: 14px 16px; flex: 1 1 calc(50% - 6px); min-width: 240px; }
+  .word-card .word { font-size: 14px; font-weight: 700; color: #1a1a2e; margin-bottom: 5px; }
+  .word-card .desc { font-size: 12px; color: #666; line-height: 1.6; }
 </style>
 </head>
 <body>
+
 <div id="lock-screen">
   <div class="lock-box">
     <h1>フィロソフィPJ</h1>
@@ -41,72 +54,88 @@
     <p class="error" id="pw-error">パスワードが違います</p>
   </div>
 </div>
+
 <div id="content">
-  <a class="back" href="./">← アーカイブ一覧</a>
+  <a class="back" href="./">← 一覧へ戻る</a>
   <div class="meta">
-    <div class="meta-date">2026.02.05 議事録</div>
-    <div class="meta-participants">参加者: 藤原社長、斎藤本部長、八木、大橋、野田、樫根、富安、藤原源誠、外川（つむぎ）、前田（つむぎ）、國光（つむぎ）</div>
+    <div class="meta-date">2026.02.05</div>
+    <div class="meta-theme">自分が源・天井を突き破ろう</div>
+        <div class="meta-row"><span class="label">コープ葬祭</span>藤原社長、斎藤本部長、八木氏、大橋氏、野田氏、樫根氏、富安氏（新規合流）</div>
+    <div class="meta-row"><span class="label">つむぎ株式会社</span>外川氏（ファシリテーター）、前田氏、國光氏（編集・初参加）</div>
+    <a class="meta-video" href="https://drive.google.com/file/d/1Ls-pE0DeBVzfAH0jHN3FUvkjRzyhOzVD/view" target="_blank">🎬 録画を見る</a>
   </div>
-  <div class="body"><p>フィロソフィ・プロジェクト 第3回ミーティング 詳細議事録</p>
-<p>日時: 2026年2月5日（木） 10:00〜 形式: オンライン 参加者:</p>
-<p>コープ葬祭: 藤原社長、斎藤本部長、八木氏、大橋氏、野田氏、樫根氏、富安氏（新規合流）</p>
-<p>つむぎ株式会社: 外川氏（ファシリテーター）、前田氏、國光氏（編集担当・初参加）</p>
-<br>
-<h3>1. オープニング・チェックイン</h3>
-<p>会議冒頭、新メンバーの紹介と、場を温めるためのチェックインが行われました。</p>
-<p>新メンバー紹介:</p>
-<p>富安氏（コープ葬祭）: 12月から研修に入り、経営企画部に正式配属。今回よりプロジェクトに合流。</p>
-<p>國光氏（つむぎ）: 編集・執筆担当。以前のインタビューでコープ葬祭の取り組みに感動し、今回担当として参加。</p>
-<p>チェックイン「最近のプチハッピー」:</p>
-<p>八木氏: 高い靴を買ったが、踵が腫れてまだ履けていない（嬉しさと悲しさがセット）。</p>
-<p>富安氏: 23年ぶりに幼馴染と再会し、連絡先を交換できた。</p>
-<p>斎藤氏: 部下との「PDCA面談」を始め、仕事の成果や成長が見え始め、手応えを感じていて楽しい。</p>
-<p>大橋氏: 「推し活」の対象が拡大。Adoプロデュースの「ファントムシータ」など、楽曲やライブそのものを楽しむ新たな発見があった。</p>
-<p>野田氏: 離れて暮らす同期と週1回ご飯に行けており、関係が続いていることが嬉しい。</p>
-<p>藤原社長: 銀行主催のセミナーで、尊敬する元造船会社の社長から「1人では嫌だから」とご指名を受け、パネルディスカッションに登壇。無事に役目を果たせた。</p>
-<p>樫根氏: プロのデザイナーがチームに加わったことで、ネガティブ思考な自分が「あれもできる、これもできる」と前向きな計画を立てられるようになった。</p>
-<br>
-<h3>2. フィロソフィ原案へのフィードバック</h3>
-<p>前回（1/21）の議論を踏まえ、つむぎ社が作成した「大善小善」と「自分が源」の定義文（叩き台）に対し、コープ葬祭メンバーから本質的な修正意見が出されました。</p>
-<p>テーマ①：大善小善（だいぜんしょうぜん）→【Visionに紐づく】</p>
-<p>提示された定義: 「小善」は空気を読んで飲み込むこと、「大善」は相手の成長のためにあえて伝えること。 議論・修正点:</p>
-<p>出発点の確認: 斎藤氏より、「相手のため」と言いつつ、自分の思い通りにしたいだけの「押し付け」になっていないか注意が必要との指摘がありました。大善の出発点は「相手を正しく理解すること」であるべきです。</p>
-<p>自分への問いかけ: 大橋氏より、伝える前に「それは本当に大善か？（自分の都合ではないか？）」と一歩立ち止まって自問自答するプロセスの重要性が語られました。</p>
-<p>結論: 文章の中に「相手の理解が出発点であること」や「押し付けになっていないか振り返るチェックポイント」を盛り込むことになりました。</p>
-<p>テーマ②：自分が源（じぶんがみなもと）→【Missionに紐づく】</p>
-<p>提示された定義: すべては自分から始まる。環境は自分の写し鏡。「自責」の発想を持つこと。 議論・修正点:</p>
-<p>「自責」への懸念: 藤原社長より、「自責」という言葉を使うと、真面目な社員が必要以上に自分を責めてしまい、苦しくなる（痛々しくなる）懸念があるため、この表現は削除したいとの要望がありました。</p>
-<p>「選択」への転換: 斎藤氏より、過去を悔やむのではなく、「その瞬間の行動（笑顔になるか、真顔でいるか等）を決めたのは自分である」という<strong>「選択（チョイス）」</strong>の概念を入れてほしいとの意見が出されました。</p>
-<p>前向きな解釈: 「自分が源」とは反省のためだけではなく、「場を良くするのも、関係性を良くするのも自分次第」という、未来に向けた主体的なスタンス（向き合い方）として再定義することになりました。</p>
-<p>テーマ③：経営理念（感謝・笑顔・幸福）の構造</p>
-<p>議論:</p>
-<p>自分事化: 斎藤氏より、理念を掲げているのが「会社」であり、「自分」と分断されている感覚があるとの指摘。「自分たちの集合体が会社である」という意識を持たせる表現が必要です。</p>
-<p>3段階の構造: 「感謝（起点）→笑顔→幸福」というサイクルについて、藤原社長は「感謝が起点であり、感謝がないと笑顔も幸福も生まれない」という構造を再確認しました。</p>
-<p>笑顔の不一致: 「感謝しています」と言いながら無表情な社員がいる現状（違和感）に対し、それを解決するための具体的な行動指針として、前述の「大善小善」や「自分が源」が機能するという、フィロソフィーブックの全体構造が確認されました。</p>
-<br>
-<h3>3. 現場の「違和感」の深掘り（宿題の共有）</h3>
-<p>理念と現場の行動のズレ（違和感）について、野田氏の事例を元に議論が行われました。</p>
-<p>事例：こだわりの欠如（「旅湯（たびゆ）」の提案）</p>
-<p>事象: オプション（旅湯）の提案において、スタッフが「あのお客様は（どうせ）やらないだろう」「あの人はああだから」と勝手に判断し、提案自体をしない、あるいは深掘りしないケースがあった。</p>
-<p>分析:</p>
-<p>こだわりの差: 藤原社長は、全員「お客様に良くしたい」とは思っているが、その「良くする」の基準（こだわり）が異なると指摘しました。</p>
-<p>天井（てんじょう）の概念: 八木氏より、仕事に勝手な<strong>「天井（ここまでで良いという限界）」</strong>を作っているのではないかとの指摘。「自分の天井」と「お客様の天井（期待）」は異なり、お客様の期待を超える（天井を突き破る）ことこそが仕事の質であるという意見が出されました。</p>
-<p>レンガ職人と大聖堂: 藤原社長より、有名な寓話を用いて、「自由にレンガを積んでいいよ（裁量）」と言っているが、全員が「大聖堂を作る（理念実現）」という共通の設計図を持っていなければ、歪な建物になってしまうという危機感が共有されました。</p>
-<p>視座の転換：内向きから外向きへ</p>
-<p>課題: 自分の価値観（内向き）だけで判断せず、いかに「お客様の価値観」「社会の価値観」（外向き）に目を向けられるかが鍵となります。</p>
-<p>変化のきっかけ:</p>
-<p>八木氏: クレームの多いスタッフと少ないスタッフを比較観察し、「得をする行動」を選んだ結果、視点が変わった。</p>
-<p>藤原社長: 元々「未来思考（バックキャスティング）」を持っており、30年後、50年後の未来から現在を見ることで、視座を高く保っている。</p>
-<br>
-<h3>4. 決定事項・次回アクション</h3>
-<p>フィロソフィ原案の修正: つむぎ社にて、本日の議論（自責→選択、相手理解の重視など）を反映し、文章をブラッシュアップする。</p>
-<p>違和感の言語化継続: 次回以降も、「違和感」の背景にある原因を突き詰め、それを解消するための行動指針（フィロソフィ）へと昇華させるプロセスを継続する。</p>
-<p>問いへの回答: 会議内で出た「なぜ、視座を高く持てないのか？」「きっかけは何か？」といった問いに対し、答えられるメンバーはスプレッドシートに追記する。</p>
-<p>次回予定: 引き続き、宿題（違和感・素晴らしい行動）をベースに議論を行う。</p></div>
+  <div class="body">
+    <p>フィロソフィ・プロジェクト 第3回ミーティング 詳細議事録</p>
+    <p>日時: 2026年2月5日（木） 10:00〜 形式: オンライン 参加者:</p>
+    <p>コープ葬祭: 藤原社長、斎藤本部長、八木氏、大橋氏、野田氏、樫根氏、富安氏（新規合流）</p>
+    <p>つむぎ株式会社: 外川氏（ファシリテーター）、前田氏、國光氏（編集担当・初参加）</p>
+    
+    <h2>1. オープニング・チェックイン</h2>
+    <p>会議冒頭、新メンバーの紹介と、場を温めるためのチェックインが行われました。</p>
+    <p>新メンバー紹介:</p>
+    <p><span class="speaker">富安氏（コープ葬祭）：</span>12月から研修に入り、経営企画部に正式配属。今回よりプロジェクトに合流。</p>
+    <p><span class="speaker">國光氏（つむぎ）：</span>編集・執筆担当。以前のインタビューでコープ葬祭の取り組みに感動し、今回担当として参加。</p>
+    <p>チェックイン「最近のプチハッピー」:</p>
+    <p><span class="speaker">八木氏：</span>高い靴を買ったが、踵が腫れてまだ履けていない（嬉しさと悲しさがセット）。</p>
+    <p><span class="speaker">富安氏：</span>23年ぶりに幼馴染と再会し、連絡先を交換できた。</p>
+    <p><span class="speaker">斎藤氏：</span>部下との「PDCA面談」を始め、仕事の成果や成長が見え始め、手応えを感じていて楽しい。</p>
+    <p><span class="speaker">大橋氏：</span>「推し活」の対象が拡大。Adoプロデュースの「ファントムシータ」など、楽曲やライブそのものを楽しむ新たな発見があった。</p>
+    <p><span class="speaker">野田氏：</span>離れて暮らす同期と週1回ご飯に行けており、関係が続いていることが嬉しい。</p>
+    <p><span class="speaker">藤原社長：</span>銀行主催のセミナーで、尊敬する元造船会社の社長から「1人では嫌だから」とご指名を受け、パネルディスカッションに登壇。無事に役目を果たせた。</p>
+    <p><span class="speaker">樫根氏：</span>プロのデザイナーがチームに加わったことで、ネガティブ思考な自分が「あれもできる、これもできる」と前向きな計画を立てられるようになった。</p>
+    
+    <h2>2. フィロソフィ原案へのフィードバック</h2>
+    <p>前回（1/21）の議論を踏まえ、つむぎ社が作成した「大善小善」と「自分が源」の定義文（叩き台）に対し、コープ葬祭メンバーから本質的な修正意見が出されました。</p>
+    <h3>テーマ①：大善小善（だいぜんしょうぜん）→【Visionに紐づく】</h3>
+    <p>提示された定義: 「小善」は空気を読んで飲み込むこと、「大善」は相手の成長のためにあえて伝えること。 議論・修正点:</p>
+    <p>出発点の確認: 斎藤氏より、「相手のため」と言いつつ、自分の思い通りにしたいだけの「押し付け」になっていないか注意が必要との指摘がありました。大善の出発点は「相手を正しく理解すること」であるべきです。</p>
+    <p>自分への問いかけ: 大橋氏より、伝える前に「それは本当に大善か？（自分の都合ではないか？）」と一歩立ち止まって自問自答するプロセスの重要性が語られました。</p>
+    <p>結論: 文章の中に「相手の理解が出発点であること」や「押し付けになっていないか振り返るチェックポイント」を盛り込むことになりました。</p>
+    <h3>テーマ②：自分が源（じぶんがみなもと）→【Missionに紐づく】</h3>
+    <p>提示された定義: すべては自分から始まる。環境は自分の写し鏡。「自責」の発想を持つこと。 議論・修正点:</p>
+    <p>「自責」への懸念: 藤原社長より、「自責」という言葉を使うと、真面目な社員が必要以上に自分を責めてしまい、苦しくなる（痛々しくなる）懸念があるため、この表現は削除したいとの要望がありました。</p>
+    <p>「選択」への転換: 斎藤氏より、過去を悔やむのではなく、「その瞬間の行動（笑顔になるか、真顔でいるか等）を決めたのは自分である」という<strong>「選択（チョイス）」</strong>の概念を入れてほしいとの意見が出されました。</p>
+    <p>前向きな解釈: 「自分が源」とは反省のためだけではなく、「場を良くするのも、関係性を良くするのも自分次第」という、未来に向けた主体的なスタンス（向き合い方）として再定義することになりました。</p>
+    <h3>テーマ③：経営理念（感謝・笑顔・幸福）の構造</h3>
+    <p>議論:</p>
+    <p>自分事化: 斎藤氏より、理念を掲げているのが「会社」であり、「自分」と分断されている感覚があるとの指摘。「自分たちの集合体が会社である」という意識を持たせる表現が必要です。</p>
+    <p>3段階の構造: 「感謝（起点）→笑顔→幸福」というサイクルについて、藤原社長は「感謝が起点であり、感謝がないと笑顔も幸福も生まれない」という構造を再確認しました。</p>
+    <p>笑顔の不一致: 「感謝しています」と言いながら無表情な社員がいる現状（違和感）に対し、それを解決するための具体的な行動指針として、前述の「大善小善」や「自分が源」が機能するという、フィロソフィーブックの全体構造が確認されました。</p>
+    
+    <h2>3. 現場の「違和感」の深掘り（宿題の共有）</h2>
+    <p>理念と現場の行動のズレ（違和感）について、野田氏の事例を元に議論が行われました。</p>
+    <p>事例：こだわりの欠如（「旅湯（たびゆ）」の提案）</p>
+    <p>事象: オプション（旅湯）の提案において、スタッフが「あのお客様は（どうせ）やらないだろう」「あの人はああだから」と勝手に判断し、提案自体をしない、あるいは深掘りしないケースがあった。</p>
+    <p>分析:</p>
+    <p>こだわりの差: 藤原社長は、全員「お客様に良くしたい」とは思っているが、その「良くする」の基準（こだわり）が異なると指摘しました。</p>
+    <p>天井（てんじょう）の概念: 八木氏より、仕事に勝手な<strong>「天井（ここまでで良いという限界）」</strong>を作っているのではないかとの指摘。「自分の天井」と「お客様の天井（期待）」は異なり、お客様の期待を超える（天井を突き破る）ことこそが仕事の質であるという意見が出されました。</p>
+    <p>レンガ職人と大聖堂: 藤原社長より、有名な寓話を用いて、「自由にレンガを積んでいいよ（裁量）」と言っているが、全員が「大聖堂を作る（理念実現）」という共通の設計図を持っていなければ、歪な建物になってしまうという危機感が共有されました。</p>
+    <p>視座の転換：内向きから外向きへ</p>
+    <p>課題: 自分の価値観（内向き）だけで判断せず、いかに「お客様の価値観」「社会の価値観」（外向き）に目を向けられるかが鍵となります。</p>
+    <p>変化のきっかけ:</p>
+    <p><span class="speaker">八木氏：</span>クレームの多いスタッフと少ないスタッフを比較観察し、「得をする行動」を選んだ結果、視点が変わった。</p>
+    <p><span class="speaker">藤原社長：</span>元々「未来思考（バックキャスティング）」を持っており、30年後、50年後の未来から現在を見ることで、視座を高く保っている。</p>
+    
+    <h2>4. 決定事項・次回アクション</h2>
+    <p>フィロソフィ原案の修正: つむぎ社にて、本日の議論（自責→選択、相手理解の重視など）を反映し、文章をブラッシュアップする。</p>
+    <p>違和感の言語化継続: 次回以降も、「違和感」の背景にある原因を突き詰め、それを解消するための行動指針（フィロソフィ）へと昇華させるプロセスを継続する。</p>
+    <p>問いへの回答: 会議内で出た「なぜ、視座を高く持てないのか？」「きっかけは何か？」といった問いに対し、答えられるメンバーはスプレッドシートに追記する。</p>
+    <p>次回予定: 引き続き、宿題（違和感・素晴らしい行動）をベースに議論を行う。</p>
+  </div>
+  <div class="words">
+    <div class="words-title">印象的なワード集</div>
+    <div class="word-grid">
+      <div class="word-card"><div class="word">「自分が源（じぶんがみなもと）」</div><div class="desc">すべては自分から始まる。場を良くするのも関係性を良くするのも自分次第。Missionに紐づく。</div></div>
+      <div class="word-card"><div class="word">「自責ではなく「選択（チョイス）」」</div><div class="desc">過去を悔やまず「その瞬間の行動を決めたのは自分」という未来志向のスタンス。</div></div>
+      <div class="word-card"><div class="word">「天井を突き破ろう」</div><div class="desc">仕事に勝手な「天井（限界）」を作らない。お客様の期待を超えることが仕事の質。</div></div>
+      <div class="word-card"><div class="word">「レンガ職人と大聖堂」</div><div class="desc">全員が共通の設計図（理念）を持たないと歪な建物になる。裁量と理念のバランス。</div></div>
+      <div class="word-card"><div class="word">「未来思考（バックキャスティング）」</div><div class="desc">30年後・50年後の未来から現在を見ることで視座を高く保つ。藤原社長の思考法。</div></div>
+    </div>
+  </div>
 </div>
 <script>
 const HASH = "752dfe406f06cfa9add2cf15e1d28bfcb3bb85219d96a721db349a3b1e1a315d";
-const KEY  = "philosophy_auth";
+const KEY = "philosophy_auth";
 async function sha256(str) {
   const buf = await crypto.subtle.digest("SHA-256", new TextEncoder().encode(str));
   return Array.from(new Uint8Array(buf)).map(b => b.toString(16).padStart(2,"0")).join("");
@@ -114,11 +143,21 @@ async function sha256(str) {
 async function checkPassword() {
   const pw = document.getElementById("pw-input").value;
   const hash = await sha256(pw);
-  if (hash === HASH) { sessionStorage.setItem(KEY, "1"); unlock(); }
-  else { document.getElementById("pw-error").style.display = "block"; document.getElementById("pw-input").value = ""; document.getElementById("pw-input").focus(); }
+  if (hash === HASH) {
+    sessionStorage.setItem(KEY, "1"); unlock();
+  } else {
+    document.getElementById("pw-error").style.display = "block";
+    document.getElementById("pw-input").value = "";
+    document.getElementById("pw-input").focus();
+  }
 }
-function unlock() { document.getElementById("lock-screen").style.display = "none"; document.getElementById("content").style.display = "block"; }
-document.getElementById("pw-input").addEventListener("keydown", e => { if (e.key === "Enter") checkPassword(); });
+function unlock() {
+  document.getElementById("lock-screen").style.display = "none";
+  document.getElementById("content").style.display = "block";
+}
+document.getElementById("pw-input").addEventListener("keydown", e => {
+  if (e.key === "Enter") checkPassword();
+});
 if (sessionStorage.getItem(KEY) === "1") unlock();
 </script>
 </body>

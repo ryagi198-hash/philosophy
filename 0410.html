@@ -17,27 +17,34 @@
   .lock-box button { width: 100%; padding: 12px; background: #1a1a2e; color: #fff; border: none; border-radius: 8px; font-size: 15px; cursor: pointer; }
   .lock-box button:hover { background: #2d3561; }
   .lock-box .error { color: #e74c3c; font-size: 13px; margin-top: 10px; display: none; }
-  #content { display: none; max-width: 800px; margin: 0 auto; padding: 32px 16px 64px; }
+
+  #content { display: none; max-width: 820px; margin: 0 auto; padding: 32px 16px 64px; }
   .back { display: inline-block; color: #1967d2; font-size: 14px; text-decoration: none; margin-bottom: 24px; }
   .back:hover { text-decoration: underline; }
-  .meta { background: #fff; border-radius: 10px; padding: 20px 24px; margin-bottom: 24px; box-shadow: 0 2px 8px rgba(0,0,0,.08); }
-  .meta-date { font-size: 20px; font-weight: 700; color: #1a1a2e; margin-bottom: 8px; }
-  .meta-participants { font-size: 13px; color: #666; line-height: 1.6; }
-  .body { background: #fff; border-radius: 10px; padding: 28px 32px; box-shadow: 0 2px 8px rgba(0,0,0,.08); line-height: 1.8; font-size: 14px; }
-  .body h2 { font-size: 16px; font-weight: 700; color: #1a1a2e; margin: 28px 0 12px; padding-bottom: 6px; border-bottom: 2px solid #e8f0fe; }
+  .meta { background: #fff; border-radius: 10px; padding: 22px 26px; margin-bottom: 24px; box-shadow: 0 2px 8px rgba(0,0,0,.08); }
+  .meta-date { font-size: 22px; font-weight: 700; color: #1a1a2e; margin-bottom: 4px; }
+  .meta-theme { font-size: 14px; color: #666; margin-bottom: 14px; }
+  .meta-row { font-size: 13px; color: #444; line-height: 1.7; margin-top: 4px; }
+  .meta-row .label { display: inline-block; min-width: 88px; font-weight: 600; color: #888; }
+  .meta-video { display: inline-block; margin-top: 10px; padding: 6px 12px; background: #e8f0fe; color: #1967d2; border-radius: 6px; font-size: 12px; text-decoration: none; }
+  .meta-video:hover { background: #d2e3fc; }
+  .body { background: #fff; border-radius: 10px; padding: 30px 34px; box-shadow: 0 2px 8px rgba(0,0,0,.08); line-height: 1.85; font-size: 14px; }
+  .body h2 { font-size: 17px; font-weight: 700; color: #1a1a2e; margin: 32px 0 14px; padding-bottom: 8px; border-bottom: 2px solid #e8f0fe; }
   .body h2:first-child { margin-top: 0; }
-  .body h3 { font-size: 14px; font-weight: 600; color: #2d3561; margin: 18px 0 8px; }
-  .body p { margin: 6px 0; }
-  .body strong { color: #1a1a2e; }
-  .words { background: #fff; border-radius: 10px; padding: 28px 32px; margin-top: 24px; box-shadow: 0 2px 8px rgba(0,0,0,.08); }
-  .words-title { font-size: 16px; font-weight: 700; color: #1a1a2e; margin-bottom: 16px; padding-bottom: 6px; border-bottom: 2px solid #fce8b2; }
+  .body h3 { font-size: 14.5px; font-weight: 700; color: #2d3561; margin: 22px 0 10px; padding-left: 10px; border-left: 3px solid #fce8b2; }
+  .body p { margin: 8px 0; }
+  .body strong { color: #1a1a2e; background: linear-gradient(transparent 65%, #fce8b2 65%); padding: 0 2px; }
+  .body .speaker { font-weight: 700; color: #2d3561; margin-right: 4px; }
+  .words { background: #fff; border-radius: 10px; padding: 26px 30px; margin-top: 24px; box-shadow: 0 2px 8px rgba(0,0,0,.08); }
+  .words-title { font-size: 16px; font-weight: 700; color: #1a1a2e; margin-bottom: 16px; padding-bottom: 8px; border-bottom: 2px solid #fce8b2; }
   .word-grid { display: flex; flex-wrap: wrap; gap: 12px; }
-  .word-card { background: #fffbf0; border: 1px solid #fce8b2; border-radius: 8px; padding: 14px 18px; flex: 1 1 calc(50% - 6px); min-width: 220px; }
+  .word-card { background: #fffbf0; border: 1px solid #fce8b2; border-radius: 8px; padding: 14px 16px; flex: 1 1 calc(50% - 6px); min-width: 240px; }
   .word-card .word { font-size: 14px; font-weight: 700; color: #1a1a2e; margin-bottom: 5px; }
   .word-card .desc { font-size: 12px; color: #666; line-height: 1.6; }
 </style>
 </head>
 <body>
+
 <div id="lock-screen">
   <div class="lock-box">
     <h1>フィロソフィPJ</h1>
@@ -47,88 +54,111 @@
     <p class="error" id="pw-error">パスワードが違います</p>
   </div>
 </div>
+
 <div id="content">
   <a class="back" href="./">← 一覧へ戻る</a>
   <div class="meta">
     <div class="meta-date">2026.04.10</div>
-    <div class="meta-participants">コープ葬祭: 藤原社長、斎藤本部長、八木氏、野田氏、樫根氏、大橋氏、富安氏<br>つむぎ株式会社: 外川氏（ファシリテーター）、前田氏、國光氏（アンナ）</div>
+    <div class="meta-theme">準備が9割と片付け得</div>
+        <div class="meta-row"><span class="label">コープ葬祭</span>藤原社長（遅れて参加）、斎藤本部長（遅れて参加）、八木氏、野田氏、樫根氏、大橋氏（遅れて参加）、富安氏</div>
+    <div class="meta-row"><span class="label">つむぎ株式会社</span>外川氏（ファシリテーター）、前田氏（遅れて参加）、國光氏（アンナ）</div>
+    <div class="meta-row"><span class="label">欠席</span>藤原源正氏</div>
+    <a class="meta-video" href="https://drive.google.com/file/d/1Bn2cqyhqZWWs8aR0JMTNSMUEE1jiuwoo/view" target="_blank">🎬 録画を見る</a>
   </div>
   <div class="body">
     <p>フィロソフィ・プロジェクト 第7回ミーティング 詳細議事録</p>
-    <p>日時: 2026年4月10日（金）形式: オンライン（Zoom）</p>
-    <p>欠席者: 藤原源正氏、大橋氏（後半より参加）</p>
+    <p>日時: 2026年4月10日</p>
+    <p>形式: オンライン（Zoom）</p>
+    <p>参加者:</p>
     
-    <h3>1. チェックイン：グッド＆ニュー（最近良かったこと・新しい発見）</h3>
-    <p>八木氏（AIによる業務の完全自動化）:</p>
-    <p>Claude Codeを導入し、動画編集・ラジオ編集・市場調査など、自身の業務の約8割を一気通貫で自動化することに成功しました。</p>
-    <p>富安氏（メディア掲載の反響）:</p>
-    <p>人形供養祭のプレスリリースが夕方のテレビニュースで取り上げられ、コールセンターへ問い合わせが来るなどの具体的な反響がありました。</p>
-    <p>野田氏（社外との良好な関係構築）:</p>
-    <p>福岡の業者の方と食事に行き、5月の呼び込み役について相談。非常に賑やかで楽しい会となりました。</p>
-    <p>樫根氏（視察企業の満足度向上）:</p>
-    <p>視察に来られた企業様に対し、オクリメシの説明や会館見学、藤原社長のエンゲージメント向上の講義などを提供し、大変喜んでお帰りいただきました。</p>
+    <p>コープ葬祭: 八木氏、野田氏、樫根氏、大橋氏（遅れて参加）、富安氏、藤原社長（遅れて参加）、斎藤本部長（遅れて参加）</p>
+    <p>つむぎ株式会社: 外川氏（ファシリテーター）、前田氏（遅れて参加）、國光氏（アンナ）</p>
+    <p>欠席者: 藤原源正氏</p>
     
-    <h3>2. 議題①：「準備が9割」と想定意識（八木氏）</h3>
+    <h2>1. オープニング・チェックイン</h2>
+    <p>テーマ：「グッド＆ニュー（最近良かったこと・新しい発見）」</p>
+    <p>会議の冒頭、外川氏の進行により、各メンバーから直近のポジティブな出来事がシェアされました。</p>
+    
+    <p><span class="speaker">八木氏（AIによる業務の完全自動化）：</span>Claude Codeを導入し、粘り強くシステム構築を行った結果、動画編集・ラジオ編集・市場調査など、自身の業務の約8割を一気通貫で自動化することに成功しました。</p>
+    <p><span class="speaker">富安氏（メディア掲載の反響）：</span>前回シェアした人形供養祭のプレスリリースがきっかけで夕方のテレビニュースで取り上げられ、実際にコールセンターへ問い合わせが来るなどの具体的な反響・効果がありました。</p>
+    <p><span class="speaker">野田氏（社外との良好な関係構築）：</span>福岡の業者の方と食事に行き、5月の呼び込み役について相談。非常に賑やかで楽しい会となり、良い関係構築ができました。</p>
+    <p><span class="speaker">樫根氏（視察企業の満足度向上）：</span>視察に来られた企業様に対し、オクリメシの説明や会館見学、藤原社長によるエンゲージメント向上の講義などを提供し、大変喜んでお帰りいただきました。</p>
+    <p><span class="speaker">國光氏（アンナ・海と野菜の研究）：</span>引っ越し先の家から海が近く、晴れた日に海を見るのが癒やしになっています。また、近所の農家さんが直売している野菜を研究する日々を楽しんでいます。</p>
+    
+    <h2>2. 議題①：「準備が9割」と想定意識（八木氏）</h2>
     <p>八木氏より、仕事が後手に回りがちな状況に対する違和感として、「準備が9割」というスタンスの重要性が提示されました。</p>
     
-    <h2>【違和感と課題の共有】</h2>
-    <p>八木氏のスタンス: 現職の動画カメラマンとしての経験から、数歩先・数十歩先を想定して9割の準備をしておくことが基本。しかし社内では「想定意識」が低く、準備不足のまま現場に向かう人がいることに違和感を感じている。</p>
-    <p>富安氏の自己分析: 「どうせ自分には分からない」と他力本願になりがちだったが、先輩から「臆病なくらいでちょうどいい」とアドバイスを受け、不安要素を一つずつ潰す意識を持つようになった。</p>
-    <p>樫根氏の自己分析: 「これくらいで伝わっているだろう」と思い込んで迷惑をかけてしまうことがある。</p>
+    <h3>【違和感と課題の共有】</h3>
+    <p>八木氏のスタンス: 現職の動画カメラマンとしての経験や、過去のメディア業務の経験から、数歩先・数十歩先を段階的に想像し、「何が起こるか（リスク）」を事前に想定して9割（あるいは9割5分）の準備をしておくことが基本。しかし、社内ではその「想定意識」が低く、パニックになったり、準備不足のまま現場に向かう人がいることに違和感を感じている。</p>
+    <p>富安氏の自己分析: 自身は想定意識が弱く、その場になって焦るタイプ。「どうせ自分には分からない」と他力本願になりがちだった。しかし、先輩から「臆病なくらいでちょうどいい」とアドバイスを受け、不安要素を一つずつ潰す意識を持つようになった。</p>
+    <p>樫根氏の自己分析: 自身も想定が甘く、雑な部分があるため「これくらいで伝わっているだろう」と思い込んで迷惑をかけてしまうことがある。</p>
     
-    <h2>【準備不足の原因：「無駄な自信」と「昭和OS」】</h2>
-    <p>八木氏の指摘: 準備ができない人の特徴は「<strong>無駄に自信を持っている人</strong>」。自分は「人間として欠落している」という強烈な自覚があるからこそ、完璧な準備をする。</p>
-    <p><strong>ダグラス・アダムスの法則</strong>: 35歳以上の人が新しいツール（AIなど）に拒否反応を示すのは人間の本能（<strong>昭和OS</strong>）。それを踏まえた上で「周りに迷惑をかけない方法」をどう取るかが重要。</p>
+    <h3>【準備不足の原因：「無駄な自信」と「昭和OS」】</h3>
+    <p>八木氏の指摘: 準備ができない人の特徴は「無駄に自信を持っている人」。自分は「人間として欠落している（寝坊癖があった等）」という強烈な自覚と反省があるからこそ、人に迷惑をかけないために完璧な準備をする。適当にやっても何とかなると思っている人は準備ができない。</p>
+    <p>ダグラス・アダムスの法則: 35歳以上の人が新しいツール（AIなど）に拒否反応を示すのは人間の本能（昭和OS）。それを無理に克服させるのではなく、それを踏まえた上で「周りに迷惑をかけない方法」をどう取るかが重要。</p>
     
-    <h2>【コープ葬祭における「準備」の定義】</h2>
+    <h3>【コープ葬祭における「準備」の定義】</h3>
+    <p>議論を通じて、コープ葬祭における「準備」とは単なる物理的な段取りだけでなく、以下の要素を含むことが確認されました。</p>
+    
     <p>想像（想定）すること: リスクを洗い出し、成功のイメージを持つ。</p>
-    <p>関わる人との対話・共有: 1ミリでも関わる可能性がある人を巻き込み、情報共有しておくこと。</p>
+    <p>関わる人との対話・共有: 1ミリでも関わる可能性がある人を巻き込み、いざという時に困らないよう情報共有しておくこと。</p>
     
-    <h2>【藤原社長の警鐘：失敗を許容する文化の副作用】</h2>
-    <p>違和感に気づけない＝準備不足: 準備段階でシミュレーションが完璧にできていれば、現場で「あれ？おかしいぞ」という違和感にすぐ気づける。それに気づけないのは準備を怠っているから。</p>
-    <p><strong>「仕事を舐めるな」</strong>: コープ葬祭の「失敗してもいい」という文化が「準備不足で失敗しても謝れば許される」という甘えを生んでいないか危惧している。このメッセージもフィロソフィに含めるべきである。</p>
-    <p>残りの1〜2割: 9割の完璧な準備をしておくからこそ、残りの「想定外」に臨機応変に対応できる。</p>
+    <h3>【藤原社長の警鐘：失敗を許容する文化の副作用】</h3>
+    <p>遅れて参加した藤原社長から、本質的な指摘がありました。</p>
     
-    <h3>3. 議題②：共用場所の掃除と「自分ごと化」（樫根氏）</h3>
-    <p>樫根氏より、「キッチンのゴミ捨てなど、決まった人しかやらず、他の人は見て見ぬふりをする」という違和感が提示されました。</p>
+    <p>違和感に気づけない＝準備不足: 準備段階でシミュレーションが完璧にできていれば、現場で「あれ？おかしいぞ」という違和感にすぐに気づける。それに気づけないのは準備を怠っているからである。</p>
+    <p>「甘え」への警鐘: コープ葬祭の「失敗してもいい、挑戦しよう」という心理的安全性の高い文化が誤解され、「準備不足で失敗しても謝れば許される」という甘えを生んでいないか危惧している。「仕事を舐めるな」という厳しいメッセージもフィロソフィに含めるべきである。</p>
+    <p>残りの1〜2割（想定外への対応）: 8割〜9割の完璧な準備をしておくからこそ、残りの1〜2割で起こる「想定外のアクシデント」に対して、臨機応変かつ柔軟に対応できる（野田氏・富安氏・八木氏の共通見解）。</p>
     
-    <h2>【自分ごと化の欠如と視野の狭窄】</h2>
-    <p>富安氏の変化: 新入社員で仕事がなかった頃は「家を守る妖精」のつもりで雑務を率先してやっていた。しかし部署が決まり目の前の業務に追われると、視野が狭くなり「自分とは別の仕事」になってしまった。</p>
-    <p>野田氏の反省: 「手伝いましょうか？」と声はかけていたが、本当に自分ごとになっていれば「やります」と自ら動くべきだった。</p>
+    <h2>3. 議題②：共用場所の掃除と「自分ごと化」（樫根氏）</h2>
+    <p>樫根氏より、「キッチンのゴミ捨てなど、誰かがやらなければならないことを、決まった人しかやらず、他の人は見て見ぬふりをする」という違和感が提示されました。</p>
     
-    <h2>【忙しい時に視野を広げる方法】</h2>
-    <p>八木氏（俯瞰力）: サッカーの司令塔のように、常に全体を<strong>ルックアップ（俯瞰）</strong>し、他人の動きやトラブルの火種を察知する。</p>
-    <p>野田氏（人を見る）: 「あの人が今何をしていて、何が大変そうか」と特定の「人」にフォーカスする。</p>
-    <p>富安氏（即相談）: 5分悩んでダメならすぐに先輩に相談する。</p>
+    <h3>【自分ごと化の欠如と視野の狭窄】</h3>
+    <p>樫根氏の気づき: ゴミ捨てに限らず、現場から帰ってきたディレクターの片付けを手伝わないなど、自分自身も「自分の担当業務ではないから関係ない」と見て見ぬふりをしていたことに気づき、反省した。</p>
+    <p>野田氏の反省: 忙しいスタッフに「手伝いましょうか？」と声はかけていたが、本当に自分ごとになっていれば、聞くのではなく「やります（手伝います）」と自ら動くべきだった。</p>
+    <p>富安氏の変化: 新入社員で仕事がなかった頃は「家を守る妖精」のつもりで、誰も気づかない雑務を率先してやっていた（会社全体が自分の家・自分ごとだった）。しかし、部署が決まり目の前の業務に追われると、視野が狭くなり、他の仕事が「自分とは別の仕事」になってしまった。</p>
     
-    <h2>【「お節介」と「自分ごと」の境目 ＝ 片付け得（とく）】</h2>
-    <p>藤原社長の結論:</p>
-    <p>共用部分の掃除や、誰かがやっていないことに気づいて自ら動くことは、「誰かのためにやってあげる（犠牲）」ではなく、<strong>「自分の心を磨く行為」</strong>である。</p>
-    <p>気づいて行動した人は、結果的に自分の心が磨かれ<strong>「得（とく）」</strong>をする。</p>
-    <p>ゴミに気づいているのに見て見ぬふりをする人は<strong>「損をしている（もったいない）」</strong>。</p>
+    <h3>【忙しい時に視野を広げる方法】</h3>
+    <p><span class="speaker">八木氏（俯瞰力）：</span>サッカーの司令塔のように、常に全体を俯瞰（ルックアップ）し、他人の動きやトラブルの火種を察知する癖をつける。</p>
+    <p><span class="speaker">野田氏（人を見る）：</span>全体を見るのが苦手でも、「あの人が今何をしていて、何が大変そうか」と特定の「人」にフォーカスすることで手助けのポイントを見つける。</p>
+    <p><span class="speaker">富安氏（即相談）：</span>一人で抱え込んで視野が狭くなったら、5分悩んでダメならすぐに先輩に相談する。</p>
     
-    <p><strong>「片付け得」</strong> ――「〜せねばならない」ではなく「自分が得するからやる」というポジティブなマインド転換が、コープ葬祭における「自分ごと化」の新たな共通言語として合意されました。</p>
+    <h3>【「お節介」と「自分ごと」の境目 ＝ 片付け得（とく）】</h3>
+    <p>前田氏の問い: 自分の業務外に手を出して「手伝うよ」と踏み込むことは、一歩間違えれば「お節介」になる。その境目は何か？</p>
+    <p>藤原社長の結論（心磨きと損得）:</p>
+    <p>共用部分の掃除や、誰かがやっていないことに気づいて自ら動くことは、「誰かのためにやってあげる（犠牲・ねばならない）」ではなく、<strong>「自分の心を磨く行為」</strong>である。</p>
+    <p>誰かにやってもらうのが当たり前になっている自分に気づき、自ら動く。</p>
+    <p>片付けや掃除に気づいて行動した人は、結果的に自分の心が磨かれ「得」をする。</p>
+    <p>逆に、ゴミに気づいているのに見て見ぬふりをする人は<strong>「損をしている（もったいない）」</strong>状態である。</p>
     
-    <h3>4. 次回へのアクション</h3>
-    <p>ツムギ側でフィロソフィーブックに掲載する文章のドラフト作成・更新を進める。</p>
-    <p>コープ葬祭メンバーは、作成されたドラフト（スプレッドシート）を事前に確認し、フィードバックを行う。</p>
+    <p><strong>「〜せねばならない」ではなく、「自分が得するからやる（片付け得）」「気づいて行動しないのは損している」</strong>というポジティブなマインド転換が、コープ葬祭における「自分ごと化」の新たな共通言語として合意されました。</p>
+    
+    <h2>4. 次回へのアクション</h2>
+    <p>フィロソフィーブックのテキスト化:</p>
+    <p>今回までの議論（準備の8〜9割の意味、失敗への甘えの払拭、自分ごと化＝片付け得など）を踏まえ、ツムギ側でフィロソフィーブックに掲載する文章のドラフト作成・更新を進める。</p>
+    <p>社内でのすり合わせ:</p>
+    <p>コープ葬祭メンバーは、作成されたドラフト（スプレッドシート）を事前に確認し、社内のニュアンスとズレがないかコメント等でフィードバックを行う。</p>
+    <p>次回の会議:</p>
+    <p>テキストの表現確認を行いつつ、引き続き残りのキーワードや「違和感」に関するディスカッションを進める。</p>
+    
+    <p>（※会議終了後、八木氏と外川氏の間で、社内のコミュニケーションツールをGoogle Chatへ完全移行することに伴う、外部パートナーとのアカウント集約に関する実務的な相談が行われました。）</p>
   </div>
   <div class="words">
     <div class="words-title">印象的なワード集</div>
     <div class="word-grid">
-      <div class="word-card"><div class="word">「準備が9割（あるいは9割5分）」</div><div class="desc">数歩先・数十歩先を段階的に想定し切ること。残り1〜2割の「想定外」に臨機応変に対応するための土台。</div></div>
-<div class="word-card"><div class="word">「無駄な自信」</div><div class="desc">準備ができない人の本質的な特徴。自分の欠落への強い自覚こそが、完璧な準備への原動力になる。</div></div>
-<div class="word-card"><div class="word">「昭和OS」</div><div class="desc">35歳以上が新しいツールに拒否反応を示す人間の本能。克服するのではなく、踏まえた上で「周りへの迷惑」を最小化する。</div></div>
-<div class="word-card"><div class="word">「仕事を舐めるな」</div><div class="desc">「失敗してもいい文化」が甘えを生む危険性への藤原社長の警鐘。フィロソフィに含めるべき厳しさ。</div></div>
-<div class="word-card"><div class="word">「片付け得（とく）」</div><div class="desc">掃除や気づきは「誰かのため」ではなく「自分の心を磨く行為」。気づいて動かないことが「損」、動くことが「得」。</div></div>
-<div class="word-card"><div class="word">「ルックアップ（俯瞰）」</div><div class="desc">サッカーの司令塔のように全体を見渡す意識。忙しい時こそ自分の担当外の「火種」を察知する。</div></div>
-<div class="word-card"><div class="word">「自分ごと化」</div><div class="desc">担当業務の枠を超え、会社全体を「自分の家」として捉える視点。富安氏が新入社員時代に体現していた姿勢。</div></div>
+      <div class="word-card"><div class="word">「準備が9割（あるいは9割5分）」</div><div class="desc">数歩先・数十歩先を段階的に想定し切る。残り1〜2割の「想定外」に臨機応変に対応するための土台。</div></div>
+      <div class="word-card"><div class="word">「無駄な自信」</div><div class="desc">準備ができない人の本質。自分の欠落への強い自覚こそが完璧な準備への原動力になる。</div></div>
+      <div class="word-card"><div class="word">「昭和OS」</div><div class="desc">35歳以上が新ツールに拒否反応を示す人間の本能。克服でなく踏まえた上で迷惑最小化。</div></div>
+      <div class="word-card"><div class="word">「仕事を舐めるな」</div><div class="desc">「失敗してもいい文化」が甘えを生む危険性への藤原社長の警鐘。フィロソフィに含めるべき厳しさ。</div></div>
+      <div class="word-card"><div class="word">「片付け得（とく）」</div><div class="desc">掃除や気づきは「誰かのため」ではなく「自分の心を磨く行為」。動かないのが損、動くのが得。</div></div>
+      <div class="word-card"><div class="word">「ルックアップ（俯瞰）」</div><div class="desc">サッカーの司令塔のように全体を見渡す意識。担当外の「火種」を察知する。</div></div>
+      <div class="word-card"><div class="word">「家を守る妖精」</div><div class="desc">富安氏が新入社員時代に体現していた姿勢。会社全体を「自分の家」として捉える視点。</div></div>
     </div>
   </div>
 </div>
 <script>
 const HASH = "752dfe406f06cfa9add2cf15e1d28bfcb3bb85219d96a721db349a3b1e1a315d";
-const KEY  = "philosophy_auth";
+const KEY = "philosophy_auth";
 async function sha256(str) {
   const buf = await crypto.subtle.digest("SHA-256", new TextEncoder().encode(str));
   return Array.from(new Uint8Array(buf)).map(b => b.toString(16).padStart(2,"0")).join("");
@@ -137,8 +167,7 @@ async function checkPassword() {
   const pw = document.getElementById("pw-input").value;
   const hash = await sha256(pw);
   if (hash === HASH) {
-    sessionStorage.setItem(KEY, "1");
-    unlock();
+    sessionStorage.setItem(KEY, "1"); unlock();
   } else {
     document.getElementById("pw-error").style.display = "block";
     document.getElementById("pw-input").value = "";
