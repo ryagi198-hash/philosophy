@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>フィロソフィPJ 議事録 2026.05.22</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans", sans-serif; background: #f5f5f5; color: #333; }
+  #lock-screen { position: fixed; inset: 0; background: #231815; display: flex; align-items: center; justify-content: center; z-index: 9999; }
+  .lock-box { background: #fff; border-radius: 12px; padding: 40px 36px; width: 320px; text-align: center; box-shadow: 0 8px 32px rgba(0,0,0,.3); }
+  .lock-box h1 { font-size: 18px; margin-bottom: 8px; color: #231815; }
+  .lock-box p { font-size: 13px; color: #888; margin-bottom: 24px; }
+  .lock-box input { width: 100%; padding: 12px 14px; border: 1px solid #ddd; border-radius: 8px; font-size: 15px; margin-bottom: 12px; outline: none; }
+  .lock-box input:focus { border-color: #A03E63; }
+  .lock-box button { width: 100%; padding: 12px; background: #231815; color: #fff; border: none; border-radius: 8px; font-size: 15px; cursor: pointer; }
+  .lock-box button:hover { background: #A03E63; }
+  .lock-box .error { color: #e74c3c; font-size: 13px; margin-top: 10px; display: none; }
+
+  #content { display: none; max-width: 820px; margin: 0 auto; padding: 32px 16px 64px; }
+  .back { display: inline-block; color: #A03E63; font-size: 14px; text-decoration: none; margin-bottom: 24px; }
+  .back:hover { text-decoration: underline; }
+  .meta { background: #fff; border-radius: 10px; padding: 22px 26px; margin-bottom: 24px; box-shadow: 0 2px 8px rgba(0,0,0,.08); }
+  .meta-date { font-size: 22px; font-weight: 700; color: #231815; margin-bottom: 4px; }
+  .meta-num { display: inline-block; background: #231815; color: #fff; font-size: 13px; padding: 2px 10px; border-radius: 12px; vertical-align: middle; margin-right: 6px; }
+  .meta-theme { font-size: 14px; color: #666; margin-bottom: 14px; }
+  .meta-row { font-size: 13px; color: #444; line-height: 1.7; margin-top: 4px; }
+  .meta-row .label { display: inline-block; min-width: 88px; font-weight: 600; color: #888; }
+  .meta-video { display: inline-block; margin-top: 10px; padding: 6px 12px; background: #FEF0F4; color: #A03E63; border-radius: 6px; font-size: 12px; text-decoration: none; }
+  .meta-video:hover { background: #FAD7E2; }
+  .body { background: #fff; border-radius: 10px; padding: 30px 34px; box-shadow: 0 2px 8px rgba(0,0,0,.08); line-height: 1.85; font-size: 14px; }
+  .body h2 { font-size: 17px; font-weight: 700; color: #231815; margin: 32px 0 14px; padding-bottom: 8px; border-bottom: 2px solid #FEF0F4; }
+  .body h2:first-child { margin-top: 0; }
+  .body h3 { font-size: 14.5px; font-weight: 700; color: #A03E63; margin: 22px 0 10px; padding-left: 10px; border-left: 3px solid #EDDBE2; }
+  .body p { margin: 8px 0; }
+  .body strong { color: #231815; background: linear-gradient(transparent 65%, #EDDBE2 65%); padding: 0 2px; }
+  .body .speaker { font-weight: 700; color: #A03E63; margin-right: 4px; }
+  .words { background: #fff; border-radius: 10px; padding: 26px 30px; margin-top: 24px; box-shadow: 0 2px 8px rgba(0,0,0,.08); }
+  .words-title { font-size: 16px; font-weight: 700; color: #231815; margin-bottom: 16px; padding-bottom: 8px; border-bottom: 2px solid #EDDBE2; }
+  .word-grid { display: flex; flex-wrap: wrap; gap: 12px; }
+  .word-card { background: #FEF7FA; border: 1px solid #EDDBE2; border-radius: 8px; padding: 14px 16px; flex: 1 1 calc(50% - 6px); min-width: 240px; }
+  .word-card .word { font-size: 14px; font-weight: 700; color: #231815; margin-bottom: 5px; }
+  .word-card .desc { font-size: 12px; color: #666; line-height: 1.6; }
+</style>
+</head>
+<body>
+
+<div id="lock-screen">
+  <div class="lock-box">
+    <h1>フィロソフィPJ</h1>
+    <p>パスワードを入力してください</p>
+    <input type="password" id="pw-input" placeholder="パスワード" autocomplete="current-password">
+    <button onclick="checkPassword()">開く</button>
+    <p class="error" id="pw-error">パスワードが違います</p>
+  </div>
+</div>
+
+<div id="content">
+  <a class="back" href="./">← 一覧へ戻る</a>
+  <div class="meta">
+    <div class="meta-date"><span class="meta-num">第10回</span> 2026.05.22</div>
+    <div class="meta-theme">会社が好きな理由／辞書としてのフィロソフィーブック</div>
+        <div class="meta-row"><span class="label">コープ葬祭</span>藤原社長、斎藤本部長、八木氏、野田氏、大橋氏、富安氏</div>
+    <div class="meta-row"><span class="label">つむぎ株式会社</span>外川氏（ファシリテーター）、アンナ氏（國光氏）、前田氏（遅れて参加）</div>
+    <div class="meta-row"><span class="label">欠席</span>樫根氏（社外業務）</div>
+  </div>
+  <div class="body">
+    <p>形式: オンライン（Zoom）</p>
+    <p>参加者: コープ葬祭: 藤原社長、斎藤本部長、八木氏、野田氏、大橋氏、富安氏</p>
+    <p>つむぎ株式会社: 外川氏（ファシリテーター）、アンナ氏（國光氏）、前田氏（遅れて参加）</p>
+    <p>欠席者: 樫根氏（社外業務のため）</p>
+    
+    <h2>1. オープニング・チェックイン</h2>
+    <p>テーマ：「今年に入って感じる自分の成長」</p>
+    
+    <p>会議の冒頭、今年前半を振り返り、それぞれの小さな成長や変化がシェアされました。</p>
+    
+    <p><span class="speaker">斎藤本部長：</span>教育のスケジュールを計画的に組めるようになり、中間層への教育もリンクさせて全体で共有できるようになった。（また、体重が1.5kg成長したというユーモアも交えられました）</p>
+    <p><span class="speaker">野田氏：</span>体調管理の重要性に気づき、偏った食生活を見直して、ママさんバレーに参加するなど運動習慣を身につけるようになった。</p>
+    <p><span class="speaker">富安氏：</span>入社から1年が経ち、先輩の導きだけでなく、1人で最初から最後まで完結できる仕事が増えてきた。</p>
+    <p><span class="speaker">藤原社長：</span>「ジョハリの窓」の他人が知っている自分を受け入れられるようになった。多くの人から「不思議ちゃん」「ふわふわしている」と言われる事実を、ついに認めることができた。</p>
+    <p><span class="speaker">八木氏：</span>毎週のように仕事のやり方をアップデートし、タスクをまとめるポータルサイトを構築するなど、限界を突破しながらシステム化を進めている。</p>
+    <p><span class="speaker">大橋氏：</span>休みの前の日をジムに行く日と決めることで、定期的に通う習慣化に成功した。</p>
+    <p><span class="speaker">アンナ氏：</span>つむぎ社内で自分の思いを話す機会が増え、どう話せば伝わるかを常に考えるようになった。</p>
+    
+    <h2>2. フィロソフィーブックの構成と今後の進め方について</h2>
+    
+    <p>外川氏より、エピソードの議論は今回で区切りとなり、次回以降はデザインや構成のフェーズに入っていく旨が共有されました。それに対し、コープ葬祭側から強い要望が提示されました。</p>
+    
+    <p>藤原社長・斎藤本部長からの要望: 現在の「大善小善」や「自分が源」といった少数の項目に集約する形だけではなく、これまでの議論で出た数多くのコープ葬祭らしい言葉（「枠を超える」「天井を突き破る」「ペイフォワード」「チューニング」など）を置いていきたくない。困った時に開けばわかる<strong>「辞書」や「教科書」のように、自社の言語がたくさん載っているもの</strong>にしたい。</p>
+    <p>今後の対応: 外川氏より、既存の要素を統合するだけでなく、これまでの言葉を活かしながら「今後どうありたいか」を含めた目次や構成案を再考し、次回改めて提案・協議することが決定しました。</p>
+    
+    <h2>3. ディスカッション①：いい意味で地方っぽくない・会社が好きな理由</h2>
+    
+    <p>八木氏と斎藤氏が挙げた「素晴らしい行動・発言」の要素から、コープ葬祭の組織風土について深掘りされました。</p>
+    
+    <h3>【八木氏：いい意味で地方っぽくない、良いマインド】</h3>
+    <p>背景: 地方でありながら、横の連携や環境整備などに全社で前向きに取り組んでおり、どんよりしていない。</p>
+    <p>組織の変化の軌跡（藤原社長）: かつては高齢化し、挨拶もない暗い組織だったが、2017年の経営計画発表会の導入などを機に、挨拶、制服、壁を壊すといった<strong>「小さな変化の積み重ね」</strong>を続けてきた。それが「居場所づくり」と「プロ意識の育成」、そして「日本人の大事な心（文化）を次世代へ継承する」という今の組織に繋がっている。</p>
+    <p>目指す組織像: 藤原社長は<strong>「権力者がいない組織」</strong>を目指している。先導者や決定者はいるが、一人ひとりが自分の夢を叶える決定者になってほしいと語りました。斎藤本部長も、「社長は嫌なことを引きずらずフラットで、いい意味で距離がない」と証言しました。</p>
+    
+    <h3>【斎藤氏：社員みんなが会社を好きであること】</h3>
+    <p>外部の研修先で「コープ葬祭の社員さんはみんな会社が好きですね」と褒められることが多いというエピソードから、各メンバーが会社を好きな理由が語られました。</p>
+    <p><span class="speaker">富安氏：</span>先輩方が自信を持って会社の良いところを教えてくれるので、一員になれている自分が好きになり、会社もさらに好きになる。</p>
+    <p><span class="speaker">大橋氏：</span>人を傷つけない優しさ（心理的安全性）が根底にあり、それが未来を見据えた厳しさへと進化しているから。</p>
+    <p><span class="speaker">野田氏：</span>福祉のように自己犠牲で支援するのではなく、「自らが豊かだからこそ他者を豊かにできる」というエネルギーがある。また、不満が出ても「言えば変わる」と会社に期待している空気があるから。</p>
+    <p><span class="speaker">八木氏：</span>居心地が良く、予想を裏切られる（ポジティブに物事が進む）瞬間があるから。</p>
+    
+    <h2>4. ディスカッション②：育成と「何のために」の共有</h2>
+    
+    <p>野田氏が挙げた「多忙でも解決策だけでなく、考え方や方向性を教えてくれる先輩の存在」を起点に、育成のあり方が議論されました。</p>
+    
+    <p>コープ葬祭の育成の目的（藤原社長）: 技術的育成の前に、まずは大善や素直さといった「人間的育成（土台作り）」がある。目指すのは、<strong>ペイフォワード（感謝の循環）の起点となり、地域や社会に貢献できる人材</strong>を育てること。</p>
+    <p>教える側の課題と「目的」の共有（八木氏）: 最近のマニュアル作成の事例で、教える側と教わる側で「何のためのマニュアルか（目的）」の認識に揺れが生じ、議論が複雑化してしまった。「シンプルに本質（軸）を提示し、逆算して教えていく」ことの重要性が指摘されました。</p>
+    
+    <h2>5. ディスカッション③：会社が求めていることを知りたい（目的意識）</h2>
+    
+    <p>大橋氏が挙げた「会社の求めていることを知りたい」という社員の姿勢から、目的意識の持ち方について議論されました。</p>
+    
+    <p>フワフワしてしまう悩み: 大橋氏や富安氏から、抽象的な目的をどう自分の業務に落とし込めばいいか分からず、フワフワしてしまう、目的意識がまだ持てていないという自己評価が語られました。</p>
+    <p>先輩からのアドバイス: 八木氏: 経験が浅い段階では、成果だけでなく「人間的成長」というフェーズの目的を持てば良い。</p>
+    <p><span class="speaker">斎藤本部長：</span>壮大なビジョンに縛られず、「周りが楽しそうに働き、自分も楽しくなること」といった身近な目的から始めるので十分。</p>
+    <p><span class="speaker">藤原社長：</span>「この仕事は何のためにやっているのか」という目の前の目的に集中することが大事。</p>
+    
+    <h2>6. チェックアウト・総括</h2>
+    
+    <p>最後に、本日のミーティングの感想が共有されました。</p>
+    
+    <p><span class="speaker">富安氏：</span>自分がまだまだだと卑下してしまったが、これを成長のチャンスと捉えて前向きに頑張りたい。</p>
+    <p><span class="speaker">八木氏：</span>AIに頼らず、人間同士で思考の整理ができるこの時間は非常に重要でありがたい。</p>
+    <p><span class="speaker">野田氏：</span>話すことで輪郭がはっきりした。自分が楽しんで働くことで、学生にも面白い会社だと伝えていきたい。</p>
+    <p><span class="speaker">大橋氏：</span>「～したい」と未来を描ける場所を、自分の居場所にしていきたい。</p>
+    <p><span class="speaker">斎藤本部長：</span>社員同士で「それってどういうこと？」と話し合い、理解を深める時間を社内の教育でも取り入れていきたい。</p>
+    <p><span class="speaker">藤原社長：</span>不平不満や自分への卑下（課題）は、<strong>「会社や自分に対する期待の裏返し」</strong>である。その期待があるからこそチャレンジできるので、課題を見つけることは素晴らしいことであると総括されました。</p>
+    
+  </div>
+  <div class="words">
+    <div class="words-title">印象的なワード集</div>
+    <div class="word-grid">
+      <div class="word-card"><div class="word">「辞書／教科書としてのフィロソフィーブック」</div><div class="desc">集約された少数項目だけでなく、これまでの議論で生まれた数多くの言葉（枠を超える・天井を突き破る・ペイフォワード・チューニング等）を載せたい。藤原社長・斎藤本部長の強い要望。</div></div>
+      <div class="word-card"><div class="word">「権力者がいない組織」</div><div class="desc">藤原社長が目指す組織像。先導者・決定者はいても、一人ひとりが「自分の夢を叶える決定者」になる。</div></div>
+      <div class="word-card"><div class="word">「小さな変化の積み重ね」</div><div class="desc">2017年経営計画発表会導入を契機に、挨拶・制服・壁を壊すなどを継続。暗い組織が「居場所づくり＋プロ意識育成」へと進化した起点。</div></div>
+      <div class="word-card"><div class="word">「未来を見据えた厳しさ」</div><div class="desc">大橋氏の言葉。心理的安全性（人を傷つけない優しさ）が根底にあり、それが進化した形。</div></div>
+      <div class="word-card"><div class="word">「自らが豊かだからこそ他者を豊かにできる」</div><div class="desc">野田氏。福祉的な自己犠牲ではなく、エネルギーが溢れる側からの支援。コープ葬祭が好きな理由。</div></div>
+      <div class="word-card"><div class="word">「「言えば変わる」と期待できる空気」</div><div class="desc">野田氏。不満が出ても、変えられる組織だと信じられる文化。</div></div>
+      <div class="word-card"><div class="word">「予想を裏切られる組織」</div><div class="desc">八木氏が会社を好きな理由。ポジティブに物事が想定を超えて進む瞬間がある。</div></div>
+      <div class="word-card"><div class="word">「シンプルに本質（軸）を提示し、逆算して教える」</div><div class="desc">八木氏のマニュアル作成の教訓。目的の認識ズレが議論を複雑化させる失敗から学んだ。</div></div>
+      <div class="word-card"><div class="word">「不平不満は会社・自分への期待の裏返し」</div><div class="desc">藤原社長の総括。課題発見はチャレンジの源泉。卑下せず前向きな素晴らしいこと。</div></div>
+    </div>
+  </div>
+</div>
+<script>
+const HASH = "752dfe406f06cfa9add2cf15e1d28bfcb3bb85219d96a721db349a3b1e1a315d";
+const KEY = "philosophy_auth";
+async function sha256(str) {
+  const buf = await crypto.subtle.digest("SHA-256", new TextEncoder().encode(str));
+  return Array.from(new Uint8Array(buf)).map(b => b.toString(16).padStart(2,"0")).join("");
+}
+async function checkPassword() {
+  const pw = document.getElementById("pw-input").value;
+  const hash = await sha256(pw);
+  if (hash === HASH) {
+    sessionStorage.setItem(KEY, "1"); unlock();
+  } else {
+    document.getElementById("pw-error").style.display = "block";
+    document.getElementById("pw-input").value = "";
+    document.getElementById("pw-input").focus();
+  }
+}
+function unlock() {
+  document.getElementById("lock-screen").style.display = "none";
+  document.getElementById("content").style.display = "block";
+}
+document.getElementById("pw-input").addEventListener("keydown", e => {
+  if (e.key === "Enter") checkPassword();
+});
+if (sessionStorage.getItem(KEY) === "1") unlock();
+</script>
+</body>
+</html>
