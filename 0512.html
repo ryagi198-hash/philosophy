@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>フィロソフィPJ 議事録 2026.05.12</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans", sans-serif; background: #f5f5f5; color: #333; }
+  #lock-screen { position: fixed; inset: 0; background: #1a1a2e; display: flex; align-items: center; justify-content: center; z-index: 9999; }
+  .lock-box { background: #fff; border-radius: 12px; padding: 40px 36px; width: 320px; text-align: center; box-shadow: 0 8px 32px rgba(0,0,0,.3); }
+  .lock-box h1 { font-size: 18px; margin-bottom: 8px; color: #1a1a2e; }
+  .lock-box p { font-size: 13px; color: #888; margin-bottom: 24px; }
+  .lock-box input { width: 100%; padding: 12px 14px; border: 1px solid #ddd; border-radius: 8px; font-size: 15px; margin-bottom: 12px; outline: none; }
+  .lock-box input:focus { border-color: #4a6fa5; }
+  .lock-box button { width: 100%; padding: 12px; background: #1a1a2e; color: #fff; border: none; border-radius: 8px; font-size: 15px; cursor: pointer; }
+  .lock-box button:hover { background: #2d3561; }
+  .lock-box .error { color: #e74c3c; font-size: 13px; margin-top: 10px; display: none; }
+  #content { display: none; max-width: 800px; margin: 0 auto; padding: 32px 16px 64px; }
+  .back { display: inline-block; color: #1967d2; font-size: 14px; text-decoration: none; margin-bottom: 24px; }
+  .back:hover { text-decoration: underline; }
+  .meta { background: #fff; border-radius: 10px; padding: 20px 24px; margin-bottom: 24px; box-shadow: 0 2px 8px rgba(0,0,0,.08); }
+  .meta-date { font-size: 20px; font-weight: 700; color: #1a1a2e; margin-bottom: 8px; }
+  .meta-participants { font-size: 13px; color: #666; line-height: 1.6; }
+  .body { background: #fff; border-radius: 10px; padding: 28px 32px; box-shadow: 0 2px 8px rgba(0,0,0,.08); line-height: 1.8; font-size: 14px; }
+  .body h2 { font-size: 16px; font-weight: 700; color: #1a1a2e; margin: 28px 0 12px; padding-bottom: 6px; border-bottom: 2px solid #e8f0fe; }
+  .body h2:first-child { margin-top: 0; }
+  .body h3 { font-size: 14px; font-weight: 600; color: #2d3561; margin: 18px 0 8px; }
+  .body p { margin: 6px 0; }
+  .body strong { color: #1a1a2e; }
+  .words { background: #fff; border-radius: 10px; padding: 28px 32px; margin-top: 24px; box-shadow: 0 2px 8px rgba(0,0,0,.08); }
+  .words-title { font-size: 16px; font-weight: 700; color: #1a1a2e; margin-bottom: 16px; padding-bottom: 6px; border-bottom: 2px solid #fce8b2; }
+  .word-grid { display: flex; flex-wrap: wrap; gap: 12px; }
+  .word-card { background: #fffbf0; border: 1px solid #fce8b2; border-radius: 8px; padding: 14px 18px; flex: 1 1 calc(50% - 6px); min-width: 220px; }
+  .word-card .word { font-size: 14px; font-weight: 700; color: #1a1a2e; margin-bottom: 5px; }
+  .word-card .desc { font-size: 12px; color: #666; line-height: 1.6; }
+</style>
+</head>
+<body>
+<div id="lock-screen">
+  <div class="lock-box">
+    <h1>フィロソフィPJ</h1>
+    <p>パスワードを入力してください</p>
+    <input type="password" id="pw-input" placeholder="パスワード" autocomplete="current-password">
+    <button onclick="checkPassword()">開く</button>
+    <p class="error" id="pw-error">パスワードが違います</p>
+  </div>
+</div>
+<div id="content">
+  <a class="back" href="./">← 一覧へ戻る</a>
+  <div class="meta">
+    <div class="meta-date">2026.05.12</div>
+    <div class="meta-participants">コープ葬祭: 藤原社長、斎藤本部長、野田氏、樫根氏、大橋氏、八木氏（東京出張・浅草よりオンライン参加）<br>つむぎ株式会社: 外川氏（ファシリテーター）、國光氏（アンナ）、前田氏</div>
+  </div>
+  <div class="body">
+    <p>フィロソフィ・プロジェクト 第9回ミーティング 詳細議事録</p>
+    <p>日時: 2026年5月12日（火）形式: オンライン（Zoom）</p>
+    <p>八木氏は東京出張先・浅草のホテルよりオンライン参加。</p>
+    <p>欠席者: 富安氏（発熱・早退）、藤原源正氏（地域の集まり）</p>
+    
+    <h3>1. チェックイン：「褒めたい・嬉しいと感じた社内のエピソード」</h3>
+    <p>野田氏: 1年前は教わる側だった富安氏が後輩に電話応対を指導するまでに成長した姿を見て引き締まる思いがした。合同説明会で過去最多の約160名の学生と接触でき、内定者がアルバイトとして大活躍してくれた。</p>
+    <p>樫根氏: 年配の森永氏が、Google Chatへの移行において若い社員と同じように熱心に使い方を教わりに来る挑戦姿勢を見習いたい。</p>
+    <p>斎藤本部長: 社員がロープレで学んだことを現場で実践し、お客様に褒められたり単価が上がったりしたという報告を受け、皆で喜び合えた。</p>
+    <p>大橋氏: 26卒の入社前研修で先輩社員が堂々と指導していたこと。山口店最年少の住本氏がデジタル推進委員として意見を集約し、組織を引っ張っている姿に成長を感じた。</p>
+    <p>藤原社長: 自身が10日間不在にしていた間、社内からの緊急連絡がほぼゼロ。新卒が入る重要な時期に社員たちが自律して会社を運営してくれていた組織力に感動した。元議員の1000人規模の葬儀も混乱なくスムーズに行えた。</p>
+    <p>八木氏: 東京出張中。東京駅のテレアサショップで欲しかった番組グッズ（カラビナ）をゲット。</p>
+    
+    <h3>2. 議題①：フィロソフィーブックの構成と「道しるべ」の名称決定</h3>
+    <p>これまでまとめてきた「理想の行動やスタンス（要素）」を、フィロソフィーブックの中でどう位置づけるかについて議論されました。</p>
+    
+    <p>位置づけとデザイン案: ツムギ外川氏より、これらの要素は「ビジョンとミッションを実現するための土台」であるとし、ピラミッド図のビジョン・ミッション部分に重なる（刺さる）ように配置するデザイン案が提示された。斎藤本部長より「ぐさっと刺さっている」デザインがイメージにぴったりだと好評。</p>
+    
+    <p>「道しるべ」という名称の決定: 藤原社長より「<strong>『道しるべ』という言葉が大好きだ</strong>」と強い賛同があった。RPGゲームにおいて、勇者がレベルアップしながらビジョンというゴールに向かって進むための「ヒント」になるというイメージが語られ、名称は<strong>「道しるべ（MITISIRUBE）」</strong>で進めることに決定した。</p>
+    
+    <h3>3. 議題②：育成と「ペイフォワード」</h3>
+    <p>野田氏が挙げた「多忙でも相談に乗り、解決策だけでなく考え方や方向性を教えてくれる先輩」を起点に、「育成」のあり方について議論されました。</p>
+    
+    <p>コープ葬祭における育成: 藤原社長より、育成には「技術的育成」と「人間的育成」があり、まずは<strong>人としての土台（大善小善・素直さ・感謝など）を作り、その上に技術を乗せる</strong>ことが重要だと語られた。</p>
+    <p>目的は社会貢献（起点となること）: 育てた人材がただ仕事ができるだけでなく、「地域や社会に貢献できる人」になることが目的である。藤原社長が目指すのは<strong>「ペイフォワード」の世界</strong>であり、まず自分から手を差し伸べる、笑顔になる、譲るなど、<strong>感謝や笑顔の「波紋の起点」</strong>となる人材を作ることが、ビジョン（愛に溢れる世界）の実現に直結すると定義された。</p>
+    
+    <h3>4. 議題③：隠し事をしない文化（ミスクレームの報告）</h3>
+    <p>八木氏が挙げた「上職（幹部）の方でも、遅刻した際に隠さず公の場で謝罪できたこと」という素晴らしい行動から、ミスを隠さない文化について議論されました。</p>
+    
+    <p>文化の根本理念: 藤原社長の言葉。</p>
+    <p>過去に担当者がミスを隠蔽し、事態が深刻化した苦い経験からこの文化を作った。<strong>「ミスは誰にでもある『エラー』。そのエラーを報告することは、明日誰かが同じミスをしないための『ギフト』になる。だから、失敗してくれて、教えてくれてありがとうと感謝する」</strong></p>
+    <p>コープ葬祭には<strong>「ラッキーチャンス」</strong>（旧ミスクレーム報告）というチャットルームがあり、小さなことでも報告し合う文化が根付いている。</p>
+    
+    <h3>5. 議題④：コープ葬祭における「働く」とは</h3>
+    <p>樫根氏の「サービス残業でもいいから働きたい」という姿勢から、働き方と仕事への価値観について議論されました。</p>
+    
+    <p>八木氏: 単に楽しいだけではないが、辛いことの先にある「自己肯定感の向上」が自分への救済に繋がる。愛が溢れる現場だと、終わったあとの酒が美味い。それが私の仕事における「幸せのカタチ」。</p>
+    <p>樫根氏: お金のためだけでなく、仕事が上手くいけば休みの日も楽しいし、仕事と人生は繋がっている。</p>
+    <p>藤原社長: <strong>「働く＝お金を稼ぐための苦しいこと（ライスワーク）」であってはならない。</strong>かつて携帯販売の仕事で人を騙すような売り方を強いられ、泣きながら通勤した辛い経験を語り、「どうせ働くなら、誰と一緒に何をするかが大事。<strong>苦しいが楽しいに変わっていくのが、コープ葬祭における『働く』ということだ</strong>」と力強いメッセージで締めくくられた。</p>
+  </div>
+  <div class="words">
+    <div class="words-title">印象的なワード集</div>
+    <div class="word-grid">
+      <div class="word-card"><div class="word">「道しるべ（MITISIRUBE）」</div><div class="desc">フィロソフィーブックの要素の総称。RPGで勇者がビジョンへ向かうための「ヒント」。藤原社長が強く愛する言葉。</div></div>
+<div class="word-card"><div class="word">「ペイフォワード」</div><div class="desc">まず自分から手を差し伸べ、笑顔になり、譲る。感謝や笑顔の「波紋の起点」となる人材を育てることがビジョンに直結する。</div></div>
+<div class="word-card"><div class="word">「ミスはエラー、報告はギフト」</div><div class="desc">失敗を報告することで「明日の誰かが同じミスをしない」。だから「失敗してくれてありがとう」と感謝する文化。</div></div>
+<div class="word-card"><div class="word">「ラッキーチャンス」</div><div class="desc">旧「ミスクレーム報告」のチャットルーム。小さなことでも報告し合う文化の象徴。</div></div>
+<div class="word-card"><div class="word">「人間的育成が先、技術は後」</div><div class="desc">大善小善・素直さ・感謝など「人としての土台」を先に作り、その上に業務技術を乗せる。育成の順序が重要。</div></div>
+<div class="word-card"><div class="word">「ライスワーク → ライフワーク」</div><div class="desc">「お金を稼ぐための苦しいこと」から「やりがいがあり夢を叶える楽しいこと」へ。コープ葬祭の「働く」の定義。</div></div>
+<div class="word-card"><div class="word">「苦しいが楽しいに変わっていく」</div><div class="desc">辛さを超えた先にある自己肯定感と顧客の喜び。八木氏は「愛が溢れる現場の仕事後の酒が美味い」と表現。</div></div>
+    </div>
+  </div>
+</div>
+<script>
+const HASH = "752dfe406f06cfa9add2cf15e1d28bfcb3bb85219d96a721db349a3b1e1a315d";
+const KEY  = "philosophy_auth";
+async function sha256(str) {
+  const buf = await crypto.subtle.digest("SHA-256", new TextEncoder().encode(str));
+  return Array.from(new Uint8Array(buf)).map(b => b.toString(16).padStart(2,"0")).join("");
+}
+async function checkPassword() {
+  const pw = document.getElementById("pw-input").value;
+  const hash = await sha256(pw);
+  if (hash === HASH) {
+    sessionStorage.setItem(KEY, "1");
+    unlock();
+  } else {
+    document.getElementById("pw-error").style.display = "block";
+    document.getElementById("pw-input").value = "";
+    document.getElementById("pw-input").focus();
+  }
+}
+function unlock() {
+  document.getElementById("lock-screen").style.display = "none";
+  document.getElementById("content").style.display = "block";
+}
+document.getElementById("pw-input").addEventListener("keydown", e => {
+  if (e.key === "Enter") checkPassword();
+});
+if (sessionStorage.getItem(KEY) === "1") unlock();
+</script>
+</body>
+</html>

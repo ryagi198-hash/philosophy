@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>フィロソフィPJ 議事録 2026.04.30</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans", sans-serif; background: #f5f5f5; color: #333; }
+  #lock-screen { position: fixed; inset: 0; background: #1a1a2e; display: flex; align-items: center; justify-content: center; z-index: 9999; }
+  .lock-box { background: #fff; border-radius: 12px; padding: 40px 36px; width: 320px; text-align: center; box-shadow: 0 8px 32px rgba(0,0,0,.3); }
+  .lock-box h1 { font-size: 18px; margin-bottom: 8px; color: #1a1a2e; }
+  .lock-box p { font-size: 13px; color: #888; margin-bottom: 24px; }
+  .lock-box input { width: 100%; padding: 12px 14px; border: 1px solid #ddd; border-radius: 8px; font-size: 15px; margin-bottom: 12px; outline: none; }
+  .lock-box input:focus { border-color: #4a6fa5; }
+  .lock-box button { width: 100%; padding: 12px; background: #1a1a2e; color: #fff; border: none; border-radius: 8px; font-size: 15px; cursor: pointer; }
+  .lock-box button:hover { background: #2d3561; }
+  .lock-box .error { color: #e74c3c; font-size: 13px; margin-top: 10px; display: none; }
+  #content { display: none; max-width: 800px; margin: 0 auto; padding: 32px 16px 64px; }
+  .back { display: inline-block; color: #1967d2; font-size: 14px; text-decoration: none; margin-bottom: 24px; }
+  .back:hover { text-decoration: underline; }
+  .meta { background: #fff; border-radius: 10px; padding: 20px 24px; margin-bottom: 24px; box-shadow: 0 2px 8px rgba(0,0,0,.08); }
+  .meta-date { font-size: 20px; font-weight: 700; color: #1a1a2e; margin-bottom: 8px; }
+  .meta-participants { font-size: 13px; color: #666; line-height: 1.6; }
+  .body { background: #fff; border-radius: 10px; padding: 28px 32px; box-shadow: 0 2px 8px rgba(0,0,0,.08); line-height: 1.8; font-size: 14px; }
+  .body h2 { font-size: 16px; font-weight: 700; color: #1a1a2e; margin: 28px 0 12px; padding-bottom: 6px; border-bottom: 2px solid #e8f0fe; }
+  .body h2:first-child { margin-top: 0; }
+  .body h3 { font-size: 14px; font-weight: 600; color: #2d3561; margin: 18px 0 8px; }
+  .body p { margin: 6px 0; }
+  .body strong { color: #1a1a2e; }
+  .words { background: #fff; border-radius: 10px; padding: 28px 32px; margin-top: 24px; box-shadow: 0 2px 8px rgba(0,0,0,.08); }
+  .words-title { font-size: 16px; font-weight: 700; color: #1a1a2e; margin-bottom: 16px; padding-bottom: 6px; border-bottom: 2px solid #fce8b2; }
+  .word-grid { display: flex; flex-wrap: wrap; gap: 12px; }
+  .word-card { background: #fffbf0; border: 1px solid #fce8b2; border-radius: 8px; padding: 14px 18px; flex: 1 1 calc(50% - 6px); min-width: 220px; }
+  .word-card .word { font-size: 14px; font-weight: 700; color: #1a1a2e; margin-bottom: 5px; }
+  .word-card .desc { font-size: 12px; color: #666; line-height: 1.6; }
+</style>
+</head>
+<body>
+<div id="lock-screen">
+  <div class="lock-box">
+    <h1>フィロソフィPJ</h1>
+    <p>パスワードを入力してください</p>
+    <input type="password" id="pw-input" placeholder="パスワード" autocomplete="current-password">
+    <button onclick="checkPassword()">開く</button>
+    <p class="error" id="pw-error">パスワードが違います</p>
+  </div>
+</div>
+<div id="content">
+  <a class="back" href="./">← 一覧へ戻る</a>
+  <div class="meta">
+    <div class="meta-date">2026.04.30</div>
+    <div class="meta-participants">コープ葬祭: 藤原社長、斎藤本部長、八木氏、野田氏、大橋氏、富安氏<br>つむぎ株式会社: 外川氏（ファシリテーター）、前田氏、國光氏（アンナ）</div>
+  </div>
+  <div class="body">
+    <p>フィロソフィ・プロジェクト 第8回ミーティング 詳細議事録</p>
+    <p>日時: 2026年4月30日（木）形式: オンライン（Zoom）</p>
+    <p>欠席者: 藤原源正氏、樫根氏（体調不良）</p>
+    
+    <h3>1. チェックイン：「今年の夏の楽しみ」</h3>
+    <p>会議冒頭、外川氏の進行により、各メンバーが夏に向けて楽しみにしていることをシェアしました。</p>
+    
+    <p>斎藤本部長: ビアガーデンで生ビールを楽しむこと。涼しくなる効果を信じてホラー作品を見ること。</p>
+    <p>富安氏: 友人との旅行で愛知県の「ジブリパーク」に行く計画を立てており、楽しみにしている。</p>
+    <p>八木氏: 会社終わりに萩の菊ヶ浜へ行き、海辺で綺麗な夕日を見ながらクラフトビールを飲むのが最高。</p>
+    <p>藤原社長: 知り合いの会社からプロ仕様の機械を借りて、「かき氷屋さん」をやりたい。</p>
+    <p>野田氏: 昨年同期と浴衣の着付けをし合って地元の花火大会に行ったので、今年もどこかで浴衣を着たい。</p>
+    <p>外川氏: 休日に母親をテラス席のあるカフェに連れて行き、とても喜んでもらえた。</p>
+    
+    <h3>2. フィロソフィーブックのデザインと仕様のすり合わせ</h3>
+    <p>國光氏（アンナ）より、フィロソフィーブックのラフデザイン（「大善」のページ）が画面共有され、仕様や使い方について議論されました。</p>
+    
+    <p>デザインの方向性: <strong>「コープ葬祭の歩き方」</strong>というコンセプトに合わせ、航海や旅路をイメージさせるデザイン案が提示されました。</p>
+    <p>文字量について: 藤原社長より「勉強会でテキストとして読み込み、ファシリテーターが補足して話す」用途を想定しているため、現状のしっかりとした文字量で良いとの見解が示されました。</p>
+    <p>サイズと形状の議論:</p>
+    <p>斎藤本部長・八木氏: 経営計画手帳と一緒に持ち歩けるサイズ（A5縦長など）が良いのではないか。</p>
+    <p>野田氏: 若手は会社支給のiPadを持っているので、PDF化してiPadに入れられる形も欲しい。</p>
+    
+    <p>結論: フィロソフィーブック自体は頻繁に更新するものではないため、まずは<strong>「中身（言葉の定義）」を固めることに集中</strong>することとなりました。</p>
+    
+    <h3>3. 議題：「研修を面倒がる・現場に出てほしい」という発言への違和感（野田氏）</h3>
+    <p>若手研修（フレッシャーズビレッジ）に参加する社員に対し、現場の一部社員から「遊んでるんじゃないか」「現場の方が大事なのに」という否定的な言葉が出る現状への違和感が提示されました。</p>
+    
+    <p>課題の分析:</p>
+    <p>野田氏・富安氏: 研修参加者が「何を学び、現場でどう活かすのか」を上長や周囲に正しく報告・共有できていないことが、現場との温度差や誤解を生む一因である。</p>
+    
+    <p>コープ葬祭における「学ぶ側のスタンス」:</p>
+    <p>藤原社長: 研修参加者には<strong>「超積極性」「勉強好き」「素直」「プラス発想」</strong>の4つの姿勢を求めている。</p>
+    <p>富安氏の実践例: 研修で「すべてのワークに意図がある」と学び、自身の課題であった「報連相の不足」をその日の朝礼で即座に宣言し、行動を変える実践を行っている。</p>
+    <p>八木氏: 研修は正解を得るだけでなく、自分の新たな適性や一面を探す場でもある。</p>
+    
+    <p>「実践」の定義（結論）:</p>
+    <p>学んだことを理解するだけではなく、<strong>「行動に変化を起こし、その変化が他者に伝わって初めて『実践した』と言える」</strong>。</p>
+    <p>参加者がこの責任を持って研修に臨み、「周囲に自分も行きたいと思わせる」状態を作ることが重要。</p>
+    <p>この「参加者の責任とスタンス」について、フィロソフィーブックにも明記する方向でまとめることとなりました。</p>
+    
+    <h3>4. 次回へのアクション</h3>
+    <p>「研修に参加するスタンスと実践の定義」を含め、ツムギ社にてフィロソフィーブックのテキスト化を進め、次回はまとめられた文章の表現確認とすり合わせを行っていきます。</p>
+  </div>
+  <div class="words">
+    <div class="words-title">印象的なワード集</div>
+    <div class="word-grid">
+      <div class="word-card"><div class="word">「コープ葬祭の歩き方」</div><div class="desc">フィロソフィーブックのコンセプト。航海・旅路のイメージで、ビジョンに向かう「ガイドブック」。</div></div>
+<div class="word-card"><div class="word">「超積極性・勉強好き・素直・プラス発想」</div><div class="desc">研修参加者に求める4つの姿勢。学んで終わりではなく、成果と成長に繋げる前提条件。</div></div>
+<div class="word-card"><div class="word">「行動の変化が他者に伝わって初めて実践」</div><div class="desc">「理解した」「納得した」だけでは実践ではない。周囲への影響が生まれて初めて「実践」と言える。</div></div>
+<div class="word-card"><div class="word">「「自分も行きたい」と思わせる変化」</div><div class="desc">研修参加者の責任。周囲から「遊んでいる」と言わせないために必要な行動変容の質。</div></div>
+<div class="word-card"><div class="word">「中身（言葉の定義）を固めることに集中」</div><div class="desc">サイズや物理形状より先に、フィロソフィーブックの「言葉」を確定させる。形は後から決める。</div></div>
+    </div>
+  </div>
+</div>
+<script>
+const HASH = "752dfe406f06cfa9add2cf15e1d28bfcb3bb85219d96a721db349a3b1e1a315d";
+const KEY  = "philosophy_auth";
+async function sha256(str) {
+  const buf = await crypto.subtle.digest("SHA-256", new TextEncoder().encode(str));
+  return Array.from(new Uint8Array(buf)).map(b => b.toString(16).padStart(2,"0")).join("");
+}
+async function checkPassword() {
+  const pw = document.getElementById("pw-input").value;
+  const hash = await sha256(pw);
+  if (hash === HASH) {
+    sessionStorage.setItem(KEY, "1");
+    unlock();
+  } else {
+    document.getElementById("pw-error").style.display = "block";
+    document.getElementById("pw-input").value = "";
+    document.getElementById("pw-input").focus();
+  }
+}
+function unlock() {
+  document.getElementById("lock-screen").style.display = "none";
+  document.getElementById("content").style.display = "block";
+}
+document.getElementById("pw-input").addEventListener("keydown", e => {
+  if (e.key === "Enter") checkPassword();
+});
+if (sessionStorage.getItem(KEY) === "1") unlock();
+</script>
+</body>
+</html>
