@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>フィロソフィPJ アーカイブ</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans", sans-serif; background: #f5f5f5; color: #333; }
+
+  /* ===== パスワード画面 ===== */
+  #lock-screen {
+    position: fixed; inset: 0; background: #1a1a2e;
+    display: flex; align-items: center; justify-content: center; z-index: 9999;
+  }
+  .lock-box {
+    background: #fff; border-radius: 12px; padding: 40px 36px;
+    width: 320px; text-align: center; box-shadow: 0 8px 32px rgba(0,0,0,.3);
+  }
+  .lock-box h1 { font-size: 18px; margin-bottom: 8px; color: #1a1a2e; }
+  .lock-box p  { font-size: 13px; color: #888; margin-bottom: 24px; }
+  .lock-box input {
+    width: 100%; padding: 12px 14px; border: 1px solid #ddd; border-radius: 8px;
+    font-size: 15px; margin-bottom: 12px; outline: none;
+  }
+  .lock-box input:focus { border-color: #4a6fa5; }
+  .lock-box button {
+    width: 100%; padding: 12px; background: #1a1a2e; color: #fff;
+    border: none; border-radius: 8px; font-size: 15px; cursor: pointer;
+  }
+  .lock-box button:hover { background: #2d3561; }
+  .lock-box .error { color: #e74c3c; font-size: 13px; margin-top: 10px; display: none; }
+
+  /* ===== コンテンツ ===== */
+  #content { display: none; max-width: 900px; margin: 0 auto; padding: 32px 16px 64px; }
+  header { margin-bottom: 32px; }
+  header h1 { font-size: 22px; color: #1a1a2e; }
+  header p  { font-size: 13px; color: #888; margin-top: 4px; }
+
+  table { width: 100%; border-collapse: collapse; background: #fff; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,.08); }
+  th { background: #1a1a2e; color: #fff; padding: 12px 14px; text-align: left; font-size: 13px; font-weight: 500; }
+  td { padding: 13px 14px; border-bottom: 1px solid #f0f0f0; font-size: 14px; vertical-align: middle; }
+  tr:last-child td { border-bottom: none; }
+  tr:hover td { background: #f9f9fc; }
+
+  .date-col { white-space: nowrap; color: #555; font-size: 13px; }
+  .btn {
+    display: inline-block; padding: 6px 12px; border-radius: 6px;
+    font-size: 12px; font-weight: 500; text-decoration: none; white-space: nowrap;
+  }
+  .btn-video { background: #e8f0fe; color: #1967d2; }
+  .btn-video:hover { background: #d2e3fc; }
+  .btn-doc   { background: #e6f4ea; color: #1e8e3e; }
+  .btn-doc:hover { background: #ceead6; }
+  .btn-chat  { background: #fce8b2; color: #b5640a; }
+  .btn-chat:hover { background: #fad165; color: #7a4300; }
+  .no-link   { color: #bbb; font-size: 12px; }
+
+  .links { display: flex; gap: 8px; flex-wrap: wrap; }
+</style>
+</head>
+<body>
+
+<!-- パスワード画面 -->
+<div id="lock-screen">
+  <div class="lock-box">
+    <h1>フィロソフィPJ</h1>
+    <p>アーカイブにアクセスするには<br>パスワードを入力してください</p>
+    <input type="password" id="pw-input" placeholder="パスワード" autocomplete="current-password">
+    <button onclick="checkPassword()">開く</button>
+    <p class="error" id="pw-error">パスワードが違います</p>
+  </div>
+</div>
+
+<!-- コンテンツ -->
+<div id="content">
+  <header>
+    <h1>フィロソフィPJ アーカイブ</h1>
+    <p>コープ葬祭 フィロソフィブック制作プロジェクト（2026年1月〜）</p>
+  </header>
+
+  <table>
+    <thead>
+      <tr>
+        <th>開催日</th>
+        <th>録画</th>
+        <th>議事録</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="date-col">2026.01.06<br><small>キックオフ</small></td>
+        <td><div class="links">
+          <a class="btn btn-video" href="https://drive.google.com/file/d/1ncpLPUsv8jUr9qaM7fU7OriUJ4cDUm01/view" target="_blank">🎬 録画</a>
+        </div></td>
+        <td><div class="links">
+          <a class="btn btn-doc" href="https://drive.google.com/file/d/1QL6ZXl3dKXmpUbiR_GBuF-uZYEKoCZ83YGNpWlfmknQ/view" target="_blank">📄 議事録</a>
+        </div></td>
+      </tr>
+      <tr>
+        <td class="date-col">2026.01.21</td>
+        <td><div class="links">
+          <a class="btn btn-video" href="https://drive.google.com/file/d/1watsqb9cwpc0dCmH0WWFoQnnixtWTcz8/view" target="_blank">🎬 録画</a>
+        </div></td>
+        <td><div class="links">
+          <a class="btn btn-doc" href="https://drive.google.com/file/d/13HWbPg7uvmVscbWKkq5AdI7cFMCGK5MKpIKJEdpD5jo/view" target="_blank">📄 議事録</a>
+        </div></td>
+      </tr>
+      <tr>
+        <td class="date-col">2026.02.05</td>
+        <td><div class="links">
+          <a class="btn btn-video" href="https://drive.google.com/file/d/1Ls-pE0DeBVzfAH0jHN3FUvkjRzyhOzVD/view" target="_blank">🎬 録画</a>
+        </div></td>
+        <td><div class="links">
+          <a class="btn btn-doc" href="https://drive.google.com/file/d/1lyAZTqMq44Ts9gaEe8Y2LYa4xK8QGQvZl_TBrM8b_zs/view" target="_blank">📄 議事録</a>
+        </div></td>
+      </tr>
+      <tr>
+        <td class="date-col">2026.02.24</td>
+        <td><div class="links">
+          <a class="btn btn-video" href="https://drive.google.com/file/d/1HIyh7tlGx9K0e1QEod6eQLE07agreFS9/view" target="_blank">🎬 録画</a>
+        </div></td>
+        <td><div class="links">
+          <a class="btn btn-doc" href="https://drive.google.com/file/d/1SLbgeV9Mm_8lWTsvnBqT-w7d3LrAIJZ9BB8X-pg-OVs/view" target="_blank">📄 議事録</a>
+        </div></td>
+      </tr>
+      <tr>
+        <td class="date-col">2026.03.20</td>
+        <td><div class="links">
+          <a class="btn btn-video" href="https://drive.google.com/file/d/17cKNf7U_mUtpFIFfHUDTOuE75L_F21uk/view" target="_blank">🎬 録画</a>
+        </div></td>
+        <td><div class="links">
+          <a class="btn btn-doc" href="https://drive.google.com/file/d/19wkELxgR2ZYGAj-zP9ba_FUHP1dP8mGap5XFzTWFkk8/view" target="_blank">📄 議事録</a>
+        </div></td>
+      </tr>
+      <tr>
+        <td class="date-col">2026.03.31</td>
+        <td><div class="links">
+          <a class="btn btn-video" href="https://drive.google.com/file/d/16RYxM0x3X72bHjxgsptlRmSNWoDbi4mw/view" target="_blank">🎬 録画</a>
+        </div></td>
+        <td><div class="links">
+          <a class="btn btn-chat" href="https://www.chatwork.com/#!rid417209919-2091053064831373312" target="_blank">💬 議事録(Chatwork)</a>
+        </div></td>
+      </tr>
+      <tr>
+        <td class="date-col">2026.04.10</td>
+        <td><div class="links">
+          <a class="btn btn-video" href="https://drive.google.com/file/d/1Bn2cqyhqZWWs8aR0JMTNSMUEE1jiuwoo/view" target="_blank">🎬 録画</a>
+        </div></td>
+        <td><div class="links">
+          <a class="btn btn-chat" href="https://mail.google.com/chat/u/0/#chat/space/AAQA0Jl90lw/OyJ554qztCI" target="_blank">💬 議事録スレッド</a>
+        </div></td>
+      </tr>
+      <tr>
+        <td class="date-col">2026.04.30</td>
+        <td><div class="links">
+          <a class="btn btn-video" href="https://drive.google.com/file/d/1QLJ8FAE003mbdVCpBMUheliAdblyTK7p/view" target="_blank">🎬 録画</a>
+        </div></td>
+        <td><div class="links">
+          <a class="btn btn-chat" href="https://mail.google.com/chat/u/0/#chat/space/AAQA0Jl90lw/Yp1ED7vItGc" target="_blank">💬 議事録スレッド</a>
+        </div></td>
+      </tr>
+      <tr>
+        <td class="date-col">2026.05.12</td>
+        <td><div class="links">
+          <a class="btn btn-video" href="https://drive.google.com/file/d/13PaxC--qDEQv0Lby9xYkIp--OXcw0its/view" target="_blank">🎬 録画</a>
+        </div></td>
+        <td><div class="links">
+          <a class="btn btn-chat" href="https://mail.google.com/chat/u/0/#chat/space/AAQA0Jl90lw/MU7arE5x_IA" target="_blank">💬 議事録スレッド</a>
+        </div></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<script>
+const HASH = "752dfe406f06cfa9add2cf15e1d28bfcb3bb85219d96a721db349a3b1e1a315d";
+const KEY  = "philosophy_auth";
+
+async function sha256(str) {
+  const buf = await crypto.subtle.digest("SHA-256", new TextEncoder().encode(str));
+  return Array.from(new Uint8Array(buf)).map(b => b.toString(16).padStart(2,"0")).join("");
+}
+
+async function checkPassword() {
+  const pw = document.getElementById("pw-input").value;
+  const hash = await sha256(pw);
+  if (hash === HASH) {
+    sessionStorage.setItem(KEY, "1");
+    unlock();
+  } else {
+    document.getElementById("pw-error").style.display = "block";
+    document.getElementById("pw-input").value = "";
+    document.getElementById("pw-input").focus();
+  }
+}
+
+function unlock() {
+  document.getElementById("lock-screen").style.display = "none";
+  document.getElementById("content").style.display = "block";
+}
+
+document.getElementById("pw-input").addEventListener("keydown", e => {
+  if (e.key === "Enter") checkPassword();
+});
+
+if (sessionStorage.getItem(KEY) === "1") unlock();
+</script>
+</body>
+</html>
