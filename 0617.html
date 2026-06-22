@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>フィロソフィPJ 議事録 2026.06.17</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans", sans-serif; background: #f5f5f5; color: #333; }
+  #lock-screen { position: fixed; inset: 0; background: #231815; display: flex; align-items: center; justify-content: center; z-index: 9999; }
+  .lock-box { background: #fff; border-radius: 12px; padding: 40px 36px; width: 320px; text-align: center; box-shadow: 0 8px 32px rgba(0,0,0,.3); }
+  .lock-box h1 { font-size: 18px; margin-bottom: 8px; color: #231815; }
+  .lock-box p { font-size: 13px; color: #888; margin-bottom: 24px; }
+  .lock-box input { width: 100%; padding: 12px 14px; border: 1px solid #ddd; border-radius: 8px; font-size: 15px; margin-bottom: 12px; outline: none; }
+  .lock-box input:focus { border-color: #A03E63; }
+  .lock-box button { width: 100%; padding: 12px; background: #231815; color: #fff; border: none; border-radius: 8px; font-size: 15px; cursor: pointer; }
+  .lock-box button:hover { background: #A03E63; }
+  .lock-box .error { color: #e74c3c; font-size: 13px; margin-top: 10px; display: none; }
+
+  #content { display: none; max-width: 820px; margin: 0 auto; padding: 32px 16px 64px; }
+  .back { display: inline-block; color: #A03E63; font-size: 14px; text-decoration: none; margin-bottom: 24px; }
+  .back:hover { text-decoration: underline; }
+  .meta { background: #fff; border-radius: 10px; padding: 22px 26px; margin-bottom: 24px; box-shadow: 0 2px 8px rgba(0,0,0,.08); }
+  .meta-date { font-size: 22px; font-weight: 700; color: #231815; margin-bottom: 4px; }
+  .meta-num { display: inline-block; background: #231815; color: #fff; font-size: 13px; padding: 2px 10px; border-radius: 12px; vertical-align: middle; margin-right: 6px; }
+  .meta-theme { font-size: 14px; color: #666; margin-bottom: 14px; }
+  .meta-row { font-size: 13px; color: #444; line-height: 1.7; margin-top: 4px; }
+  .meta-row .label { display: inline-block; min-width: 88px; font-weight: 600; color: #888; }
+  .meta-video { display: inline-block; margin-top: 10px; padding: 6px 12px; background: #FEF0F4; color: #A03E63; border-radius: 6px; font-size: 12px; text-decoration: none; }
+  .meta-video:hover { background: #FAD7E2; }
+  .body { background: #fff; border-radius: 10px; padding: 30px 34px; box-shadow: 0 2px 8px rgba(0,0,0,.08); line-height: 1.85; font-size: 14px; }
+  .body h2 { font-size: 17px; font-weight: 700; color: #231815; margin: 32px 0 14px; padding-bottom: 8px; border-bottom: 2px solid #FEF0F4; }
+  .body h2:first-child { margin-top: 0; }
+  .body h3 { font-size: 14.5px; font-weight: 700; color: #A03E63; margin: 22px 0 10px; padding-left: 10px; border-left: 3px solid #EDDBE2; }
+  .body p { margin: 8px 0; }
+  .body strong { color: #231815; background: linear-gradient(transparent 65%, #EDDBE2 65%); padding: 0 2px; }
+  .body .speaker { font-weight: 700; color: #A03E63; margin-right: 4px; }
+  .words { background: #fff; border-radius: 10px; padding: 26px 30px; margin-top: 24px; box-shadow: 0 2px 8px rgba(0,0,0,.08); }
+  .words-title { font-size: 16px; font-weight: 700; color: #231815; margin-bottom: 16px; padding-bottom: 8px; border-bottom: 2px solid #EDDBE2; }
+  .word-grid { display: flex; flex-wrap: wrap; gap: 12px; }
+  .word-card { background: #FEF7FA; border: 1px solid #EDDBE2; border-radius: 8px; padding: 14px 16px; flex: 1 1 calc(50% - 6px); min-width: 240px; }
+  .word-card .word { font-size: 14px; font-weight: 700; color: #231815; margin-bottom: 5px; }
+  .word-card .desc { font-size: 12px; color: #666; line-height: 1.6; }
+</style>
+</head>
+<body>
+
+<div id="lock-screen">
+  <div class="lock-box">
+    <h1>フィロソフィPJ</h1>
+    <p>パスワードを入力してください</p>
+    <input type="password" id="pw-input" placeholder="パスワード" autocomplete="current-password">
+    <button onclick="checkPassword()">開く</button>
+    <p class="error" id="pw-error">パスワードが違います</p>
+  </div>
+</div>
+
+<div id="content">
+  <a class="back" href="./">← 一覧へ戻る</a>
+  <div class="meta">
+    <div class="meta-date"><span class="meta-num">第11回</span> 2026.06.17</div>
+    <div class="meta-theme">道しるべの概念整理と「コープ葬祭の歩き方」3部作構想</div>
+        <div class="meta-row"><span class="label">コープ葬祭</span>藤原社長、斎藤本部長、八木氏、野田氏、大橋氏、富安氏、樫根氏</div>
+    <div class="meta-row"><span class="label">つむぎ株式会社</span>外川氏（ファシリテーター）、前田氏</div>
+    <a class="meta-video" href="https://drive.google.com/file/d/186r9Kvjx3jIH2sjw0BDYsNvgFa47sKgd/view" target="_blank">🎬 録画を見る</a>
+  </div>
+  <div class="body">
+    <p>日時: 2026年6月17日 10:00〜11:48</p>
+    <p>形式: Zoom</p>
+    <p>コープ葬祭: 藤原社長、斎藤本部長、八木氏、野田氏、大橋氏、富安氏、樫根氏</p>
+    <p>つむぎ株式会社: 外川氏（ファシリテーター）、前田氏</p>
+    
+    <h2>1. MICHISIRUBE（道しるべ）の概念整理 — 全員合意</h2>
+    
+    <p>既存のクレドカード構造（<strong>経営理念＝核 → ミッション → ビジョン</strong>）に「道しるべ」を接続する案を確認。道しるべは3つのカテゴリに分かれ、それぞれが理念の各層に紐づく。</p>
+    
+    <h3>【3つのカテゴリ】</h3>
+    <p>経営理念につながる道しるべ ＝ <strong>人としてのスタンス</strong>（コープ葬祭で働く人として大切にしてほしい概念）</p>
+    <p>ミッションにつながる道しるべ ＝ <strong>自分自身との関わり方</strong>（日々の仕事）</p>
+    <p>ビジョンにつながる道しるべ ＝ <strong>周囲との関わり方</strong>（人と人との関係・喜びの共有）</p>
+    
+    <p>浸透のために「航海」のビジュアルで表現。船＝経営理念、乗組員＝社員、海中のクリア対象＝ミッション、それを照らす光＝道しるべ、その先の輝く未来＝ビジョン。概念・構造はこの方向で全員が違和感なしと合意した。</p>
+    
+    <h2>2. 追加キーワード17個の扱い — 第一弾には入れない</h2>
+    
+    <p>これまでのミーティングで挙がった追加キーワードが17個（既存16と合わせ約30）。一通り黙読した上で意見を回収した。</p>
+    
+    <p><span class="speaker">野田氏：</span>これ単体だと解説の余地が大きく理解しづらい。現場の具体的なエピソード（ケーススタディ）が添えてあると入っていきやすい。「解決まで持っていく」は“解決”の定義を示すべき。</p>
+    <p><span class="speaker">富安氏：</span>「やるときはやる」は見出しにすると「やらない時はやらない」とネガティブに曲解されうる。緩急自在のような表現も。</p>
+    <p><span class="speaker">大橋氏：</span>既存（コープ愛・大善小善・本当の優しさ）と系統が違い、追加分は普遍的すぎてコープらしさが薄い。もっとコープらしい言葉で表現したい。</p>
+    
+    <p><strong>結論: 追加キーワードは第一弾には入れない。</strong> 議論の種としてつむぎ側で別途まとめ、継続的に揉んでから道しるべに追加していく流れとする。</p>
+    
+    <h3>【継続の仕組み】</h3>
+    <p>日常で流れてしまう「モヤッと（この言葉・解釈は違うのでは）」を上げる場所を作り、継続チームが議論して“コープとしての正しい考え方”を言語化、年度ごとに更新していく運用にしたい。改善提案に近い形。</p>
+    
+    <h2>3. 本の正体 — 藤原社長による整理（本会議の結論）</h2>
+    
+    <p><span class="speaker">藤原社長：</span>この本は「<strong>コープ葬祭の歩き方</strong>」である。出発点は<strong>言葉の定義を揃えたかった</strong>こと。社内で言葉が錯綜し、人によって意味の捉え方が違っていた。大事にしているものをあえて抜き出し、意味を乗せて提示したい。歩き方は次の3部構成になる。</p>
+    
+    <h3>【コープ葬祭の歩き方・3部作】</h3>
+    <p><strong>あり方・行動編</strong> … 大切にする姿勢／とってほしい行動。経営方針書に一部あり、見直して整える。</p>
+    <p><strong>取り組み編</strong> … フレッシャーズビレッジ、マネジメントビレッジ、MQ会計、本当の優しさ等、社内の取り組みの説明。現状どこにもまとまっておらず新規に必要。</p>
+    <p><strong>言語編</strong> … 言葉の定義集。今制作している道しるべ／フィロソフィーがこれにあたる。</p>
+    
+    <p><span class="speaker">前田氏：</span>以前ストップさせた「カンパニーブック」は、この“取り組み編”だったと気づいた。あり方・行動編が前段で重なると思っていたが、別物だった。理解が足りていなかったと反省。</p>
+    
+    <h2>4. 目次の方向性</h2>
+    
+    <h3>【確定方向】</h3>
+    <p>1) 社長メッセージ（本の目的・どう使ってほしいか） 2) 理念構造の説明（経営理念・ビジョン・ミッション） 3) 道しるべの解説（理念との繋がりを表で提示）</p>
+    
+    <p>順番は <strong>ミッション → ビジョン → 経営理念</strong> のステップアップ順に再構成（下に重いもの＝ゲームの達成感。八木氏ほか）。新人が日々のミッションから始め、ビジョン、最終的に経営理念の実現へ向かう導線にする。野田氏より「社長メッセージを最後に置き“答え合わせ”形式にする案」も出た（要検討）。</p>
+    
+    <h2>5. 表現・デザイン</h2>
+    
+    <p>ゲーミフィケーションを採用する方向。教育が基本で、手法としてゲーム性を取り入れる。斉藤氏案＝「伝説の始まり」「始まりの章／挑戦の章／成長の章」「達成クエスト」。RPGやスト2、マリオなどに例えてもよい。</p>
+    
+    <p><span class="speaker">前田氏：</span>ゲーム化しても結局ミッション・ビジョンへの接続説明は要る。基本構造は今のまま保ち、表現だけゲーム的にするのがよい。</p>
+    
+    <h3>【道しるべの表記】</h3>
+    <p>ひらがな「道しるべ」／漢字／カタカナ MICHISIRUBE で意見が割れた。藤原社長は漢字寄り。案として、MICHISIRUBE をロゴ化し副題に「道しるべ」を添える方向も。手に取った時にどう感じてほしいか（デザインの方向性）を決めてから表記に戻る。</p>
+    
+    <h3>【別冊・社内限定サイト】</h3>
+    <p>「成長の書／冒険の書」に当たる部分は、フィロソフィPJアーカイブサイトで社内限定公開する案。表に出さないのでゲーム風デザインでも問題ない。逆引きで参照できるのが利点。</p>
+    
+    <h2>6. 出たアイデア（継続検討）</h2>
+    
+    <p>社内言語モデル「コープ葬祭LM」、道しるべマスターAIエージェント構想（八木氏）。ギリシャ神話アルゴノーツのモチーフ、本の前からフィロソフィー・後ろからゲームブックで同じゴールに至る両面読み案。近年の新入社員に未配布の「仕事ができる人の心」の内容も取り込みたい。社内イントラとの接続も。</p>
+    
+    <p>【八木氏の補強】王貞治会長の「練習で120%出さなければ本番で100%は出せない」を、準備（鍛錬・ロープレ・PC習熟）の重要性として引用。あわせて、王会長がファンを絶対に大事にした姿勢（サインを断らない）が組織の成長につながった＝「自分が源」の体現であり、我々の丁寧な顧客対応＝選手の丁寧なファン対応だと共有した。</p>
+    
+    <h2>7. ネクストアクション</h2>
+    
+    <p>つむぎ（外川氏）: 本日の内容を整理し、次回の論点・進め方をチャットで共有。目次の順番反映、デザインの方向性整理。</p>
+    <p>コープ葬祭: 各キーワードの解説に入れる現場のケーススタディ（事例・エピソード）の素材を持ち寄り。</p>
+    
+    <p>※本議事録は当日の録画音声からの文字起こしをもとに、つむぎ側で要点を再構成したものです。</p>
+    
+  </div>
+  <div class="words">
+    <div class="words-title">印象的なワード集</div>
+    <div class="word-grid">
+      <div class="word-card"><div class="word">「コープ葬祭の歩き方（3部作）」</div><div class="desc">藤原社長が整理した本の正体。あり方・行動編／取り組み編／言語編（＝今作っている道しるべ）の3部構成で「歩き方」をまとめる。</div></div>
+      <div class="word-card"><div class="word">「言葉の定義を揃える」</div><div class="desc">社内で錯綜し人により解釈が違う言葉の意味を揃え、大事にするものを抜き出して提示する。フィロソフィー（言語編）の出発点。</div></div>
+      <div class="word-card"><div class="word">「冒険の書」</div><div class="desc">RPGのように勇者（社員）がレベルを上げ、ミッション→ビジョン→経営理念へ至る構成コンセプト。藤原社長の「会社の成長＝ロールプレイングゲーム」発想から。</div></div>
+      <div class="word-card"><div class="word">「道しるべ（MICHISIRUBE）」</div><div class="desc">経営理念・ミッション・ビジョンそれぞれに繋がる指針。表記は漢字／ひらがな／ロゴ化で検討中。</div></div>
+      <div class="word-card"><div class="word">「10億から30億のステージ」</div><div class="desc">次の成長段階。社長の言葉に頼らず自分の言葉で語れる言語化と、足場固め・スキルアップが必要。</div></div>
+      <div class="word-card"><div class="word">「ゲーミフィケーション（教育が基本・手法はゲーム性）」</div><div class="desc">ワクワクしながらコープらしい学びを。ただし基本構造は保ち、ミッション・ビジョンへの接続説明は残す。</div></div>
+      <div class="word-card"><div class="word">「モヤッとを上げる場所」</div><div class="desc">日常で流れてしまう違和感を上げ、継続チームで議論して言語化、年度ごとに更新していく仕組み。</div></div>
+      <div class="word-card"><div class="word">「練習で120%（王貞治会長）」</div><div class="desc">練習で120%出さなければ本番で100%は出せない。準備に鍛錬・ロープレ・PC習熟を含める。八木氏の引用。</div></div>
+      <div class="word-card"><div class="word">「自分が源＝ファンを大事にする」</div><div class="desc">王会長がファンへの対応を絶対に手を抜かなかったことが組織の成長につながった。我々の丁寧な顧客対応＝選手の丁寧なファン対応。八木氏の実体験。</div></div>
+    </div>
+  </div>
+</div>
+<script>
+const HASH = "752dfe406f06cfa9add2cf15e1d28bfcb3bb85219d96a721db349a3b1e1a315d";
+const KEY = "philosophy_auth";
+async function sha256(str) {
+  const buf = await crypto.subtle.digest("SHA-256", new TextEncoder().encode(str));
+  return Array.from(new Uint8Array(buf)).map(b => b.toString(16).padStart(2,"0")).join("");
+}
+async function checkPassword() {
+  const pw = document.getElementById("pw-input").value;
+  const hash = await sha256(pw);
+  if (hash === HASH) {
+    sessionStorage.setItem(KEY, "1"); unlock();
+  } else {
+    document.getElementById("pw-error").style.display = "block";
+    document.getElementById("pw-input").value = "";
+    document.getElementById("pw-input").focus();
+  }
+}
+function unlock() {
+  document.getElementById("lock-screen").style.display = "none";
+  document.getElementById("content").style.display = "block";
+}
+document.getElementById("pw-input").addEventListener("keydown", e => {
+  if (e.key === "Enter") checkPassword();
+});
+if (sessionStorage.getItem(KEY) === "1") unlock();
+</script>
+</body>
+</html>
