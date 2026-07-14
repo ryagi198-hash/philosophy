@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>フィロソフィPJ 議事録 2026.07.14</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans", sans-serif; background: #f5f5f5; color: #333; }
+  #lock-screen { position: fixed; inset: 0; background: #231815; display: flex; align-items: center; justify-content: center; z-index: 9999; }
+  .lock-box { background: #fff; border-radius: 12px; padding: 40px 36px; width: 320px; text-align: center; box-shadow: 0 8px 32px rgba(0,0,0,.3); }
+  .lock-box h1 { font-size: 18px; margin-bottom: 8px; color: #231815; }
+  .lock-box p { font-size: 13px; color: #888; margin-bottom: 24px; }
+  .lock-box input { width: 100%; padding: 12px 14px; border: 1px solid #ddd; border-radius: 8px; font-size: 15px; margin-bottom: 12px; outline: none; }
+  .lock-box input:focus { border-color: #A03E63; }
+  .lock-box button { width: 100%; padding: 12px; background: #231815; color: #fff; border: none; border-radius: 8px; font-size: 15px; cursor: pointer; }
+  .lock-box button:hover { background: #A03E63; }
+  .lock-box .error { color: #e74c3c; font-size: 13px; margin-top: 10px; display: none; }
+
+  #content { display: none; max-width: 820px; margin: 0 auto; padding: 32px 16px 64px; }
+  .back { display: inline-block; color: #A03E63; font-size: 14px; text-decoration: none; margin-bottom: 24px; }
+  .back:hover { text-decoration: underline; }
+  .meta { background: #fff; border-radius: 10px; padding: 22px 26px; margin-bottom: 24px; box-shadow: 0 2px 8px rgba(0,0,0,.08); }
+  .meta-date { font-size: 22px; font-weight: 700; color: #231815; margin-bottom: 4px; }
+  .meta-num { display: inline-block; background: #231815; color: #fff; font-size: 13px; padding: 2px 10px; border-radius: 12px; vertical-align: middle; margin-right: 6px; }
+  .meta-theme { font-size: 14px; color: #666; margin-bottom: 14px; }
+  .meta-row { font-size: 13px; color: #444; line-height: 1.7; margin-top: 4px; }
+  .meta-row .label { display: inline-block; min-width: 88px; font-weight: 600; color: #888; }
+  .meta-video { display: inline-block; margin-top: 10px; padding: 6px 12px; background: #FEF0F4; color: #A03E63; border-radius: 6px; font-size: 12px; text-decoration: none; }
+  .meta-video:hover { background: #FAD7E2; }
+  .body { background: #fff; border-radius: 10px; padding: 30px 34px; box-shadow: 0 2px 8px rgba(0,0,0,.08); line-height: 1.85; font-size: 14px; }
+  .body h2 { font-size: 17px; font-weight: 700; color: #231815; margin: 32px 0 14px; padding-bottom: 8px; border-bottom: 2px solid #FEF0F4; }
+  .body h2:first-child { margin-top: 0; }
+  .body h3 { font-size: 14.5px; font-weight: 700; color: #A03E63; margin: 22px 0 10px; padding-left: 10px; border-left: 3px solid #EDDBE2; }
+  .body p { margin: 8px 0; }
+  .body strong { color: #231815; background: linear-gradient(transparent 65%, #EDDBE2 65%); padding: 0 2px; }
+  .body .speaker { font-weight: 700; color: #A03E63; margin-right: 4px; }
+  .words { background: #fff; border-radius: 10px; padding: 26px 30px; margin-top: 24px; box-shadow: 0 2px 8px rgba(0,0,0,.08); }
+  .words-title { font-size: 16px; font-weight: 700; color: #231815; margin-bottom: 16px; padding-bottom: 8px; border-bottom: 2px solid #EDDBE2; }
+  .word-grid { display: flex; flex-wrap: wrap; gap: 12px; }
+  .word-card { background: #FEF7FA; border: 1px solid #EDDBE2; border-radius: 8px; padding: 14px 16px; flex: 1 1 calc(50% - 6px); min-width: 240px; }
+  .word-card .word { font-size: 14px; font-weight: 700; color: #231815; margin-bottom: 5px; }
+  .word-card .desc { font-size: 12px; color: #666; line-height: 1.6; }
+</style>
+</head>
+<body>
+
+<div id="lock-screen">
+  <div class="lock-box">
+    <h1>フィロソフィPJ</h1>
+    <p>パスワードを入力してください</p>
+    <input type="password" id="pw-input" placeholder="パスワード" autocomplete="current-password">
+    <button onclick="checkPassword()">開く</button>
+    <p class="error" id="pw-error">パスワードが違います</p>
+  </div>
+</div>
+
+<div id="content">
+  <a class="back" href="./">← 一覧へ戻る</a>
+  <div class="meta">
+    <div class="meta-date"><span class="meta-num">第12回</span> 2026.07.14</div>
+    <div class="meta-theme">デザイン構成・表記の最終確認と半年間の総括</div>
+        <div class="meta-row"><span class="label">コープ葬祭</span>藤原社長、斎藤アイコ本部長（途中合流）、八木龍一郎氏、大橋茉莉奈氏</div>
+    <div class="meta-row"><span class="label">つむぎ株式会社</span>外川多加斗氏（ファシリテーター）、前田亮氏、國光アンナ氏</div>
+    <div class="meta-row"><span class="label">欠席</span>野田遥氏、富安咲月氏（お休み）</div>
+    <a class="meta-video" href="https://drive.google.com/file/d/1z3P4ExX5k1gtn0NIWkJOhQ30upCm0_V2/view?usp=drivesdk" target="_blank">🎬 録画を見る</a>
+  </div>
+  <div class="body">
+    <h2>1. 前回の決定事項と今回の論点整理</h2>
+    
+    <p>ミーティング冒頭、ファシリテーターの外川氏より、前回のミーティングからこれまでに決定した事項と、本日確定させる論点について整理・確認が行われました。</p>
+    
+    <h3>【前回までに合意・決定した事項】</h3>
+    
+    <h3>1.1. 追加キーワードの除外</h3>
+    <p>「言葉を増やしすぎると本当に大切にしたいコア（核）がぶれて薄くなってしまう」という懸念から、フィロソフィーブックの本文には追加キーワードを<strong>「含めない」</strong>ことで合意。今後の議論の種として別資料（アーカイブ）にまとめて残す方針。</p>
+    
+    <h3>1.2. 目次構成の調整</h3>
+    <p>「社長メッセージは最後の方に持ってきた方が、中身を読み終えた後に深く刺さる」という八木氏の提案を採用し、社長メッセージは本の最後に配置。先頭にはフィロソフィー全体の解説（「はじめに」）を配置する構成に変更。</p>
+    
+    <h3>1.3. デザインコンセプトの方向性</h3>
+    <p>「社員が日々飽きずに、楽しみながら手にとって学べるような工夫（ゲーム性）を取り入れたい」との要望を受け、<strong>「航海 × ゲーム」</strong>をビジュアルや構成のテーマとすることが決定。</p>
+    
+    <h3>【本日協議・確定させる事項】</h3>
+    <p>・「航海 × ゲーム」のテーマを具現化したデザイン・目次構成の確認。</p>
+    <p>・「MICHISHIRUBE」の表記（漢字、ひらがな、カタカナ、ローマ字）の最終決定。</p>
+    <p>・制作サイズ（判型）、カラー、フォントの方向性、および今後の進行スケジュールと役割分担。</p>
+    
+    <h2>2. 「航海 × ゲーム」をテーマにしたデザイン・目次構成案</h2>
+    
+    <p>ツムギ社より、これまでの議論とコープ葬祭の理念体系をゲームの世界観に落とし込んだ具体的なビジュアルおよび目次の構成案が提示されました。</p>
+    
+    <h3>【①「MICHISHIRUBE」を3つの「書」に整理】</h3>
+    <p>本に掲載する要素を、ゲームのストーリーやクエストに見立て、以下のように3つのパート（書）に整理して位置づけます。</p>
+    <p>・礎（いしずえ）の書（経営理念に接続）：人として、コープ葬祭で働く者として土台にすべきスタンス（「感謝の循環」「ペイフォワード」など）。</p>
+    <p>・自己研鑽（けんさん）の書（ミッションに接続）：自らを高めていくための段階的な姿勢。「主体性ステージ」「実践ステージ」「成長ステージ」といったクエスト形式で配置。</p>
+    <p>・つながりの書（ビジョンに接続）：周囲や社会との関わり方を定義するパート。</p>
+    
+    <h3>【②「クリア」から「レベルアップ」へ：成長を止めない仕組みづくり】</h3>
+    <p>当初、各パートの終わりに「ステージクリア」のページを挟み、上司や同僚からお祝いや評価のコメントをもらう仕様（コミュニケーション設計）が提案されていました。しかし、この「クリア」という表現を巡り、藤原社長より重要な問題提起がなされました。</p>
+    
+    <p><span class="speaker">藤原社長：</span>「『クリア』と表記してしまうと、そこが『ゴール（できたから終わり）』と捉えられてしまう気がする。私たちが大切にしている人としての土台やあり方は、一度できたら終わりというものではなく、ずっと繰り返し、一生をかけて作り上げていくもの。だから、『終わった、完了した』と捉えられかねない言い方は変えたい」</p>
+    
+    <p><span class="speaker">前田氏：</span>「レベルアップ」という表現であれば、ゴール（完了）ではなく終わりなき「通過点」として捉えられる。自分自身をひたすら高め続け、成長を止めないコープ葬祭の姿勢にも合致する。</p>
+    
+    <h3>【③フィードフォワード（未来に向けた対話）の導入】</h3>
+    <p>これを受け、ただの事後評価（フィードバック）ではなく、お互いの未来の行動を促す<strong>「フィードフォワード（アドバイス）」</strong>というコープ葬祭らしい前向きな言葉を採用し、以下のようなレベルアップの仕組みを構築することで合意しました。</p>
+    
+    <p>・レベルアップの仕組み：各ステージや書を読み終え、自ら「レベルアップした」と感じたタイミングで、<strong>「上司」「同僚」「後輩」から各1名ずつ、未来への期待や応援を込めたフィードフォワード（アドバイス）</strong>を本に直接書き込んでもらう。</p>
+    <p>・期待される効果：年齢や部署、役職を超えて「お互いの良い変化に日頃から関心を払い、言葉にして贈り合う」という、コープ葬祭が最も理想とする心理的安全性と大家族主義のコミュニケーションが、この本を通じて自ずと社内に促される設計となりました。</p>
+    
+    <h2>3. 表記問題の再検討（「MICHISHIRUBE」をどう書くか）</h2>
+    
+    <p>本プロジェクトで最も議論されてきた「MICHISHIRUBE（みちしるべ）」の文字表記について、デザイン全体の世界観や浸透のしやすさを踏まえ、改めて意見交換が行われました。</p>
+    
+    <p><span class="speaker">八木氏：</span>「コープ葬祭のミッションに含まれる『生き方』をカタカナ表記（イキカタ）にしているので、全体のトンマナや視覚的な入りやすさを揃えるなら、カタカナで『ミチシルベ』とするのが収まりが良いのではないか」</p>
+    
+    <p><span class="speaker">大橋氏：</span>「『生き方』がカタカナなのは、生き方、逝き方、活き方などの多様な意味やバリエーションを想起させるため。対して『みちしるべ』はひとつの明確な意味に固まっているので、必ずしもカタカナに揃えなくてもいいかもしれない」</p>
+    
+    <p><span class="speaker">藤原社長：</span>「『礎の書』などの世界観とマッチさせるなら、ひらがなやカタカナよりも、漢字で重みのある<strong>「道標（みちしるべ）」</strong>と書くのが一番しっくりくる。カタカナにしすぎると、まるで異世界ゲームのようになりすぎて、組織の哲学としての軸が軽くなってしまう懸念がある」</p>
+    
+    <h3>【結論】</h3>
+    <p>全体としての統一感と哲学としての重みを守るため、漢字表記の<strong>「道標」</strong>を仮確定としました。</p>
+    <p>ただし、ゲーム的な遊び心や「この書では〜をせよ」といったメッセージをデザイン的に表現するため、<strong>「道標」の漢字に、サブタイトルや「にょろ（〜）」を用いた解説文</strong>をあしらう方向で、一度デザイナーがビジュアルを制作し、後日最終確認を行うことになりました。</p>
+    
+    <h2>4. 仕様（サイズ・カラー・フォント）の決定</h2>
+    
+    <p>実際の手に取りやすさや、運用のしやすさを考慮した物理的仕様について合意しました。</p>
+    
+    <p>サイズ（判型）: 当初、経営計画手帳の内ポケットに入れられるコンパクトなサイズも検討されました。しかし、大橋氏から「上司、同僚、後輩から手書きでレベルアップのコメント（フィードフォワード）をガッツリと書いてもらう仕様を考えると、ある程度書くスペース（余白）が広く取れるサイズが良い」という実用的な指摘があり、当初予定通り<strong>「A5サイズ」</strong>で制作することに決定。</p>
+    
+    <p>カラー＆フォント: コープ葬祭の既存のカラーイメージに縛られすぎず、今回の「航海」という世界観やテーマ（ゲーム性）を最大限活かせるよう、ビジュアルのカラーやフォントはデザイナーの提案（おまかせ）ベースで進める。ただし、固くなりすぎない情緒的なフォント（切なさ系明朝など、コープ葬祭らしさを感じるもの）を取り入れる方向。</p>
+    
+    <p>納品形式: 最終成果物は、コープ葬祭側で手配する印刷にそのまま回せる「印刷用PDFデータ」にて納品。</p>
+    
+    <h2>5. 役割分担と今後のスケジュール</h2>
+    
+    <p>スムーズな制作進行のため、窓口を一本化し、役割を明確にしました。</p>
+    
+    <p>やり取りの窓口担当者: コープ葬祭側窓口=大橋茉莉奈氏、ツムギ側窓口=國光アンナ氏</p>
+    
+    <p>今後のスケジュール: 今回の内容確定（フィックス）を受け、ツムギ側にてデザイナーと打ち合わせを行い、通常1ヶ月半から2ヶ月程度を要するデザイン制作期間を見込んだ詳細な「ガントチャート（工程表）」を作成し、追って大橋氏へ提出する。</p>
+    
+    <h2>6. メンバーの感想・総括（半年間のプロジェクトを振り返って）</h2>
+    
+    <p>最後に、約半年間にわたり熱い議論を交わしてきたメンバーから、プロジェクト全体の感想とこれからの期待が語られました。</p>
+    
+    <p><span class="speaker">大橋氏：</span>「半年間、本当に長いと感じないほど楽しい時間でした。デザインが決まり、これから形になっていきますが、これをただの『本』にするのではなく、社員の皆さんに意味のあるものとして浸透させていくことこそが、ここからの私たちの本当の責任だと思っています。大役を務めさせていただきます」</p>
+    
+    <p><span class="speaker">八木氏：</span>「このプロジェクトの議論の中で、自分の極端な意見やアイデアをツムギさんが丁寧に噛み砕いて素晴らしい形にしてくれました。構築した側のメンバーとして、これを社内の若いスタッフにもしっかりと伝承していけるよう、自分自身もさらに成長していきたいです」</p>
+    
+    <p><span class="speaker">斎藤本部長：</span>「今回、一つのテーマに対して、みんなで遠慮なく意見をぶつけ合いながら新しいものを生み出す、このプロセスの尊さを強く実感しました。この『対話を通じて共に作り上げていく』という素晴らしい取り組み自体を、社内の普段の教育の場にもどんどん取り入れていきたいです」</p>
+    
+    <p><span class="speaker">藤原社長：</span>「最初はただ『理念の解釈を統一するための本を作りたい』という小さな想いから始まりました。それが、皆で対話を重ねるうちに、コープ葬祭の歩き方、そして最後には私たちらしい『冒険の書（道標）』へと育っていった。これがまた新しい私たちの始まりの灯（起点）になるのだと感じています。本当に素晴らしいものを作っていただき、感謝しています」</p>
+    
+    <p>次回へのアクション:</p>
+    <p>・ツムギ社にて、本日の議論内容（前田氏のフィードフォワードやレベルアップに関する補足、道標の漢字表記等）を反映したデザインラフを制作し、提出。</p>
+    <p>・納品に向けた詳細なガントチャートの作成と大橋氏への提出。</p>
+    <p>・藤原社長の「最後のメッセージ」原稿について、デザイン確定後にヒアリングの上で執筆。</p>
+    
+  </div>
+  <div class="words">
+    <div class="words-title">印象的なワード集</div>
+    <div class="word-grid">
+      <div class="word-card"><div class="word">「レベルアップ」</div><div class="desc">「クリア」だと完了・ゴールと捉えられてしまう懸念から採用。ゴールではなく終わりなき通過点として、成長を止めない姿勢を表す言葉。前田氏の補足。</div></div>
+      <div class="word-card"><div class="word">「フィードフォワード（アドバイス）」</div><div class="desc">事後評価（フィードバック）ではなく、未来への期待や応援を込めて上司・同僚・後輩から贈る前向きな言葉。レベルアップの仕組みの核。</div></div>
+      <div class="word-card"><div class="word">「道標（みちしるべ）」</div><div class="desc">MICHISHIRUBEの表記を巡る議論の結論。哲学としての重みを守るため漢字表記を仮確定。藤原社長・斎藤本部長の提案。</div></div>
+      <div class="word-card"><div class="word">「礎（いしずえ）の書」</div><div class="desc">経営理念に接続するパート。人として、コープ葬祭で働く者として土台にすべきスタンスを扱う。</div></div>
+      <div class="word-card"><div class="word">「自己研鑽（けんさん）の書」</div><div class="desc">ミッションに接続するパート。主体性・実践・成長ステージのクエスト形式で自らを高める段階を扱う。</div></div>
+      <div class="word-card"><div class="word">「つながりの書」</div><div class="desc">ビジョンに接続するパート。周囲や社会との関わり方を定義する。</div></div>
+      <div class="word-card"><div class="word">「冒険の書」</div><div class="desc">藤原社長の言葉。理念の解釈統一のための本という小さな想いが、対話を重ねる中で育っていった呼称。</div></div>
+      <div class="word-card"><div class="word">「A5サイズ」</div><div class="desc">手書きのフィードフォワードをガッツリ書けるスペースを確保するため、コンパクトな携帯サイズより実用性を優先して決定。</div></div>
+    </div>
+  </div>
+</div>
+<script>
+const HASH = "752dfe406f06cfa9add2cf15e1d28bfcb3bb85219d96a721db349a3b1e1a315d";
+const KEY = "philosophy_auth";
+async function sha256(str) {
+  const buf = await crypto.subtle.digest("SHA-256", new TextEncoder().encode(str));
+  return Array.from(new Uint8Array(buf)).map(b => b.toString(16).padStart(2,"0")).join("");
+}
+async function checkPassword() {
+  const pw = document.getElementById("pw-input").value;
+  const hash = await sha256(pw);
+  if (hash === HASH) {
+    sessionStorage.setItem(KEY, "1"); unlock();
+  } else {
+    document.getElementById("pw-error").style.display = "block";
+    document.getElementById("pw-input").value = "";
+    document.getElementById("pw-input").focus();
+  }
+}
+function unlock() {
+  document.getElementById("lock-screen").style.display = "none";
+  document.getElementById("content").style.display = "block";
+}
+document.getElementById("pw-input").addEventListener("keydown", e => {
+  if (e.key === "Enter") checkPassword();
+});
+if (sessionStorage.getItem(KEY) === "1") unlock();
+</script>
+</body>
+</html>
